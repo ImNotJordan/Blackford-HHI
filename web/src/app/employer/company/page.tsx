@@ -1,4 +1,12 @@
-import { Button, Card, Field, Input, PageHeader, Select } from "@/components/ui";
+import { ModuleTag } from "@/components/features";
+import { ActionButton } from "@/components/interactive";
+import {
+  Card,
+  Field,
+  Input,
+  PageHeader,
+  Select,
+} from "@/components/ui";
 
 export const metadata = { title: "Company details" };
 
@@ -9,7 +17,8 @@ export default function CompanyPage() {
         title="Company details"
         description="Confirm legal name, contacts, and payroll schedule before census upload."
       />
-      <Card className="space-y-4 p-6">
+      <ModuleTag code="C" name="Company" />
+      <Card className="mt-4 space-y-4 p-4 sm:p-6">
         <Field label="Legal name">
           <Input defaultValue="Rivers & Reed LLP" />
         </Field>
@@ -28,7 +37,7 @@ export default function CompanyPage() {
         <Field label="Primary HR contact">
           <Input defaultValue="Jordan Miles · jordan.miles@riversreed.com" />
         </Field>
-        <Button variant="accent">Save details</Button>
+        <ActionButton success="Company details saved">Save details</ActionButton>
       </Card>
     </div>
   );

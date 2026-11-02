@@ -36,9 +36,14 @@ export default function ElectPage() {
           },
         ]}
       />
-      <Button href="/employee/beneficiaries" variant="accent" className="mt-4 w-full">
-        Save elections
-      </Button>
+      <div className="mt-4 flex flex-col gap-2">
+        <Button href="/employee/waive-reason" variant="secondary" className="w-full">
+          Add waive reason (ACA)
+        </Button>
+        <Button href="/employee/beneficiaries" variant="accent" className="w-full">
+          Save elections
+        </Button>
+      </div>
     </EmployeeShell>
   );
 }

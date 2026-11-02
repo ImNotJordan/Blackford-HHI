@@ -1,4 +1,9 @@
-import { AcaCaptureNote, ModuleTag, SignatureAudit } from "@/components/features";
+import {
+  AcaCaptureNote,
+  ModuleTag,
+  SignatureAudit,
+} from "@/components/features";
+import { DownloadButton } from "@/components/working";
 import { Button, Card, PageHeader, StatusChip } from "@/components/ui";
 import { EmployeeShell } from "@/components/shells";
 
@@ -20,9 +25,14 @@ export default function ConfirmationPage() {
         <StatusChip tone="success">Complete</StatusChip>
         <p className="mt-4 font-display text-3xl text-ink">$204.90</p>
         <p className="text-sm text-muted">Per paycheck starting March 2027</p>
-        <div className="mt-6 space-y-2">
-          <Button variant="secondary" className="w-full">
-            Download confirmation PDF
+        <div className="mt-6 flex flex-col gap-2">
+          <DownloadButton
+            label="Download confirmation PDF"
+            success="Confirmation PDF ready"
+            className="!min-h-11 w-full !text-[15px]"
+          />
+          <Button href="/employee/documents" variant="secondary" className="w-full">
+            Open documents
           </Button>
           <Button href="/employee" variant="primary" className="w-full">
             Back to portal

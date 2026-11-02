@@ -1,19 +1,59 @@
-import { Button, Card, PageHeader, StatusChip, Table } from "@/components/ui";
+import { ModuleTag } from "@/components/features";
+import { InviteStaffPanel, RemovableUserRow } from "@/components/working";
+import { Card, PageHeader, StatusChip } from "@/components/ui";
+
 export const metadata = { title: "Users & roles" };
+
 export default function Page() {
   return (
     <div>
-      <PageHeader title="Users & roles" description="Assign Blackford admin, account manager, employer HR, employee, or client access." actions={<Button variant="accent">Invite staff</Button>} />
-      <Card>
-        <Table
-          headers={["Name", "Role", "Scope", "MFA", "Status"]}
-          rows={[
-            ["Alex Rivera", <StatusChip key="a" tone="active">Blackford admin</StatusChip>, "All groups", "On", "Active"],
-            ["Maya Chen", <StatusChip key="b" tone="neutral">Account manager</StatusChip>, "Assigned book", "On", "Active"],
-            ["Sam Ortiz", <StatusChip key="c" tone="neutral">Account manager</StatusChip>, "Assigned book", "On", "Active"],
-            ["Jordan Miles", <StatusChip key="d" tone="auto">Employer HR</StatusChip>, "Rivers & Reed LLP", "OTP", "Active"],
-            ["Former contractor", <StatusChip key="e" tone="danger">Account manager</StatusChip>, "—", "Off", "Remove"],
-          ]}
+      <PageHeader
+        eyebrow="Module H"
+        title="Users & roles"
+        description="Assign Blackford admin, account manager, employer HR, employee, or client access."
+      />
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+        <ModuleTag code="H" name="Roles" />
+        <InviteStaffPanel />
+      </div>
+      <Card className="divide-y divide-hairline overflow-hidden">
+        <div className="hidden border-b border-hairline bg-ivory px-3 py-2 text-xs font-medium text-ink sm:grid sm:grid-cols-5">
+          <span>Name</span>
+          <span>Role</span>
+          <span>Scope</span>
+          <span>MFA</span>
+          <span>Status</span>
+        </div>
+        <RemovableUserRow
+          name="Alex Rivera"
+          role={<StatusChip tone="active">Blackford admin</StatusChip>}
+          scope="All groups"
+          mfa="On"
+        />
+        <RemovableUserRow
+          name="Maya Chen"
+          role={<StatusChip tone="neutral">Account manager</StatusChip>}
+          scope="Assigned book"
+          mfa="On"
+        />
+        <RemovableUserRow
+          name="Sam Ortiz"
+          role={<StatusChip tone="neutral">Account manager</StatusChip>}
+          scope="Assigned book"
+          mfa="On"
+        />
+        <RemovableUserRow
+          name="Jordan Miles"
+          role={<StatusChip tone="auto">Employer HR</StatusChip>}
+          scope="Rivers & Reed LLP"
+          mfa="OTP"
+        />
+        <RemovableUserRow
+          name="Former contractor"
+          role={<StatusChip tone="danger">Account manager</StatusChip>}
+          scope="—"
+          mfa="Off"
+          removable
         />
       </Card>
     </div>

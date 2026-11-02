@@ -31,7 +31,10 @@ export default function EmployeeHomePage() {
         <p className="mt-2 text-xs text-muted">Step 3 of 7 · Window closes Mar 15</p>
       </Card>
       <div className="stagger space-y-3">
-        <Button href="/employee/compare" variant="accent" className="w-full">
+        <Button href="/employee/resume" variant="accent" className="w-full">
+          Save & resume
+        </Button>
+        <Button href="/employee/compare" variant="secondary" className="w-full">
           Resume at compare plans
         </Button>
         <Button href="/employee/life-event" variant="secondary" className="w-full">

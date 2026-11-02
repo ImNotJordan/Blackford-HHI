@@ -9,23 +9,25 @@ export default function Page() {
       <PageHeader
         eyebrow="Module D"
         title="Enrollment"
-        description="When a window is open for your individual intake, start here."
+        description="Individual / Medicare intake when a window is open for you."
       />
       <div className="mb-4">
         <ModuleTag code="D" name="Individual intake" />
       </div>
       <Card className="animate-rise p-5">
-        <StatusChip tone="neutral">No open window</StatusChip>
+        <StatusChip tone="active">Demo window open</StatusChip>
         <p className="mt-3 text-sm text-muted">
-          Your account manager will send a secure link when it’s time to enroll
-          or renew. Group employees use the Employee portal instead.
+          Start the guided individual enrollment — details, household, plans, review, and sign.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
+          <Button href="/client/enroll/details" variant="accent">
+            Start enrollment
+          </Button>
           <Button href="/client/messages" variant="secondary">
             Check messages
           </Button>
-          <Button href="/employee/sign-in" variant="accent">
-            I’m a group employee
+          <Button href="/employee/sign-in" variant="ghost">
+            I'm a group employee
           </Button>
         </div>
       </Card>

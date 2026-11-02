@@ -65,12 +65,15 @@ export function ActionButton({
   variant = "accent",
   className = "",
   success = "Saved",
+  resetMs = 0,
 }: {
   children: ReactNode;
   onAction?: () => void;
   variant?: "primary" | "accent" | "secondary" | "ghost";
   className?: string;
   success?: string;
+  /** If > 0, success state clears so the action can run again */
+  resetMs?: number;
 }) {
   const [done, setDone] = useState(false);
   if (done) {
@@ -99,6 +102,9 @@ export function ActionButton({
       onClick={() => {
         onAction?.();
         setDone(true);
+        if (resetMs > 0) {
+          window.setTimeout(() => setDone(false), resetMs);
+        }
       }}
     >
       {children}

@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { Card, PageHeader, StatusChip, Table } from "@/components/ui";
+import { ModuleTag } from "@/components/features";
+import { TaskBoard } from "@/components/working";
+import { Button, PageHeader } from "@/components/ui";
 import { tasks } from "@/lib/mock-data";
 
 export const metadata = { title: "Tasks" };
@@ -8,27 +9,36 @@ export default function TasksPage() {
   return (
     <div>
       <PageHeader
+        eyebrow="Module A"
         title="Tasks & service requests"
-        description="Team queues, due dates by request type, and escalations when overdue."
+        description="Complete or open each item. Overdue work escalates on the team queue."
+        actions={
+          <Button href="/manager/team-queue" variant="secondary">
+            Team queue
+          </Button>
+        }
       />
-      <Card>
-        <Table
-          headers={["Task", "Type", "Client", "Due", "Priority"]}
-          rows={tasks.map((t) => [
-            <Link key={t.id} href="/manager/changes" className="font-medium text-ink no-underline">
-              {t.title}
-            </Link>,
-            t.type,
-            t.client,
-            <span key={`${t.id}-d`} className="font-mono text-xs">
-              {t.due}
-            </span>,
-            <StatusChip key={`${t.id}-p`} tone={t.priority === "high" ? "danger" : "warning"}>
-              {t.priority}
-            </StatusChip>,
-          ])}
+      <ModuleTag code="A" name="Tasks" />
+      <div className="mt-4">
+        <TaskBoard
+          initial={tasks.map((t) => ({
+            id: t.id,
+            title: t.title,
+            type: t.type,
+            client: t.client,
+            due: t.due,
+            priority: t.priority,
+            href:
+              t.type === "Carrier"
+                ? "/manager/carriers/cf-88"
+                : t.type === "Onboarding"
+                  ? "/manager/onboarding/cl-1088"
+                  : t.type === "Change"
+                    ? "/manager/verifications/vr-101"
+                    : "/manager/delivery",
+          }))}
         />
-      </Card>
+      </div>
     </div>
   );
 }

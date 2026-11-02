@@ -31,11 +31,14 @@ export default function Page() {
           Effective Jun 1, 2026 · Policy MS-441902
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
-          <Button href="/client/documents" variant="secondary">
-            View documents
+          <Button href="/client/id-cards" variant="secondary">
+            ID cards
           </Button>
-          <Button href="/client/service" variant="accent">
-            Request ID card
+          <Button href="/client/medicare" variant="secondary">
+            Medicare options
+          </Button>
+          <Button href="/client/enroll" variant="accent">
+            Enrollment
           </Button>
         </div>
       </Card>

@@ -4,7 +4,6 @@ import {
   CheckCircle2,
   Clock,
   FileText,
-  Languages,
   Moon,
   ShieldCheck,
   Zap,
@@ -161,30 +160,8 @@ export function QuietHoursNotice() {
   );
 }
 
-export function LanguageToggle({ active = "en" }: { active?: "en" | "es" }) {
-  return (
-    <div
-      className="inline-flex items-center gap-1 rounded-[10px] border border-hairline bg-surface p-1"
-      role="group"
-      aria-label="Message language"
-    >
-      <Languages className="ml-2 h-4 w-4 text-gold-deep" aria-hidden />
-      {(["en", "es"] as const).map((lang) => (
-        <button
-          key={lang}
-          type="button"
-          className={`ui-press min-h-9 rounded-[8px] px-3 text-sm font-medium ${
-            active === lang
-              ? "bg-ink text-ivory"
-              : "text-ink hover:bg-ivory"
-          }`}
-        >
-          {lang === "en" ? "English" : "Español"}
-        </button>
-      ))}
-    </div>
-  );
-}
+/** Prefer WorkingLanguageToggle from interactive for stateful EN/ES. */
+export { WorkingLanguageToggle as LanguageToggle } from "@/components/interactive";
 
 export function DeliveryTracker({
   items = [

@@ -1,19 +1,36 @@
-import { Card, PageHeader, StatusChip, Table } from "@/components/ui";
+import { Button, Card, PageHeader, StatusChip, Table } from "@/components/ui";
 import { clients } from "@/lib/mock-data";
+
 export const metadata = { title: "All groups" };
+
 export default function Page() {
   return (
     <div>
-      <PageHeader title="All groups" description="Admin sees every group — not limited to one account manager’s book." />
-      <Card>
+      <PageHeader
+        title="All groups"
+        description="Admin sees every group — not limited to one account manager’s book."
+      />
+      <Card className="overflow-hidden">
         <Table
-          headers={["Group", "Owner", "Pipeline", "Enrollment"]}
-          rows={clients.filter((c) => c.type === "Group").map((g) => [
-            g.name,
-            g.owner,
-            <StatusChip key={g.id}>{g.pipeline}</StatusChip>,
-            <span key={`${g.id}-e`} className="font-mono text-xs">{g.enrolled}/{g.employees}</span>,
-          ])}
+          headers={["Group", "Owner", "Pipeline", "Enrollment", ""]}
+          rows={clients
+            .filter((c) => c.type === "Group")
+            .map((g) => [
+              g.name,
+              g.owner,
+              <StatusChip key={g.id}>{g.pipeline}</StatusChip>,
+              <span key={`${g.id}-e`} className="font-mono text-xs">
+                {g.enrolled}/{g.employees}
+              </span>,
+              <Button
+                key={`${g.id}-o`}
+                href={`/admin/groups/${g.id}`}
+                variant="secondary"
+                className="!min-h-9 !text-sm"
+              >
+                Open
+              </Button>,
+            ])}
         />
       </Card>
     </div>

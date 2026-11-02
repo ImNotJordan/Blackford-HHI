@@ -83,9 +83,13 @@ export default function EmployerHomePage() {
             {[
               ["Company details", "/employer/company"],
               ["Sign agreement", "/employer/agreement"],
+              ["Documents", "/employer/documents"],
               ["Plans & rates", "/employer/plans"],
-              ["Eligibility & windows", "/employer/eligibility"],
+              ["Contributions", "/employer/contributions"],
+              ["OE & windows", "/employer/windows"],
+              ["Invites", "/employer/invites"],
               ["Add new hire", "/employer/new-hire"],
+              ["Individual intake", "/employer/intake"],
               ["Setup approval", "/employer/setup"],
             ].map(([label, href]) => (
               <li key={href}>

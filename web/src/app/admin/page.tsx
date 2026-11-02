@@ -48,7 +48,9 @@ export default function AdminHomePage() {
           <ul className="mt-4">
             {[
               ["Enrollment status", "/admin/reports"],
-              ["Carrier file log", "/admin/carriers"],
+              ["Export & confirmation log", "/admin/export-log"],
+              ["Access review", "/admin/access-review"],
+              ["MFA setup", "/admin/mfa-setup"],
               ["ACA data capture", "/admin/aca"],
               ["Automations", "/admin/automations"],
               ["Audit log", "/admin/audit"],
