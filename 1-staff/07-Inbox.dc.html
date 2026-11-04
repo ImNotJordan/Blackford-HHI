@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shared inbox</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div>
+<div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" aria-current="page" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378">
+<div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div>
+<div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Shared inbox</h1>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-weight: 600">Templates</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 600">Bulk send</button>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch">
+
+<section aria-label="Conversations" style="flex: 1 1 280px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; display: flex; flex-direction: column">
+<div role="group" aria-label="Inbox filter" style="display: flex; gap: 4px; padding: 10px; border-bottom: 1px solid #EEF1F5">
+<button type="button" aria-pressed="true" style="flex: 1; min-height: 36px; border: 0; border-radius: 8px; background: #E6F2F1; font: inherit; font-size: 13px; font-weight: 600; color: #0B5953">Unanswered 5</button>
+<button type="button" aria-pressed="false" style="flex: 1; min-height: 36px; border: 0; border-radius: 8px; background: transparent; font: inherit; font-size: 13px; color: #3A4756">Mine</button>
+<button type="button" aria-pressed="false" style="flex: 1; min-height: 36px; border: 0; border-radius: 8px; background: transparent; font: inherit; font-size: 13px; color: #3A4756">All</button>
+</div>
+<a href="#" aria-current="true" style="display: flex; gap: 10px; padding: 14px; background: #F2F8F7; border-left: 3px solid #0F766E; text-decoration: none; color: #13212E; border-bottom: 1px solid #EEF1F5"><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; justify-content: space-between"><span style="font-weight: 700">Maria Delgado</span><span style="font-size: 12px; color: #586575">9:12</span></span><span style="font-size: 12px; color: #586575">Riverside Dental · Text</span><span style="font-size: 13px; color: #3A4756; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">¿Puedo agregar a mi esposo después?</span></span></a>
+<a href="#" style="display: flex; gap: 10px; padding: 14px; text-decoration: none; color: #13212E; border-bottom: 1px solid #EEF1F5"><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; justify-content: space-between"><span style="font-weight: 700">Kevin Brooks</span><span style="font-size: 12px; color: #586575">8:40</span></span><span style="font-size: 12px; color: #586575">Riverside Dental · Email</span><span style="font-size: 13px; color: #3A4756; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Two new hires start Monday — census attached</span></span></a>
+<a href="#" style="display: flex; gap: 10px; padding: 14px; text-decoration: none; color: #13212E; border-bottom: 1px solid #EEF1F5"><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; justify-content: space-between"><span style="font-weight: 700">Helen Carter</span><span style="font-size: 12px; color: #586575">Yesterday</span></span><span style="font-size: 12px; color: #586575">Medicare household · Text</span><span style="font-size: 13px; color: #3A4756; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Need a new ID card, lost mine</span></span></a>
+<a href="#" style="display: flex; gap: 10px; padding: 14px; text-decoration: none; color: #13212E"><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; justify-content: space-between"><span style="font-weight: 700">Derek Owens</span><span style="font-size: 12px; color: #586575">Mon</span></span><span style="font-size: 12px; color: #586575">Riverside Dental · Text</span><span style="font-size: 13px; color: #3A4756; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">STOP</span></span></a>
+</section>
+
+<section aria-label="Conversation with Maria Delgado" style="flex: 3 1 440px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid #EEF1F5; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column"><h2 style="margin: 0; font-family: Manrope, sans-serif; font-size: 17px; font-weight: 700">Maria Delgado</h2><span style="font-size: 12px; color: #586575">Text •••-4821 · prefers Spanish · Eastern time</span></div>
+<div style="display: flex; gap: 8px"><button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #13212E">Assign</button><button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #13212E">Mark done</button></div>
+</div>
+<div style="flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 14px; background: #FAFBFC">
+<div style="align-self: center; font-size: 12px; color: #586575">Feb 1 · Automation 1</div>
+<div style="align-self: flex-end; max-width: 75%; display: flex; flex-direction: column; align-items: flex-end; gap: 4px"><div style="background: #17324D; color: #FFFFFF; border-radius: 14px 14px 4px 14px; padding: 10px 14px; line-height: 1.45">Hola Maria, ya puede elegir sus beneficios de 2027 con Riverside Dental. Abra su enlace seguro: [link]</div><span style="font-size: 11px; color: #586575">Delivered · template “Invitación OE”</span></div>
+<div style="align-self: flex-start; max-width: 75%; display: flex; flex-direction: column; gap: 4px"><div style="background: #EEF1F5; border-radius: 14px 14px 14px 4px; padding: 10px 14px; line-height: 1.45">Gracias, ya firmé. ¿Puedo agregar a mi esposo después de la fecha límite?</div><span style="font-size: 11px; color: #586575">Today 9:12</span></div>
+<div style="align-self: center; font-size: 12px; color: #586575; background: #E6F2F1; padding: 4px 10px; border-radius: 999px">Maria signed her election form · 9:05</div>
+</div>
+<div style="border-top: 1px solid #EEF1F5; padding: 14px 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+<div role="group" aria-label="Channel" style="display: flex; gap: 4px; background: #F4F6F9; border-radius: 8px; padding: 3px">
+<button type="button" aria-pressed="true" style="min-height: 32px; padding: 0 12px; border: 0; border-radius: 6px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #13212E">Text</button>
+<button type="button" aria-pressed="false" style="min-height: 32px; padding: 0 12px; border: 0; border-radius: 6px; background: transparent; font: inherit; font-size: 13px; color: #586575">Email</button>
+</div>
+<button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-size: 13px; color: #13212E">Insert template</button>
+<span style="font-size: 12px; color: #0B5953; background: #E6F2F1; padding: 4px 10px; border-radius: 999px; font-weight: 600">Text consent on file</span>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Message</span>
+<textarea rows="3" style="font: inherit; color: #13212E; border: 1px solid #C5CED8; border-radius: 10px; padding: 10px 12px; resize: vertical">Sí, Maria. Si se casó o tuvo otro cambio de vida, tiene 30 días para agregarlo. Si no, puede agregarlo en la próxima inscripción abierta.</textarea></label>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+<span style="font-size: 12px; color: #586575">Texts carry a secure link, never health details.</span>
+<button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 600">Send text</button>
+</div>
+</div>
+</section>
+
+<aside aria-label="Client details" style="flex: 1 1 240px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-family: Manrope, sans-serif; font-size: 16px; font-weight: 700">On her record</h2>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #586575">Group</span><a href="03-GroupRecord.dc.html" style="font-weight: 600">Riverside Dental Group</a></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #586575">Enrollment</span><span style="font-weight: 600">Enrolled and signed</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #586575">Consent</span><span>Text: yes · Email: yes</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #586575">Quiet hours</span><span>8 a.m.–8 p.m. her time</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #586575">Open requests</span><span>None</span></div>
+<button type="button" style="min-height: 40px; border-radius: 8px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-weight: 600; color: #13212E">Create service request</button>
+</aside>
+
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

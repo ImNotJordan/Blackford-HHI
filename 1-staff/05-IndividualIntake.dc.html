@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Individual client intake</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.nl{display:flex;align-items:center;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:8px;color:#C9D6E3;text-decoration:none}
+.nl[aria-current]{background:#24486B;color:#FFFFFF;font-weight:600}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.info{color:#1D4ED8;background:#EAF0FD}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+.card{background:#FFFFFF;border:1px solid #DCE2E9;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;flex:1 1 200px}
+.in{min-height:44px;box-sizing:border-box;padding:0 12px;border:1px solid #8F99A6;border-radius:8px;font:inherit;font-size:14px;font-weight:400;color:#13212E;background:#FFFFFF}
+.r{display:flex;gap:12px;flex-wrap:wrap}
+h2{margin:0;font-family:Manrope,sans-serif;font-size:18px;font-weight:700}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378"><div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div><div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #586575"><span aria-hidden="true">/</span> New individual client</nav>
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">New individual client</h1>
+<p style="margin: 0; color: #586575">Creates a household record and, if you choose, sends them a link to enroll themselves.</p>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" class="btn">Save draft</button><button type="button" class="btn p">Create household</button></div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<section aria-labelledby="who" class="card">
+<h2 id="who">Primary client</h2>
+<div class="r"><label class="lbl">First name<input class="in" value="Rosa"></label><label class="lbl">Last name<input class="in" value="Ibarra"></label><label class="lbl">Date of birth<input class="in" value="09/02/1961"></label></div>
+<div class="r"><label class="lbl">Mobile<input class="in" type="tel" value="(555) 010-0003"></label><label class="lbl">Email<input class="in" type="email" value="rosa.ibarra@example.com"></label><label class="lbl">Preferred language<select class="in"><option>Spanish</option><option>English</option></select></label></div>
+<label class="lbl">Home address<input class="in" value="77 Palm Ridge Dr, Brandon FL 33511"></label>
+</section>
+
+<section aria-labelledby="need" class="card">
+<h2 id="need">What they need</h2>
+<div class="r">
+<label class="lbl">Client type<select class="in"><option>Medicare (turning 65)</option><option>Individual / family under 65</option><option>Medicare, already enrolled</option></select></label>
+<label class="lbl">Coverage wanted from<input class="in" value="10/01/2026"></label>
+</div>
+<div style="background: #EAF0FD; border-radius: 10px; padding: 12px 14px; color: #1E3A8A; line-height: 1.5">Turns 65 on Sep 2, 2026 — initial enrollment window Jun 1 to Dec 31. A task and reminders are created automatically.</div>
+</section>
+
+<section aria-labelledby="hh" class="card">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 id="hh">Household members</h2><button type="button" class="btn">Add member</button></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid #EEF1F5"><span><b>Luis Ibarra</b> · Spouse · 66</span><span class="tag ok">Medicare Supplement on file</span></div>
+</section>
+</div>
+
+<aside style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<section aria-labelledby="dup" class="card" style="background: #FDF3E7; border-color: #F3D3AE">
+<h2 id="dup" style="color: #5C3204">Possible match</h2>
+<p style="margin: 0; color: #5C3204; line-height: 1.5">Luis Ibarra already has a household record (created 2024). Add Rosa to it instead of creating a new one?</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" class="btn">Keep separate</button><button type="button" class="btn p">Add to Ibarra household</button></div>
+</section>
+<section aria-labelledby="cons" class="card">
+<h2 id="cons">Consent and next step</h2>
+<label style="display: flex; gap: 10px; align-items: flex-start; line-height: 1.5"><input type="checkbox" checked style="width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: #0F766E">Rosa agreed to texts and email (recorded with time and source)</label>
+<label style="display: flex; gap: 10px; align-items: flex-start; line-height: 1.5"><input type="checkbox" checked style="width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: #0F766E">Send an enrollment link in Spanish after creating</label>
+<label class="lbl">Owner<select class="in"><option>Dana Whitfield</option><option>Marcus Lee</option></select></label>
+</section>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

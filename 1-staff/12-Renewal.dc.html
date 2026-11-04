@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Group renewal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.nl{display:flex;align-items:center;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:8px;color:#C9D6E3;text-decoration:none}
+.nl[aria-current]{background:#24486B;color:#FFFFFF;font-weight:600}
+th{text-align:left;padding:10px 8px;font-size:12px;font-weight:600;color:#586575;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #DCE2E9}
+td{padding:12px 8px;border-bottom:1px solid #EEF1F5;vertical-align:middle}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.info{color:#1D4ED8;background:#EAF0FD}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+.num{width:84px;min-height:36px;box-sizing:border-box;text-align:right;padding:0 8px;border:1px solid #C5CED8;border-radius:6px;font:inherit;font-family:'JetBrains Mono',monospace;font-size:13px;color:#13212E}
+.step{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #EEF1F5}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Changes and renewals</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378"><div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div><div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #586575"><a href="11-ChangeApprovals.dc.html" style="text-decoration: none">Renewals</a> <span aria-hidden="true">/</span> Bartram Logistics renewal</nav>
+
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap"><h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Bartram Logistics · 2027 renewal</h1><span class="tag info">Rates entered</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 20px; color: #586575; font-size: 13px"><span>Renews Jul 1, 2027</span><span>Started by Automation 14 on Mar 3 (120 days out)</span><span>48 enrolled employees</span></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" class="btn">Send to employer for sign-off</button><button type="button" class="btn p">Open re-enrollment window</button></div>
+</header>
+
+<section aria-labelledby="cal" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="cal" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Renewal calendar</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+<li style="border-top: 4px solid #0F766E; padding-top: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Renewal started</span><span style="font-size: 13px; color: #586575">Mar 3 · done</span></li>
+<li style="border-top: 4px solid #0F766E; padding-top: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Carrier rates in</span><span style="font-size: 13px; color: #586575">Apr 2 · done</span></li>
+<li style="border-top: 4px solid #1D4ED8; padding-top: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Employer sign-off</span><span style="font-size: 13px; color: #586575">Due Apr 30</span></li>
+<li style="border-top: 4px solid #C5CED8; padding-top: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Re-enrollment window</span><span style="font-size: 13px; color: #586575">May 15 – May 31</span></li>
+<li style="border-top: 4px solid #C5CED8; padding-top: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Carrier files</span><span style="font-size: 13px; color: #586575">By Jun 7</span></li>
+<li style="border-top: 4px solid #C5CED8; padding-top: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Effective</span><span style="font-size: 13px; color: #586575">Jul 1</span></li>
+</ol>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section aria-labelledby="rates" style="flex: 3 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px"><h2 id="rates" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Monthly rates by tier</h2><span style="font-size: 13px; color: #586575">Current → 2027 · employer pays 75% employee, 50% dependents</span></div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 680px; border-collapse: collapse">
+<thead><tr><th scope="col">Plan</th><th scope="col">Employee</th><th scope="col">+ Spouse</th><th scope="col">+ Children</th><th scope="col">Family</th><th scope="col">Change</th></tr></thead>
+<tbody>
+<tr><td><b>Medical PPO 1500</b><div style="font-size: 12px; color: #586575">[Carrier]</div></td><td><input class="num" aria-label="PPO employee rate" value="612.40"></td><td><input class="num" aria-label="PPO spouse rate" value="1,286.04"></td><td><input class="num" aria-label="PPO children rate" value="1,102.32"></td><td><input class="num" aria-label="PPO family rate" value="1,775.96"></td><td><span class="tag warn">+6.8%</span></td></tr>
+<tr><td><b>Medical HDHP 3500</b><div style="font-size: 12px; color: #586575">[Carrier]</div></td><td><input class="num" aria-label="HDHP employee rate" value="471.15"></td><td><input class="num" aria-label="HDHP spouse rate" value="989.42"></td><td><input class="num" aria-label="HDHP children rate" value="848.07"></td><td><input class="num" aria-label="HDHP family rate" value="1,366.34"></td><td><span class="tag warn">+4.1%</span></td></tr>
+<tr><td style="border-bottom: 0"><b>Dental PPO</b><div style="font-size: 12px; color: #586575">[Carrier]</div></td><td style="border-bottom: 0"><input class="num" aria-label="Dental employee rate" value="38.20"></td><td style="border-bottom: 0"><input class="num" aria-label="Dental spouse rate" value="76.40"></td><td style="border-bottom: 0"><input class="num" aria-label="Dental children rate" value="84.04"></td><td style="border-bottom: 0"><input class="num" aria-label="Dental family rate" value="122.24"></td><td style="border-bottom: 0"><span class="tag ok">No change</span></td></tr>
+</tbody></table></div>
+<label style="display: flex; gap: 10px; align-items: center; min-height: 44px"><input type="checkbox" checked style="width: 20px; height: 20px; accent-color: #0F766E">Passive renewal: people who do nothing keep their current plan at the new rate</label>
+</section>
+
+<aside style="flex: 2 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column">
+<h2 style="margin: 0 0 6px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Renewal tasks</h2>
+<div class="step"><input type="checkbox" checked aria-label="Done" style="width: 20px; height: 20px; accent-color: #0F766E; margin: 0"><span style="flex: 1">Request renewal rates from carriers</span><span style="font-size: 12px; color: #586575">Mar 10</span></div>
+<div class="step"><input type="checkbox" checked aria-label="Done" style="width: 20px; height: 20px; accent-color: #0F766E; margin: 0"><span style="flex: 1">Enter 2027 rates</span><span style="font-size: 12px; color: #586575">Apr 2</span></div>
+<div class="step"><input type="checkbox" aria-label="Not done" style="width: 20px; height: 20px; accent-color: #0F766E; margin: 0"><span style="flex: 1">Employer signs renewal and contributions</span><span style="font-size: 12px; color: #A1540A; font-weight: 600">Apr 30</span></div>
+<div class="step"><input type="checkbox" aria-label="Not done" style="width: 20px; height: 20px; accent-color: #0F766E; margin: 0"><span style="flex: 1">Refresh census and eligibility</span><span style="font-size: 12px; color: #586575">May 8</span></div>
+<div class="step" style="border-bottom: 0"><input type="checkbox" aria-label="Not done" style="width: 20px; height: 20px; accent-color: #0F766E; margin: 0"><span style="flex: 1">Open re-enrollment window</span><span style="font-size: 12px; color: #586575">May 15</span></div>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

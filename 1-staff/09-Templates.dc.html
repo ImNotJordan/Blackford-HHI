@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Message templates</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.nl{display:flex;align-items:center;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:8px;color:#C9D6E3;text-decoration:none}
+.nl[aria-current]{background:#24486B;color:#FFFFFF;font-weight:600}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.info{color:#1D4ED8;background:#EAF0FD}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+.card{background:#FFFFFF;border:1px solid #DCE2E9;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
+.ta{border:1px solid #8F99A6;border-radius:10px;padding:12px;font:inherit;font-size:14px;font-weight:400;color:#13212E;line-height:1.5;resize:vertical}
+.t{display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:10px;text-decoration:none;color:#13212E}
+h2{margin:0;font-family:Manrope,sans-serif;font-size:18px;font-weight:700}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378"><div style="width: 32px; height: 32px; border-radius: 999px; background: #EAF0FD; color: #1D4ED8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">RW</div><div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Renee Walsh</span><span style="font-size: 12px; color: #A9BBCD">Blackford admin</span></div></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Message templates</h1>
+<p style="margin: 0; color: #586575">Used by staff and by the automations. Every template has an English and a Spanish version.</p>
+</div>
+<button type="button" class="btn p">New template</button>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section aria-label="Templates" style="flex: 1 1 280px; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 8px; display: flex; flex-direction: column; gap: 2px">
+<a class="t" href="#" aria-current="true" style="background: #E6F2F1"><span style="font-weight: 700">Reminder · not started</span><span style="font-size: 12px; color: #586575">Text + email · Automation 2</span></a>
+<a class="t" href="#"><span style="font-weight: 700">Reminder · started</span><span style="font-size: 12px; color: #586575">Text + email · Automation 2</span></a>
+<a class="t" href="#"><span style="font-weight: 700">Reminder · ready to sign</span><span style="font-size: 12px; color: #586575">Text + email · Automation 2</span></a>
+<a class="t" href="#"><span style="font-weight: 700">Enrollment invite</span><span style="font-size: 12px; color: #586575">Text + email · Automation 1</span></a>
+<a class="t" href="#"><span style="font-weight: 700">Confirmation</span><span style="font-size: 12px; color: #586575">Email with PDF · Automation 3</span></a>
+<a class="t" href="#"><span style="font-weight: 700">HR weekly digest</span><span style="font-size: 12px; color: #586575">Email · Automation 7</span></a>
+<a class="t" href="#"><span style="font-weight: 700">Census errors</span><span style="font-size: 12px; color: #586575">Email · Automation 9</span></a>
+</section>
+
+<div style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<section aria-labelledby="ed" class="card">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px"><h2 id="ed">Reminder · not started</h2><span class="tag ok">Both languages complete</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<label class="lbl">English text<textarea class="ta" rows="5">Hi [first name], you haven't started your [group name] benefits yet. It takes about 15 minutes: [secure link]. Closes [window end]. Reply STOP to opt out.</textarea></label>
+<label class="lbl">Spanish text<textarea class="ta" rows="5">Hola [first name], aún no ha comenzado sus beneficios de [group name]. Toma unos 15 minutos: [secure link]. Cierra el [window end]. Responda STOP para no recibir mensajes.</textarea></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><span style="font-size: 13px; color: #586575">Merge fields:</span><span class="tag mute">[first name]</span><span class="tag mute">[group name]</span><span class="tag mute">[window end]</span><span class="tag mute">[secure link]</span><span class="tag mute">[account manager]</span></div>
+</section>
+
+<section aria-labelledby="rules" class="card">
+<h2 id="rules">Checks before saving</h2>
+<div style="display: flex; justify-content: space-between; gap: 12px"><span>Opt-out wording in every text</span><span class="tag ok">Pass</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px"><span>No health or plan details in the text body</span><span class="tag ok">Pass</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px"><span>Fits in 2 text segments</span><span class="tag warn">Spanish: 2 segments</span></div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" class="btn">Send me a test</button><button type="button" class="btn p">Save template</button></div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

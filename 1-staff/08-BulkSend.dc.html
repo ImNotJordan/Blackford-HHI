@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bulk send</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.nl{display:flex;align-items:center;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:8px;color:#C9D6E3;text-decoration:none}
+.nl[aria-current]{background:#24486B;color:#FFFFFF;font-weight:600}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.info{color:#1D4ED8;background:#EAF0FD}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+.sel{min-height:44px;border:1px solid #C5CED8;border-radius:8px;padding:0 10px;font:inherit;color:#13212E;background:#FFFFFF}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #EEF1F5}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378"><div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div><div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #586575"><a href="07-Inbox.dc.html" style="text-decoration: none">Inbox</a> <span aria-hidden="true">/</span> New bulk message</nav>
+<header style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">New bulk message</h1>
+<p style="margin: 0; color: #586575">Replies land in the shared inbox and on each person's record.</p>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+<section aria-labelledby="aud" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="aud" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">1 · Who gets it</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<label class="lbl" style="flex: 1 1 220px">Group<select class="sel"><option>Riverside Dental Group</option></select></label>
+<label class="lbl" style="flex: 1 1 220px">Filter<select class="sel"><option>Not yet enrolled</option><option>Started, not signed</option><option>Everyone eligible</option><option>Saved filter…</option></select></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px"><span style="font-weight: 600">27 people</span><span class="tag ok">24 can be texted</span><span class="tag mute">2 email only</span><span class="tag warn">1 opted out of both — left out</span></div>
+</section>
+
+<section aria-labelledby="msg" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="msg" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">2 · Message</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<label class="lbl" style="flex: 2 1 260px">Template<select class="sel"><option>Open enrollment reminder · not started</option></select></label>
+<label class="lbl" style="flex: 1 1 160px">Channel<select class="sel"><option>Text, email if no mobile</option><option>Text only</option><option>Email only</option></select></label>
+</div>
+<div role="tablist" aria-label="Language" style="display: flex; gap: 4px"><button type="button" role="tab" aria-selected="true" class="btn" style="background: #E6F2F1; border-color: #0F766E; color: #0B5953">English</button><button type="button" role="tab" aria-selected="false" class="btn">Spanish · sent to 9</button></div>
+<label class="lbl">Text<textarea rows="4" style="border: 1px solid #C5CED8; border-radius: 10px; padding: 12px; font: inherit; font-size: 14px; font-weight: 400; color: #13212E; line-height: 1.5; resize: vertical">Hi [first name], Riverside Dental open enrollment closes [window end]. It takes about 15 minutes on your phone: [secure link] — Blackford. Reply STOP to opt out.</textarea></label>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px"><span class="tag mute">[first name]</span><span class="tag mute">[window end]</span><span class="tag mute">[secure link]</span><span class="tag mute">[account manager]</span><span style="color: #586575; align-self: center">142 characters · 1 text segment</span></div>
+</section>
+
+<section aria-labelledby="when" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="when" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">3 · When</h2>
+<label style="display: flex; gap: 10px; align-items: center; min-height: 44px"><input type="radio" name="when" checked style="width: 20px; height: 20px; accent-color: #0F766E">Now — anyone in quiet hours (9 PM–8 AM their time) gets it at 8 AM</label>
+<label style="display: flex; gap: 10px; align-items: center; min-height: 44px"><input type="radio" name="when" style="width: 20px; height: 20px; accent-color: #0F766E">Schedule for a date and time</label>
+</section>
+</div>
+
+<aside style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<section aria-labelledby="prev" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="prev" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Preview for Tuan Nguyen</h2>
+<div style="align-self: flex-start; max-width: 280px; background: #EEF1F5; border-radius: 16px 16px 16px 4px; padding: 12px 14px; line-height: 1.5">Hi Tuan, Riverside Dental open enrollment closes Feb 28. It takes about 15 minutes on your phone: [secure enrollment link] — Blackford. Reply STOP to opt out.</div>
+</section>
+<section aria-labelledby="rules" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column">
+<h2 id="rules" style="margin: 0 0 6px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Applied automatically</h2>
+<div class="row"><span>STOP and HELP replies</span><span class="tag ok">Handled</span></div>
+<div class="row"><span>Opt-outs and no consent</span><span class="tag ok">Left out</span></div>
+<div class="row"><span>Failed text or bounce</span><span>Other channel, then call task</span></div>
+<div class="row" style="border-bottom: 0"><span>Delivery tracking</span><span>On each record</span></div>
+</section>
+<button type="button" class="btn p">Send to 26 people</button>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

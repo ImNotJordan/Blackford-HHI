@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff CRM and benefits portal — Blackford Platform Tech Stack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-interior">
+  <article class="sheet">
+    <h1 class="page-title">The staff CRM and the benefits portal</h1>
+    <p class="page-intro">Staff and the people they enroll use separate apps built from the same code and reading the same records, so an enrollment finished on a phone appears in the CRM at once.</p>
+
+    <section class="platform-section">
+      <div class="section-head">
+        <span class="section-id">01</span>
+        <div class="section-head-right">
+          <div>apps/staff</div>
+          <div>Modules A, B, C, F, G, H</div>
+        </div>
+      </div>
+      <h2 class="section-name">Staff CRM</h2>
+      <p class="section-audience">Blackford staff · desktop browsers and iPad Safari</p>
+
+      <div class="two-col">
+        <div>
+          <p class="col-label">Built with</p>
+          <table class="spec-table">
+            <tr><td>Framework</td><td>Next.js 16 (App Router), React 19, TypeScript</td></tr>
+            <tr><td>Interface</td><td>Tailwind CSS and shadcn/ui on Radix; lucide icons</td></tr>
+            <tr><td>Lists and search</td><td>TanStack Table; filters kept in the URL with nuqs; PostgreSQL full-text and fuzzy search</td></tr>
+            <tr><td>Forms</td><td>React Hook Form with Zod validation</td></tr>
+            <tr><td>Reports</td><td>Recharts</td></tr>
+            <tr><td>Sign-in</td><td>Identity Platform: password plus authenticator app</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="col-label">What it handles</p>
+          <ul class="handle-list">
+            <li>Client, group and household records with a full timeline</li>
+            <li>Pipelines, tasks, notes, documents and “my work today”</li>
+            <li>Shared text and email inbox, and bulk sends</li>
+            <li>Onboarding checklists; plan, rate, contribution and eligibility setup</li>
+            <li>Life-event approvals and group renewals</li>
+            <li>Carrier file review and approval</li>
+            <li>Reports, audit viewer, user and automation settings</li>
+          </ul>
+        </div>
+      </div>
+      <div class="safeguards">
+        <p class="col-label">Safeguards</p>
+        <ul class="safeguard-list">
+          <li>Runs on Cloud Run, behind the load balancer and Cloud Armor</li>
+          <li>Multi-factor sign-in for every staff account</li>
+          <li>Signed out after 30 idle minutes (to confirm)</li>
+          <li>Account managers see only their assigned groups</li>
+          <li>Every view, change and export is logged</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="platform-section">
+      <div class="section-head">
+        <span class="section-id">02</span>
+        <div class="section-head-right">
+          <div>apps/portal</div>
+          <div>Modules D, E, F</div>
+        </div>
+      </div>
+      <h2 class="section-name">Benefits portal</h2>
+      <p class="section-audience">Employees and individual clients · any phone or computer, opened from a text or email link</p>
+
+      <div class="two-col">
+        <div>
+          <p class="col-label">Built with</p>
+          <table class="spec-table">
+            <tr><td>Framework</td><td>Next.js 16, React 19, TypeScript; designed for phones first</td></tr>
+            <tr><td>Languages</td><td>next-intl, English and Spanish</td></tr>
+            <tr><td>Sign-in</td><td>One-time code to the phone or email on file; no password to remember</td></tr>
+            <tr><td>Guided flow</td><td>Step-by-step enrollment that saves at every step</td></tr>
+            <tr><td>Signing</td><td>Built-in signing with typed or drawn signatures (signature_pad)</td></tr>
+            <tr><td>Documents</td><td>Confirmation PDFs produced by the automation engine</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="col-label">What it handles</p>
+          <ul class="handle-list">
+            <li>Personal details and dependents</li>
+            <li>Plan comparison with per-paycheck and annual cost</li>
+            <li>Elect or waive each benefit, and name beneficiaries</li>
+            <li>Review, sign and receive a confirmation PDF</li>
+            <li>Life events with proof uploads</li>
+            <li>Service requests: ID cards, changes, claim help</li>
+          </ul>
+        </div>
+      </div>
+      <div class="safeguards">
+        <p class="col-label">Safeguards</p>
+        <ul class="safeguard-list">
+          <li>Links expire, and each sign-in needs a fresh code</li>
+          <li>Texts carry a link, never health details</li>
+          <li>Uploads: phone camera or files, sent straight to Cloud Storage through short-lived links</li>
+          <li>People see only their own and their dependents' records</li>
+          <li>WCAG 2.1 AA on every screen</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="doc-footer">
+      <span>Hyacinth Industries, LLC · Blackford Benefits Platform · Technology Stack v1.0 · Confidential</span>
+      <span>Page 2 of 6</span>
+    </footer>
+    <nav class="page-nav">
+      <a href="02-stack-at-a-glance.html">← Previous</a>
+      <span class="nav-center"><a href="index.html">All pages</a></span>
+      <a href="04-employer-and-agent.html">Next →</a>
+    </nav>
+  </article>
+</body>
+</html>

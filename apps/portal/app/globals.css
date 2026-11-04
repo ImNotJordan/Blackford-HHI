@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy: #17324d;
+  --color-teal: #0f766e;
+  --color-teal-hover: #0b5953;
+  --color-teal-muted: #e6f2f1;
+  --color-bg: #f4f6f9;
+  --color-text: #13212e;
+  --color-text-muted: #586575;
+  --color-border: #dce2e9;
+  --color-row-border: #eef1f5;
+  --color-amber: #f2a93b;
+  --color-amber-dark: #a1540a;
+  --color-amber-bg: #fdf3e7;
+  --color-amber-border: #f3d3ae;
+  --color-white: #ffffff;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --font-heading: var(--font-manrope), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+a {
+  color: var(--color-teal);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-teal-hover);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-teal);
+  color: var(--color-white);
+  border-color: var(--color-teal);
+}
+
+.btn-primary:hover {
+  background: var(--color-teal-hover);
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field-input {
+  box-sizing: border-box;
+  min-height: 44px;
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid #8f99a6;
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  background: var(--color-white);
+}
+
+.field-input:focus {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 0;
+  border-color: var(--color-teal);
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.card-invite {
+  flex: 1 1 360px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 16px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.tag-ok {
+  color: var(--color-teal);
+  background: var(--color-teal-muted);
+}
+
+.tag-warn {
+  color: var(--color-amber-dark);
+  background: var(--color-amber-bg);
+}
+
+.tag-info {
+  color: #1d4ed8;
+  background: #eaf0fd;
+}
+
+.tag-mute {
+  color: #3a4756;
+  background: var(--color-row-border);
+}
+
+.portal-table th {
+  text-align: left;
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.portal-table td {
+  padding: 11px 8px;
+  border-bottom: 1px solid var(--color-row-border);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-row-border);
+}
+
+.step-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.otp-digit {
+  width: 48px;
+  height: 56px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #8f99a6;
+  border-radius: var(--radius-md);
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-size: 22px;
+  color: var(--color-text);
+}

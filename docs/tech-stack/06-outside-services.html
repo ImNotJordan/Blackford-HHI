@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outside services — Blackford Platform Tech Stack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-interior">
+  <article class="sheet">
+    <h1 class="page-title">Outside services and their agreements</h1>
+    <p class="page-intro">At launch, client data reaches two outside clouds, Google Cloud and AWS, both under a BAA. Carriers receive approved files, and with signing built in, nothing else sees client data.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Provider</th>
+          <th>Agreement</th>
+          <th>Client data it receives</th>
+          <th>When</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cloud hosting</td>
+          <td>Google Cloud: Cloud Run, Cloud SQL, Identity Platform, Cloud Storage, Cloud KMS</td>
+          <td>Google Cloud BAA</td>
+          <td>All platform data, encrypted at rest and in transit</td>
+          <td>MVP</td>
+        </tr>
+        <tr>
+          <td>Email and text</td>
+          <td>AWS: SES for email, End User Messaging for SMS</td>
+          <td>AWS BAA, accepted online in AWS Artifact</td>
+          <td>Names, contact details and secure links; no health details in texts</td>
+          <td>MVP</td>
+        </tr>
+        <tr>
+          <td>E-signature</td>
+          <td>Built into the platform (recommended), or an e-signature vendor</td>
+          <td>None if built in; a vendor needs its own BAA</td>
+          <td>None if built in</td>
+          <td>MVP · Decide by Dec 11</td>
+        </tr>
+        <tr>
+          <td>Insurance carriers</td>
+          <td>Each carrier, by CSV file over SFTP, PGP-encrypted where required</td>
+          <td>Each carrier's file and delivery terms</td>
+          <td>Enrollment data in the carrier's own template</td>
+          <td>MVP</td>
+        </tr>
+        <tr>
+          <td>Carrier APIs</td>
+          <td>Ideon or Noyo</td>
+          <td>Contract and BAA with Blackford and Hyacinth</td>
+          <td>Enrollment data for connected carriers</td>
+          <td>Release 2</td>
+        </tr>
+        <tr>
+          <td>ACA filing</td>
+          <td>ACA filing vendor, to be selected</td>
+          <td>BAA or data agreement</td>
+          <td>1094 and 1095 form data, including SSNs</td>
+          <td>Release 2</td>
+        </tr>
+        <tr>
+          <td>TPAs</td>
+          <td>Each self-funded group's third-party administrator</td>
+          <td>Data agreement per TPA</td>
+          <td>Billing, claims and fee reports, imported</td>
+          <td>Release 3</td>
+        </tr>
+        <tr>
+          <td>Security testing</td>
+          <td>Outside penetration testing firm, booked by Jan 15, 2027</td>
+          <td>NDA and test plan</td>
+          <td>None: tests run on staging with test data</td>
+          <td>Each release</td>
+        </tr>
+        <tr>
+          <td>Code and deploys</td>
+          <td>GitHub: repository, reviews, CI/CD</td>
+          <td>Standard terms</td>
+          <td>None: client data is never allowed in the repository</td>
+          <td>Throughout</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Why AWS for messages.</strong>
+      Twilio also works for texts, but it signs a BAA only on its Security or Enterprise Edition, bought through its sales team. The AWS BAA is accepted online, which keeps the texting registration on schedule.
+    </div>
+
+    <p class="section-label">Agreement dates from the Scope of Work</p>
+    <table class="dates-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Start by</th>
+          <th>Needed by</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google Cloud and AWS BAAs</td>
+          <td>Nov 16, 2026</td>
+          <td>Dec 14, 2026</td>
+        </tr>
+        <tr>
+          <td>Texting registration (A2P 10DLC)</td>
+          <td>Nov 23, 2026</td>
+          <td>Jan 18, 2027</td>
+        </tr>
+        <tr>
+          <td>E-signature decision</td>
+          <td>Discovery</td>
+          <td>Dec 11, 2026</td>
+        </tr>
+        <tr>
+          <td>Penetration test booked</td>
+          <td>Jan 15, 2027</td>
+          <td>Mar 29, 2027</td>
+        </tr>
+        <tr>
+          <td>Ideon or Noyo contract and sandbox</td>
+          <td>Feb 2027</td>
+          <td>May 2027</td>
+        </tr>
+        <tr>
+          <td>ACA filing vendor and test transmission</td>
+          <td>Apr 2027</td>
+          <td>Oct 2027</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer class="doc-footer">
+      <span>Hyacinth Industries, LLC · Blackford Benefits Platform · Technology Stack v1.0 · Confidential</span>
+      <span>Page 5 of 6</span>
+    </footer>
+    <nav class="page-nav">
+      <a href="05-automation-and-foundation.html">← Previous</a>
+      <span class="nav-center"><a href="index.html">All pages</a></span>
+      <a href="07-options-and-decisions.html">Next →</a>
+    </nav>
+  </article>
+</body>
+</html>
