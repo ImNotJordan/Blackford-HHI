@@ -4,14 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
-/** CRM and onboarding MVP — modules A, B, C, staff side of F */
 const NAV_ITEMS: {
   label: string;
   href: string;
   badge?: number;
   match?: (pathname: string) => boolean;
 }[] = [
-  { label: "My work today", href: "/" },
+  {
+    label: "My work today",
+    href: "/work",
+    match: (p) => p === "/work" || p === "/work/",
+  },
   {
     label: "Clients and pipeline",
     href: "/clients",
@@ -39,7 +42,6 @@ const NAV_ITEMS: {
 
 function isNavActive(pathname: string, item: (typeof NAV_ITEMS)[number]) {
   if (item.match) return item.match(pathname);
-  if (item.href === "/") return pathname === "/";
   return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
 
@@ -47,22 +49,30 @@ export function StaffShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div className="flex min-h-screen flex-wrap bg-[var(--color-bg)] text-[var(--color-text)]">
+    <div className="flex min-h-screen flex-wrap bg-[var(--brand-ivory)] text-[var(--brand-ink)]">
       <nav
         aria-label="Main"
-        className="flex min-h-screen w-full max-w-[232px] flex-1 flex-col gap-6 bg-[var(--color-navy)] px-4 py-6 text-[var(--color-nav-text)]"
+        className="relative flex min-h-screen w-full max-w-[248px] flex-1 flex-col gap-8 bg-[var(--brand-ink)] px-4 py-7 text-[var(--color-nav-text)]"
       >
-        <div className="flex items-center gap-2.5 px-2">
-          <div className="heading flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-[var(--color-teal)] text-base font-extrabold text-white">
+        <Link href="/" className="flex items-center gap-2.5 px-2 no-underline">
+          <div
+            className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-[var(--brand-ruby)] text-base text-white"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             B
           </div>
           <div className="flex flex-col">
-            <span className="heading text-base font-extrabold text-white">
+            <span
+              className="text-base leading-tight text-[var(--brand-ivory)]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               Blackford
             </span>
-            <span className="text-xs text-[#A9BBCD]">CRM and onboarding</span>
+            <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.14em] text-[var(--brand-pale-gold)]">
+              CRM
+            </span>
           </div>
-        </div>
+        </Link>
 
         <div className="flex flex-col gap-0.5">
           {NAV_ITEMS.map((item) => {
@@ -72,35 +82,41 @@ export function StaffShell({ children }: { children: ReactNode }) {
                 key={item.label}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`flex min-h-11 items-center justify-between rounded-lg px-3 py-2.5 no-underline ${
+                className={`flex min-h-11 items-center justify-between rounded-[10px] px-3 py-2.5 no-underline transition-colors ${
                   active
-                    ? "bg-[var(--color-navy-muted)] font-semibold text-white"
-                    : "text-[var(--color-nav-text)] hover:bg-[var(--color-navy-muted)]/50"
+                    ? "bg-[#201C16] font-semibold text-[var(--brand-ivory)]"
+                    : "text-[var(--color-nav-text)] hover:bg-[#201C16]/70 hover:text-[var(--brand-ivory)]"
                 }`}
               >
-                <span>{item.label}</span>
+                <span className="text-[14px]">{item.label}</span>
                 {item.badge != null ? (
-                  <span className="badge-amber">{item.badge}</span>
+                  <span className="badge-count">{item.badge}</span>
                 ) : null}
               </Link>
             );
           })}
         </div>
 
-        <div className="mt-auto flex items-center gap-2.5 border-t border-[#2E5378] px-2 pt-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E6F2F1] text-sm font-bold text-[var(--color-teal)]">
+        <div className="mt-auto flex items-center gap-2.5 border-t border-[#3A352C] px-2 pt-4">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-parchment)] text-sm font-semibold text-[var(--brand-ink)]">
             DW
           </div>
-          <div className="flex flex-col">
-            <span className="text-[13px] font-semibold text-white">
+          <div className="flex min-w-0 flex-col">
+            <span className="truncate text-[13px] font-semibold text-[var(--brand-ivory)]">
               Dana Whitfield
             </span>
-            <span className="text-xs text-[#A9BBCD]">Account manager</span>
+            <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wide text-[var(--brand-gray)]">
+              Account manager
+            </span>
           </div>
+        </div>
+        <div className="signature-bar -mx-4 mt-4" aria-hidden>
+          <span />
+          <span />
         </div>
       </nav>
 
-      <main className="flex min-w-0 flex-[999] flex-col gap-6 px-8 py-7 pb-12">
+      <main className="flex min-w-0 flex-[999] flex-col gap-6 px-8 py-8 pb-14">
         {children}
       </main>
     </div>

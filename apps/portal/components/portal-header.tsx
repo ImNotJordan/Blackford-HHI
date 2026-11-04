@@ -1,10 +1,6 @@
 import Link from "next/link";
 
-export type EmployerNavKey =
-  | "company"
-  | "plans"
-  | "census"
-  | "employees";
+export type EmployerNavKey = "company" | "plans" | "census" | "employees";
 
 const EMPLOYER_NAV: { key: EmployerNavKey; label: string; href: string }[] = [
   { key: "company", label: "Company", href: "/employer/company" },
@@ -27,23 +23,26 @@ export function PortalHeader({
   userInitials,
 }: PortalHeaderProps) {
   return (
-    <header className="border-b border-[var(--color-border)] bg-[var(--color-white)]">
+    <header className="border-b border-[var(--brand-hairline)] bg-[var(--brand-surface)]">
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-6 py-3.5">
-        <Link href="/" className="flex items-center gap-2.5 no-underline text-inherit">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 no-underline text-inherit"
+        >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-navy)] text-base font-extrabold text-white"
-            style={{ fontFamily: "var(--font-heading)" }}
+            className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand-ink)] text-base text-[var(--brand-ivory)]"
+            style={{ fontFamily: "var(--font-display)" }}
           >
             B
           </div>
           <div className="flex flex-col">
             <span
-              className="text-[15px] font-extrabold leading-tight"
-              style={{ fontFamily: "var(--font-heading)" }}
+              className="text-[16px] leading-tight text-[var(--brand-ink)]"
+              style={{ fontFamily: "var(--font-display)" }}
             >
               Blackford &amp; Associates
             </span>
-            <span className="text-xs text-[var(--color-text-muted)]">
+            <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.14em] text-[var(--brand-gold-deep)]">
               Employer portal
             </span>
           </div>
@@ -61,10 +60,10 @@ export function PortalHeader({
                   key={item.key}
                   href={item.href}
                   aria-current={isCurrent ? "page" : undefined}
-                  className={`flex min-h-11 items-center rounded-lg px-3.5 no-underline ${
+                  className={`flex min-h-11 items-center rounded-[10px] px-3.5 no-underline text-[14px] ${
                     isCurrent
-                      ? "bg-[#E6F2F1] font-semibold text-[var(--color-teal-hover)]"
-                      : "text-[#3A4756] hover:bg-[#EEF1F5]"
+                      ? "bg-[var(--brand-parchment)] font-semibold text-[var(--brand-ink)] border border-[var(--brand-gold)]"
+                      : "text-[var(--brand-ink)] hover:bg-[var(--brand-ivory)]"
                   }`}
                 >
                   {item.label}
@@ -76,16 +75,18 @@ export function PortalHeader({
 
         {userName ? (
           <div className="flex items-center gap-2.5">
-            <span className="text-[13px] text-[var(--color-text-muted)]">
-              {userName}
-            </span>
+            <span className="text-[13px] text-[var(--brand-gray)]">{userName}</span>
             {userInitials ? (
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#EAF0FD] text-[13px] font-bold text-[#1D4ED8]">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-parchment)] text-[13px] font-semibold text-[var(--brand-ink)]">
                 {userInitials}
               </div>
             ) : null}
           </div>
         ) : null}
+      </div>
+      <div className="signature-bar" aria-hidden>
+        <span />
+        <span />
       </div>
     </header>
   );

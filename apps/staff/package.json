@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@blackford/brand": "^0.0.0",
     "@blackford/core": "*",
     "next": "^15.5.0",
     "react": "^19.0.0",

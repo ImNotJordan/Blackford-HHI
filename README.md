@@ -4,9 +4,13 @@ Modules **A, B, C**, and staff side of **F**. Blackford staff on desktop or iPad
 
 ```bash
 npm install
-npm run dev:staff    # http://localhost:3000 — Staff CRM
-npm run dev:portal   # http://localhost:3001 — Employer HR onboarding
+npm run dev          # both apps: staff :3000 + portal :3001
+npm run dev:staff    # staff CRM only — http://localhost:3000
+npm run dev:portal   # employer portal only — http://localhost:3001
 ```
+
+**Staff entry points:** `/` landing · `/login` staff sign-in · `/work` my work today  
+**Brand:** Hyacinth Ink / Ruby / Gold / Ivory — see `BRAND.md` and `packages/brand/tokens.css`
 
 ## Staff CRM (`apps/staff` · :3000)
 

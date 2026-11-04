@@ -1,0 +1,65 @@
+/**
+ * Hyacinth Industries / Blackford platform brand tokens
+ * Source: Scope of Work v2.0 + Brand Color Guidelines
+ * Use tokens only — do not invent hues.
+ */
+:root {
+  --brand-ink: #16130f;
+  --brand-ruby: #c8191e;
+  --brand-gold: #a8820f;
+  --brand-gold-deep: #7a5c00;
+  --brand-pale-gold: #e8d9a0;
+  --brand-parchment: #f7ebc5;
+  --brand-ivory: #f5f3ee;
+  --brand-gray: #8c877d;
+  --brand-hairline: #ddd8cc;
+  --brand-white: #ffffff;
+  --brand-surface: #ffffff;
+
+  /* App aliases */
+  --color-bg: var(--brand-ivory);
+  --color-surface: var(--brand-surface);
+  --color-text: var(--brand-ink);
+  --color-text-muted: var(--brand-gray);
+  --color-border: var(--brand-hairline);
+  --color-ink: var(--brand-ink);
+  --color-ruby: var(--brand-ruby);
+  --color-gold: var(--brand-gold);
+  --color-gold-deep: var(--brand-gold-deep);
+  --color-pale-gold: var(--brand-pale-gold);
+  --color-parchment: var(--brand-parchment);
+  --color-nav: var(--brand-ink);
+  --color-nav-muted: #201c16;
+  --color-nav-text: #cfc9bc;
+  --color-white: var(--brand-white);
+
+  /* Legacy aliases → brand (so existing screens inherit Hyacinth) */
+  --color-navy: var(--brand-ink);
+  --color-navy-muted: #201c16;
+  --color-teal: var(--brand-gold-deep);
+  --color-teal-hover: var(--brand-ink);
+  --color-teal-muted: var(--brand-parchment);
+  --color-amber: var(--brand-gold);
+  --color-amber-dark: var(--brand-gold-deep);
+  --color-amber-bg: var(--brand-parchment);
+  --color-amber-border: var(--brand-gold);
+  --color-row-border: var(--brand-hairline);
+
+  --radius-md: 10px;
+  --radius-lg: 10px;
+
+  --font-display: var(--font-dm-serif), Georgia, serif;
+  --font-body: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-heading: var(--font-display);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

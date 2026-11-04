@@ -1,71 +1,85 @@
 @import "tailwindcss";
-
-:root {
-  --color-navy: #17324d;
-  --color-teal: #0f766e;
-  --color-teal-hover: #0b5953;
-  --color-teal-muted: #e6f2f1;
-  --color-bg: #f4f6f9;
-  --color-text: #13212e;
-  --color-text-muted: #586575;
-  --color-border: #dce2e9;
-  --color-row-border: #eef1f5;
-  --color-amber: #f2a93b;
-  --color-amber-dark: #a1540a;
-  --color-amber-bg: #fdf3e7;
-  --color-amber-border: #f3d3ae;
-  --color-white: #ffffff;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --font-heading: var(--font-manrope), system-ui, sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
-}
+@import "@blackford/brand/tokens.css";
 
 body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--brand-parchment);
+  color: var(--brand-ink);
 }
 
 a {
-  color: var(--color-teal);
+  color: var(--brand-gold-deep);
   text-decoration: none;
 }
-
 a:hover {
-  color: var(--color-teal-hover);
+  color: var(--brand-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-gold-deep);
+  outline-offset: 2px;
+}
+
+.heading,
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-gold-deep);
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 44px;
-  padding: 0 16px;
+  padding: 0 18px;
   border-radius: var(--radius-md);
-  font: inherit;
+  font-family: var(--font-body);
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
+  text-decoration: none;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
-
 .btn-primary {
-  background: var(--color-teal);
-  color: var(--color-white);
-  border-color: var(--color-teal);
+  background: var(--brand-ink);
+  color: var(--brand-ivory);
+  border-color: var(--brand-ink);
 }
-
 .btn-primary:hover {
-  background: var(--color-teal-hover);
+  background: #201c16;
+  color: var(--brand-ivory);
 }
-
+.btn-accent {
+  background: var(--brand-ruby);
+  color: #fff;
+  border-color: var(--brand-ruby);
+}
 .btn-secondary {
-  background: var(--color-white);
-  color: var(--color-text);
-  border-color: var(--color-border);
+  background: var(--brand-surface);
+  color: var(--brand-ink);
+  border-color: var(--brand-hairline);
 }
 
 .field-label {
@@ -75,85 +89,96 @@ a:hover {
   font-size: 13px;
   font-weight: 600;
 }
-
 .field-input {
   box-sizing: border-box;
   min-height: 44px;
   width: 100%;
   padding: 0 12px;
-  border: 1px solid #8f99a6;
+  border: 1px solid var(--brand-hairline);
   border-radius: var(--radius-md);
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   color: var(--color-text);
-  background: var(--color-white);
+  background: var(--brand-surface);
 }
-
 .field-input:focus {
-  outline: 2px solid var(--color-teal);
-  outline-offset: 0;
-  border-color: var(--color-teal);
+  outline: 2px solid var(--brand-gold-deep);
+  outline-offset: 2px;
+  border-color: var(--brand-gold-deep);
 }
 
 .card {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-hairline);
+  border-radius: var(--radius-md);
   padding: 20px;
 }
-
 .card-invite {
   flex: 1 1 360px;
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-radius: 16px;
+}
+
+.signature-bar {
+  display: flex;
+  height: 6px;
+  width: 100%;
+}
+.signature-bar span:first-child {
+  flex: 1.3;
+  background: var(--brand-ruby);
+}
+.signature-bar span:last-child {
+  flex: 2.7;
+  background: var(--brand-gold);
 }
 
 .tag {
-  font-size: 12px;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 999px;
   white-space: nowrap;
+  border: 1px solid var(--brand-hairline);
 }
-
 .tag-ok {
-  color: var(--color-teal);
-  background: var(--color-teal-muted);
+  color: var(--brand-gold-deep);
+  background: var(--brand-parchment);
+  border-color: var(--brand-gold);
 }
-
 .tag-warn {
-  color: var(--color-amber-dark);
-  background: var(--color-amber-bg);
+  color: var(--brand-ink);
+  background: var(--brand-parchment);
+  border-color: var(--brand-gold);
 }
-
-.tag-info {
-  color: #1d4ed8;
-  background: #eaf0fd;
-}
-
+.tag-info,
 .tag-mute {
-  color: #3a4756;
-  background: var(--color-row-border);
+  color: var(--brand-gray);
+  background: var(--brand-ivory);
 }
 
 .portal-table th {
   text-align: left;
-  padding: 10px 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-muted);
+  padding: 12px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--brand-gray);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--color-border);
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--brand-hairline);
+  background: var(--brand-ivory);
 }
-
 .portal-table td {
-  padding: 11px 8px;
-  border-bottom: 1px solid var(--color-row-border);
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--brand-hairline);
+  font-size: 14px;
 }
 
 .detail-row {
@@ -161,15 +186,16 @@ a:hover {
   justify-content: space-between;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 1px solid var(--color-row-border);
+  border-bottom: 1px solid var(--brand-hairline);
 }
 
 .step-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--brand-gold-deep);
 }
 
 .otp-digit {
@@ -177,9 +203,24 @@ a:hover {
   height: 56px;
   box-sizing: border-box;
   text-align: center;
-  border: 1px solid #8f99a6;
+  border: 1px solid var(--brand-hairline);
   border-radius: var(--radius-md);
-  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 22px;
   color: var(--color-text);
+  background: var(--brand-surface);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.55s ease both;
 }
