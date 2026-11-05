@@ -60,10 +60,10 @@ export function PortalHeader({
                   key={item.key}
                   href={item.href}
                   aria-current={isCurrent ? "page" : undefined}
-                  className={`flex min-h-11 items-center rounded-[10px] px-3.5 no-underline text-[14px] ${
+                  className={`flex min-h-11 items-center rounded-[10px] px-3.5 no-underline text-[15px] ${
                     isCurrent
-                      ? "bg-[var(--brand-parchment)] font-semibold text-[var(--brand-ink)] border border-[var(--brand-gold)]"
-                      : "text-[var(--brand-ink)] hover:bg-[var(--brand-ivory)]"
+                      ? "border border-[var(--brand-gold)] bg-[var(--brand-parchment)] font-semibold text-[var(--brand-ink)]"
+                      : "text-[var(--brand-ink)] hover:bg-[var(--brand-ivory)] hover:text-[var(--brand-gold-deep)]"
                   }`}
                 >
                   {item.label}
@@ -75,7 +75,9 @@ export function PortalHeader({
 
         {userName ? (
           <div className="flex items-center gap-2.5">
-            <span className="text-[13px] text-[var(--brand-gray)]">{userName}</span>
+            <span className="text-[14px] font-medium text-[var(--brand-ink)]">
+              {userName}
+            </span>
             {userInitials ? (
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-parchment)] text-[13px] font-semibold text-[var(--brand-ink)]">
                 {userInitials}
