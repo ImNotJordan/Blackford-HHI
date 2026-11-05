@@ -52,7 +52,7 @@ export function StaffShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-wrap bg-[var(--brand-ivory)] text-[var(--brand-ink)]">
       <nav
         aria-label="Main"
-        className="relative flex min-h-screen w-full max-w-[248px] flex-1 flex-col gap-8 bg-[var(--brand-ink)] px-4 py-7 text-[var(--color-nav-text)]"
+        className="relative flex min-h-screen w-[260px] shrink-0 flex-col gap-8 bg-[var(--brand-ink)] px-4 py-7"
       >
         <Link href="/" className="flex items-center gap-2.5 px-2 no-underline">
           <div
@@ -68,13 +68,13 @@ export function StaffShell({ children }: { children: ReactNode }) {
             >
               Blackford
             </span>
-            <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.14em] text-[var(--brand-pale-gold)]">
+            <span className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.14em] text-[var(--brand-pale-gold)]">
               CRM
             </span>
           </div>
         </Link>
 
-        <div className="flex flex-col gap-0.5">
+        <div className="flex flex-col gap-1">
           {NAV_ITEMS.map((item) => {
             const active = isNavActive(pathname, item);
             return (
@@ -82,13 +82,13 @@ export function StaffShell({ children }: { children: ReactNode }) {
                 key={item.label}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`flex min-h-11 items-center justify-between rounded-[10px] px-3 py-2.5 no-underline transition-colors ${
+                className={`flex min-h-11 items-center justify-between rounded-[10px] border-l-[3px] px-3 py-2.5 no-underline transition-colors ${
                   active
-                    ? "bg-[#201C16] font-semibold text-[var(--brand-ivory)]"
-                    : "text-[var(--color-nav-text)] hover:bg-[#201C16]/70 hover:text-[var(--brand-ivory)]"
+                    ? "border-[var(--brand-gold)] bg-[#2A241C] font-semibold text-[var(--brand-pale-gold)]"
+                    : "border-transparent text-[var(--brand-ivory)] hover:bg-[#2A241C] hover:text-[var(--brand-pale-gold)]"
                 }`}
               >
-                <span className="text-[14px]">{item.label}</span>
+                <span className="text-[15px] leading-snug">{item.label}</span>
                 {item.badge != null ? (
                   <span className="badge-count">{item.badge}</span>
                 ) : null}
@@ -102,10 +102,10 @@ export function StaffShell({ children }: { children: ReactNode }) {
             DW
           </div>
           <div className="flex min-w-0 flex-col">
-            <span className="truncate text-[13px] font-semibold text-[var(--brand-ivory)]">
+            <span className="truncate text-[14px] font-semibold text-[var(--brand-ivory)]">
               Dana Whitfield
             </span>
-            <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wide text-[var(--brand-gray)]">
+            <span className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.08em] text-[var(--brand-pale-gold)]">
               Account manager
             </span>
           </div>
