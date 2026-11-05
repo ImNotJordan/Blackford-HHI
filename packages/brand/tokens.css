@@ -30,7 +30,7 @@
   --color-parchment: var(--brand-parchment);
   --color-nav: var(--brand-ink);
   --color-nav-muted: #201c16;
-  --color-nav-text: #cfc9bc;
+  --color-nav-text: var(--brand-ivory);
   --color-white: var(--brand-white);
 
   /* Legacy aliases → brand (so existing screens inherit Hyacinth) */
