@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { ScrollDirection } from "@/components/scroll-direction";
 import { getStaffEnv } from "@/src/env";
 import "./globals.css";
 
@@ -41,7 +42,10 @@ export default function RootLayout({
       lang="en"
       className={`${dmSerif.variable} ${plexSans.variable} ${plexMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <ScrollDirection />
+        {children}
+      </body>
     </html>
   );
 }
