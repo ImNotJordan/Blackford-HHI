@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PortalShell } from "@/components/portal-shell";
+import { Card, PageHeader, Stat, Tag } from "@/components/ui";
 
 const ROWS: {
   name: string;
@@ -19,130 +20,113 @@ const ROWS: {
   { name: "James Porter", why: "Termination", benefit: "All benefits end Feb 28", oldAmt: "$146.30", newAmt: "$0.00", from: "Mar 6", change: true },
 ];
 
+const HISTORY = [
+  { paycheck: "Feb 20 paycheck", count: 6, by: "Kevin Brooks, Feb 18" },
+  { paycheck: "Feb 6 paycheck", count: 3, by: "Kevin Brooks, Feb 4" },
+];
+
+const pending = ROWS.filter((r) => r.change).length;
+
 export default function EmployerPayrollPage() {
   const [entered, setEntered] = useState(false);
+  const history = entered
+    ? [{ paycheck: "Mar 6 paycheck", count: pending, by: "Kevin Brooks, just now" }, ...HISTORY]
+    : HISTORY;
 
   return (
     <PortalShell activeNav="payroll" userName="Kevin Brooks" userInitials="KB">
-
-      <main className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 px-6 py-8 pb-14">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div className="flex flex-col gap-1.5">
-            <h1
-              className="m-0 text-[30px] font-extrabold tracking-tight"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Payroll deduction updates
-            </h1>
-            <p className="m-0 text-[var(--color-text-muted)]">
-              Riverside Dental Group · paid every two weeks · only changes
-              Blackford has approved appear here.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
+      <PageHeader
+        context="Riverside Dental Group · paid every two weeks"
+        title="Payroll deduction updates"
+        description="Only changes Blackford has approved appear here. Enter them in your payroll system, then mark them as entered."
+        actions={
+          <>
             <button type="button" className="btn btn-secondary">
               Download CSV for payroll
             </button>
             <button
               type="button"
-              className="btn btn-primary disabled:cursor-not-allowed disabled:opacity-50"
+              className="btn btn-primary"
               disabled={entered}
               onClick={() => setEntered(true)}
             >
-              {entered ? "4 marked as entered" : "Mark 4 as entered in payroll"}
+              {entered ? `✓ ${pending} marked as entered` : `Mark ${pending} as entered`}
             </button>
-          </div>
-        </div>
+          </>
+        }
+      />
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
-          <Figure label="To enter before Mar 6 paycheck" value={entered ? "0" : "4"} />
-          <Figure label="Net change per paycheck" value="+$214.85" />
-          <Figure label="Entered this year" value={entered ? "35" : "31"} />
-        </div>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+        <Stat
+          label="To enter before Mar 6"
+          value={entered ? "0" : String(pending)}
+          hint={entered ? "All caught up" : "Changes waiting for payroll"}
+        />
+        <Stat label="Net change per paycheck" value="+$214.85" hint="Across all employees" />
+        <Stat
+          label="Entered this year"
+          value={entered ? "35" : "31"}
+          hint="Deduction changes"
+        />
+      </div>
 
-        <section aria-labelledby="new" className="card flex flex-col gap-3">
-          <h2 id="new" className="m-0 text-lg font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-            Waiting for payroll
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="portal-table w-full min-w-[900px] border-collapse">
-              <thead>
-                <tr>
-                  <th scope="col">Employee</th>
-                  <th scope="col">Why</th>
-                  <th scope="col">Benefit</th>
-                  <th scope="col">Old per paycheck</th>
-                  <th scope="col">New per paycheck</th>
-                  <th scope="col">From paycheck</th>
-                  <th scope="col">Status</th>
+      <Card
+        title="Waiting for payroll"
+        id="waiting"
+        description="Amounts are the employee's share after Riverside's contribution. Full Social Security numbers are never shown here."
+      >
+        <div className="table-wrap">
+          <table className="data-table min-w-[920px]">
+            <thead>
+              <tr>
+                <th scope="col">Employee</th>
+                <th scope="col">Benefit</th>
+                <th scope="col" className="num">Old / paycheck</th>
+                <th scope="col" className="num">New / paycheck</th>
+                <th scope="col" className="num">From</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ROWS.map((r) => (
+                <tr key={`${r.name}-${r.benefit}`}>
+                  <td className="cell-strong">
+                    {r.name}
+                    <span className="cell-sub">{r.why}</span>
+                  </td>
+                  <td>{r.benefit}</td>
+                  <td className="num cell-muted">{r.oldAmt}</td>
+                  <td className={`num ${r.change ? "font-semibold" : "cell-muted"}`}>{r.newAmt}</td>
+                  <td className="num cell-muted">{r.from}</td>
+                  <td>
+                    {!r.change ? (
+                      <Tag tone="neutral">No change</Tag>
+                    ) : entered ? (
+                      <Tag tone="success">Entered</Tag>
+                    ) : (
+                      <Tag tone="warning">To enter</Tag>
+                    )}
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {ROWS.map((r) => (
-                  <tr key={`${r.name}-${r.benefit}`}>
-                    <td className="font-semibold">{r.name}</td>
-                    <td>{r.why}</td>
-                    <td>{r.benefit}</td>
-                    <td className="font-[family-name:var(--font-mono)] text-[13px]">{r.oldAmt}</td>
-                    <td className="font-[family-name:var(--font-mono)] text-[13px]">{r.newAmt}</td>
-                    <td className="font-[family-name:var(--font-mono)] text-[13px]">{r.from}</td>
-                    <td>
-                      {!r.change ? (
-                        <span className="tag tag-mute">No change</span>
-                      ) : entered ? (
-                        <span className="tag tag-ok">Entered</span>
-                      ) : (
-                        <span className="tag tag-warn">To enter</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="m-0 text-[13px] text-[var(--color-text-muted)]">
-            Amounts are the employee&apos;s share after Riverside&apos;s
-            contribution. Full Social Security numbers are never shown here.
-          </p>
-        </section>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Card>
 
-        <section aria-labelledby="hist" className="card flex flex-col gap-1">
-          <h2 id="hist" className="m-0 mb-2 text-lg font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-            Recently entered
-          </h2>
-          {entered ? (
-            <div className="detail-row">
-              <span>
-                <b>Mar 6 paycheck</b> · 4 changes
-              </span>
-              <span className="text-[13px] text-[var(--color-text-muted)]">Marked entered by Kevin Brooks, just now</span>
+      <Card title="Recently entered" id="history">
+        <dl className="detail-list">
+          {history.map((h) => (
+            <div key={h.paycheck} className="detail-row">
+              <dt className="!text-[var(--color-text)]">
+                <strong>{h.paycheck}</strong>
+                <span className="text-secondary"> · {h.count} changes</span>
+              </dt>
+              <dd className="text-caption !font-normal text-sm">Marked entered by {h.by}</dd>
             </div>
-          ) : null}
-          <div className="detail-row">
-            <span>
-              <b>Feb 20 paycheck</b> · 6 changes
-            </span>
-            <span className="text-[13px] text-[var(--color-text-muted)]">Marked entered by Kevin Brooks, Feb 18</span>
-          </div>
-          <div className="detail-row border-b-0">
-            <span>
-              <b>Feb 6 paycheck</b> · 3 changes
-            </span>
-            <span className="text-[13px] text-[var(--color-text-muted)]">Marked entered by Kevin Brooks, Feb 4</span>
-          </div>
-        </section>
-      </main>
+          ))}
+        </dl>
+      </Card>
     </PortalShell>
-  );
-}
-
-function Figure({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="card flex flex-col gap-1">
-      <span className="eyebrow m-0">{label}</span>
-      <span className="text-[32px] leading-tight" style={{ fontFamily: "var(--font-display)" }}>
-        {value}
-      </span>
-    </div>
   );
 }
