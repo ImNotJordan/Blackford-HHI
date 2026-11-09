@@ -1,7 +1,20 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { StaffShell } from "@/components/staff-shell";
+import { Callout } from "@/components/ui/callout";
+import { PageHeader } from "@/components/ui/page-header";
 import { Tag } from "@/components/ui/tag";
+
+const TABS: { label: string; count?: number }[] = [
+  { label: "Overview" },
+  { label: "Employees", count: 64 },
+  { label: "Plans and rates" },
+  { label: "Eligibility" },
+  { label: "Onboarding" },
+  { label: "Messages" },
+  { label: "Documents" },
+  { label: "Service requests" },
+];
 
 export default async function GroupRecordPage({
   params,
@@ -14,113 +27,87 @@ export default async function GroupRecordPage({
 
   return (
     <StaffShell>
-      <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)]">
-        <Link href="/clients" className="no-underline">
-          Clients and groups
-        </Link>{" "}
-        <span aria-hidden>/</span> {name}
-      </nav>
+      <PageHeader
+        breadcrumb={[{ label: "Clients and groups", href: "/clients" }, { label: name }]}
+        title={name}
+        tags={<Tag variant="ok">Enrolling</Tag>}
+        meta={[
+          "Employer group · 64 eligible",
+          "Effective Mar 1, 2027",
+          "Window Feb 1 – Feb 19",
+          "Owner: Dana Whitfield",
+        ]}
+        actions={
+          <>
+            <button type="button" className="btn btn-secondary">
+              Add task
+            </button>
+            <Link href="/agent-assist" className="btn btn-secondary">
+              Start in-person session
+            </Link>
+            <button type="button" className="btn btn-primary">
+              Message group
+            </button>
+          </>
+        }
+      />
 
-      <header className="flex flex-wrap items-start justify-between gap-4">
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-wrap items-center gap-3">
-            <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
-              {name}
-            </h1>
-            <Tag variant="ok">Enrolling</Tag>
-          </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-[var(--color-text-muted)]">
-            <span>Employer group · 64 eligible</span>
-            <span>Effective Mar 1, 2027</span>
-            <span>Window Feb 1 – Feb 19</span>
-            <span>Owner: Dana Whitfield</span>
-          </div>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <button type="button" className="btn btn-secondary">
-            Add task
-          </button>
-          <Link href="/agent-assist" className="btn btn-secondary no-underline">
-            Start in-person session
-          </Link>
-          <button type="button" className="btn btn-primary">
-            Message group
-          </button>
-        </div>
-      </header>
-
-      <div
-        role="tablist"
-        aria-label="Record sections"
-        className="flex gap-1 overflow-x-auto border-b border-[var(--color-border)]"
-      >
-        {[
-          "Overview",
-          "Employees 64",
-          "Plans and rates",
-          "Eligibility",
-          "Onboarding",
-          "Messages",
-          "Documents",
-          "Service requests",
-        ].map((tab, i) => (
+      <div role="tablist" aria-label="Record sections" className="tabs">
+        {TABS.map((tab, i) => (
           <button
-            key={tab}
+            key={tab.label}
             type="button"
             role="tab"
             aria-selected={i === 0}
-            className={`min-h-11 shrink-0 border-0 bg-transparent px-3.5 whitespace-nowrap ${
-              i === 0
-                ? "border-b-2 border-[var(--color-teal)] font-bold text-[var(--color-text)]"
-                : "border-b-2 border-transparent text-[var(--color-text-muted)]"
-            }`}
+            className="tab"
           >
-            {tab}
+            {tab.label}
+            {tab.count != null ? <span className="tab-count">{tab.count}</span> : null}
           </button>
         ))}
       </div>
 
       <div className="flex flex-wrap items-start gap-6">
         <div className="flex min-w-0 flex-[3_1_520px] flex-col gap-6">
-          <section aria-labelledby="enr" className="card gap-4">
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h2 id="enr" className="heading m-0 text-lg font-bold">
+          <section aria-labelledby="enr" className="card gap-5">
+            <div className="card-head">
+              <h2 id="enr" className="section-title">
                 Open enrollment
               </h2>
-              <span className="text-[13px] font-semibold text-[var(--color-amber-dark)]">
-                Closes in 3 days · reminders on
-              </span>
+              <span className="tag tag-warn">Closes in 3 days · reminders on</span>
             </div>
-            <div aria-hidden className="flex h-3 overflow-hidden rounded-full bg-[#EEF1F5]">
-              <div className="w-[45%] bg-[var(--color-teal)]" />
-              <div className="w-[13%] bg-[#6BB3AD]" />
-              <div className="w-[17%] bg-[#D97A0B]" />
+            <div
+              role="img"
+              aria-label="29 enrolled, 8 waived, 11 started, 16 not started of 64"
+              className="progress progress-lg"
+            >
+              <span className="bg-ink" style={{ width: "45%" }} />
+              <span className="bg-gray" style={{ width: "13%" }} />
+              <span className="bg-gold" style={{ width: "17%" }} />
             </div>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-3">
-              <EnrollStat color="var(--color-teal)" label="Enrolled and signed" value="29" />
-              <EnrollStat color="#6BB3AD" label="Waived" value="8" />
-              <EnrollStat color="#D97A0B" label="Started" value="11" />
-              <EnrollStat color="#EEF1F5" label="Not started" value="16" outline />
+              <EnrollStat dot="dot-ink" label="Enrolled and signed" value="29" />
+              <EnrollStat dot="dot-gray" label="Waived" value="8" />
+              <EnrollStat dot="dot-gold" label="Started" value="11" />
+              <EnrollStat dot="dot-empty" label="Not started" value="16" />
             </div>
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[620px] border-collapse">
+              <table className="table min-w-[620px]">
                 <thead>
                   <tr>
-                    <th className="th">Employee</th>
-                    <th className="th">Status</th>
-                    <th className="th">Last contact</th>
-                    <th className="th">Language</th>
+                    <th scope="col" className="th">Employee</th>
+                    <th scope="col" className="th">Status</th>
+                    <th scope="col" className="th">Last contact</th>
+                    <th scope="col" className="th">Language</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td className="td font-semibold">Luis Ortega</td>
                     <td className="td">
-                      <Tag variant="warn">Unreachable</Tag>
+                      <Tag variant="bad">Unreachable</Tag>
                     </td>
-                    <td className="td text-[var(--color-text-muted)]">
-                      Text and email bounced · call task
-                    </td>
+                    <td className="td text-muted">Text and email bounced · call task</td>
                     <td className="td">Spanish</td>
                   </tr>
                   <tr>
@@ -128,9 +115,7 @@ export default async function GroupRecordPage({
                     <td className="td">
                       <Tag variant="warn">Ready to sign</Tag>
                     </td>
-                    <td className="td text-[var(--color-text-muted)]">
-                      Reminder sent today 8:00
-                    </td>
+                    <td className="td text-muted">Reminder sent today 8:00</td>
                     <td className="td">English</td>
                   </tr>
                   <tr>
@@ -138,216 +123,180 @@ export default async function GroupRecordPage({
                     <td className="td">
                       <Tag variant="mute">Not started</Tag>
                     </td>
-                    <td className="td text-[var(--color-text-muted)]">
-                      Invite opened Feb 2
-                    </td>
+                    <td className="td text-muted">Invite opened Feb 2</td>
                     <td className="td">English</td>
                   </tr>
                   <tr>
-                    <td className="td border-0 font-semibold">Maria Delgado</td>
-                    <td className="td border-0">
+                    <td className="td font-semibold">Maria Delgado</td>
+                    <td className="td">
                       <Tag variant="ok">Enrolled</Tag>
                     </td>
-                    <td className="td border-0 text-[var(--color-text-muted)]">
-                      Replied by text 9:12
-                    </td>
-                    <td className="td border-0">Spanish</td>
+                    <td className="td text-muted">Replied by text 9:12</td>
+                    <td className="td">Spanish</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <Link href="#" className="text-[13px] font-semibold">
+            <Link href="#" className="link-action self-start">
               View all 64 employees
             </Link>
           </section>
 
-          <section aria-labelledby="act" className="card gap-1">
-            <div className="mb-2 flex items-baseline justify-between">
-              <h2 id="act" className="heading m-0 text-lg font-bold">
+          <section aria-labelledby="act" className="card gap-3">
+            <div className="card-head items-center">
+              <h2 id="act" className="section-title">
                 Activity
               </h2>
-              <button type="button" className="btn btn-secondary min-h-9 px-3 text-[13px]">
+              <button type="button" className="btn btn-secondary btn-sm">
                 Add note
               </button>
             </div>
-            <ActivityItem color="var(--color-teal)">
-              <strong>Maria Delgado</strong> signed her election form by text
-              <span className="text-xs text-[var(--color-text-muted)]">
-                Today 9:05 · iPhone · audit trail saved
-              </span>
-            </ActivityItem>
-            <ActivityItem color="#D97A0B">
-              <strong>Automation</strong> sent the outstanding list to Kevin Brooks
-              (HR) — group below 70%
-              <span className="text-xs text-[var(--color-text-muted)]">
-                Today 8:00 · Automation 4
-              </span>
-            </ActivityItem>
-            <ActivityItem color="#8A97A6">
-              <strong>Automation</strong> sent 3-day reminders to 27 employees
-              <span className="text-xs text-[var(--color-text-muted)]">
-                Today 8:00 · 24 delivered by text, 3 by email
-              </span>
-            </ActivityItem>
-            <ActivityItem color="#8A97A6" last>
-              <strong>Dana Whitfield</strong> logged a call with Kevin Brooks
-              <span className="text-xs text-[var(--color-text-muted)]">
-                Yesterday 3:40 PM · “HR will remind staff at Thursday huddle”
-              </span>
-            </ActivityItem>
+            <ol className="m-0 flex list-none flex-col p-0">
+              <ActivityItem dot="dot-gold-deep" when="Today 9:05 · iPhone · audit trail saved">
+                <strong>Maria Delgado</strong> signed her election form by text
+              </ActivityItem>
+              <ActivityItem dot="dot-gold" when="Today 8:00 · Automation 4">
+                <strong>Automation</strong> sent the outstanding list to Kevin
+                Brooks (HR) — group below 70%
+              </ActivityItem>
+              <ActivityItem dot="dot-gray" when="Today 8:00 · 24 delivered by text, 3 by email">
+                <strong>Automation</strong> sent 3-day reminders to 27 employees
+              </ActivityItem>
+              <ActivityItem
+                dot="dot-gray"
+                when="Yesterday 3:40 PM · “HR will remind staff at Thursday huddle”"
+                last
+              >
+                <strong>Dana Whitfield</strong> logged a call with Kevin Brooks
+              </ActivityItem>
+            </ol>
           </section>
         </div>
 
         <aside className="flex min-w-0 flex-[2_1_300px] flex-col gap-6">
-          <section aria-labelledby="plans" className="card gap-3">
-            <div className="flex items-baseline justify-between">
-              <h2 id="plans" className="heading m-0 text-lg font-bold">
+          <section aria-labelledby="plans" className="card gap-1">
+            <div className="card-head mb-2">
+              <h2 id="plans" className="section-title">
                 Plans offered
               </h2>
-              <Link href="#" className="text-[13px] font-semibold">
+              <Link href="#" className="link-action no-arrow">
                 Edit
               </Link>
             </div>
-            <PlanBlock
-              label="Medical"
-              value="[Carrier] PPO 1500 · [Carrier] HMO 3000"
-              hint="Employer pays 75% employee-only"
-            />
-            <PlanBlock
-              label="Dental and vision"
-              value="[Carrier] Dental PPO · [Carrier] Vision"
-              hint="Voluntary"
-            />
-            <PlanBlock label="Life" value="Basic life $25,000" hint="Employer paid · beneficiary required" last />
+            <div className="divided">
+              <PlanBlock
+                label="Medical"
+                value="[Carrier] PPO 1500 · [Carrier] HMO 3000"
+                hint="Employer pays 75% employee-only"
+              />
+              <PlanBlock
+                label="Dental and vision"
+                value="[Carrier] Dental PPO · [Carrier] Vision"
+                hint="Voluntary"
+              />
+              <PlanBlock
+                label="Life"
+                value="Basic life $25,000"
+                hint="Employer paid · beneficiary required"
+              />
+            </div>
           </section>
 
-          <section aria-labelledby="contacts" className="card gap-3">
-            <h2 id="contacts" className="heading m-0 text-lg font-bold">
+          <section aria-labelledby="contacts" className="card gap-1">
+            <h2 id="contacts" className="section-title mb-2">
               Contacts
             </h2>
-            <ContactRow initials="KB" bg="#EAF0FD" color="#1D4ED8" name="Kevin Brooks" sub="HR contact · employer portal" />
-            <ContactRow initials="RS" bg="#E6F2F1" color="var(--color-teal)" name="Dr. Rachel Stone" sub="Owner · signs agreements" />
+            <div className="divided">
+              <ContactRow initials="KB" tone="ink" name="Kevin Brooks" sub="HR contact · employer portal" />
+              <ContactRow initials="RS" tone="gold" name="Dr. Rachel Stone" sub="Owner · signs agreements" />
+            </div>
           </section>
 
-          <section
-            aria-labelledby="flags"
-            className="card gap-2 border-[#F3D3AE] bg-[#FDF3E7]"
+          <Callout
+            tone="warn"
+            title="Data checks"
+            action={
+              <Link href="/exceptions" className="link-action">
+                Review flags
+              </Link>
+            }
           >
-            <h2 id="flags" className="heading m-0 text-base font-bold text-[#7A3F06]">
-              Data checks
-            </h2>
-            <p className="m-0 text-[#5C3204]">
-              2 dependents turn 26 within 90 days. 1 dependent is missing a date
-              of birth.
-            </p>
-            <Link href="/exceptions" className="text-[13px] font-semibold text-[#7A3F06]">
-              Review flags
-            </Link>
-          </section>
+            2 dependents turn 26 within 90 days. 1 dependent is missing a date
+            of birth.
+          </Callout>
         </aside>
       </div>
     </StaffShell>
   );
 }
 
-function EnrollStat({
-  color,
-  label,
-  value,
-  outline,
-}: {
-  color: string;
-  label: string;
-  value: string;
-  outline?: boolean;
-}) {
+function EnrollStat({ dot, label, value }: { dot: string; label: string; value: string }) {
   return (
-    <div className="flex flex-col gap-0.5">
-      <span className="flex items-center gap-1.5 text-[13px] text-[var(--color-text-muted)]">
-        <span
-          className="h-2.5 w-2.5 rounded-sm"
-          style={{
-            background: color,
-            border: outline ? "1px solid #C5CED8" : undefined,
-          }}
-        />
+    <div className="flex flex-col gap-1">
+      <span className="flex items-center gap-2 text-[13px] text-muted">
+        <span aria-hidden className={`dot ${dot}`} />
         {label}
       </span>
-      <span className="heading text-[22px] font-extrabold">{value}</span>
+      <span className="stat-figure text-[26px]">{value}</span>
     </div>
   );
 }
 
 function ActivityItem({
-  color,
+  dot,
+  when,
   children,
   last,
 }: {
-  color: string;
+  dot: string;
+  when: string;
   children: ReactNode;
   last?: boolean;
 }) {
   return (
-    <div className={`flex gap-3.5 py-2.5 ${last ? "" : ""}`}>
-      <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
-      <div className="flex flex-col gap-0.5">{children}</div>
-    </div>
+    <li className="flex gap-3.5">
+      <span aria-hidden className="flex flex-col items-center">
+        <span className={`dot ${dot} mt-1.5`} />
+        {last ? null : <span className="w-px flex-1 bg-hairline" />}
+      </span>
+      <div className="flex flex-col gap-0.5 pb-4">
+        <span className="leading-snug">{children}</span>
+        <span className="text-[13px] text-muted">{when}</span>
+      </div>
+    </li>
   );
 }
 
-function PlanBlock({
-  label,
-  value,
-  hint,
-  last,
-}: {
-  label: string;
-  value: string;
-  hint: string;
-  last?: boolean;
-}) {
+function PlanBlock({ label, value, hint }: { label: string; value: string; hint: string }) {
   return (
-    <div className={`flex flex-col gap-0.5 pb-3 ${last ? "" : "border-b border-[#EEF1F5]"}`}>
-      <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
-        {label}
-      </span>
-      <span className="font-semibold">{value}</span>
-      <span className="text-[13px] text-[var(--color-text-muted)]">{hint}</span>
+    <div className="flex flex-col gap-1 py-3">
+      <span className="label">{label}</span>
+      <span className="font-semibold leading-snug">{value}</span>
+      <span className="text-[13px] text-muted">{hint}</span>
     </div>
   );
 }
 
 function ContactRow({
   initials,
-  bg,
-  color,
+  tone,
   name,
   sub,
 }: {
   initials: string;
-  bg: string;
-  color: string;
+  tone: "gold" | "ink";
   name: string;
   sub: string;
 }) {
   return (
-    <div className="flex items-center gap-3">
-      <span
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[13px] font-bold"
-        style={{ background: bg, color }}
-      >
-        {initials}
-      </span>
-      <div className="flex flex-1 flex-col">
+    <div className="flex items-center gap-3 py-3">
+      <span className={`avatar avatar-${tone}`}>{initials}</span>
+      <div className="flex min-w-0 flex-1 flex-col">
         <span className="font-semibold">{name}</span>
-        <span className="text-[13px] text-[var(--color-text-muted)]">{sub}</span>
+        <span className="text-[13px] text-muted">{sub}</span>
       </div>
-      <button
-        type="button"
-        aria-label={`Text ${name}`}
-        className="btn btn-secondary h-11 w-11 min-h-0 p-0"
-      >
-        <svg aria-hidden width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <button type="button" aria-label={`Text ${name}`} className="btn btn-secondary btn-icon">
+        <svg aria-hidden width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" />
         </svg>
       </button>
