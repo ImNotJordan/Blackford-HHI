@@ -42,12 +42,12 @@ export default function EnrollmentsPage() {
 
   return (
     <StaffShell>
-      <header className="flex flex-wrap items-end justify-between gap-4">
+      <header className="page-header">
         <div className="flex flex-col gap-1">
-          <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
+          <h1 className="page-title">
             Enrollments
           </h1>
-          <p className="m-0 text-[var(--color-text-muted)]">
+          <p className="page-sub">
             Everyone with an open window: open enrollment, new hires, life
             events and individual clients.
           </p>
@@ -72,21 +72,17 @@ export default function EnrollmentsPage() {
                 type="button"
                 aria-pressed={on}
                 onClick={() => setFilter(f.key)}
-                className={`min-h-10 rounded-full border px-3.5 text-[14px] font-semibold ${
-                  on
-                    ? "border-[var(--brand-ink)] bg-[var(--brand-ink)] text-[var(--brand-ivory)]"
-                    : "border-[var(--brand-hairline)] bg-[var(--brand-surface)] text-[var(--brand-ink)] hover:border-[var(--brand-ink)]"
-                }`}
+                className="pill"
               >
-                {f.label} · {f.count}
+                {f.label} <span className="pill-count">{f.count}</span>
               </button>
             );
           })}
         </div>
         <span className="flex-1" />
-        <label className="flex items-center gap-2 text-[13px] text-[var(--color-text-muted)]">
+        <label className="flex items-center gap-2 text-[13px] font-medium text-ink-soft">
           Window
-          <select className="field-in !w-auto min-h-10">
+          <select className="field-in w-auto min-h-10">
             <option>All windows</option>
             <option>Open enrollment</option>
             <option>New hire</option>
@@ -94,22 +90,22 @@ export default function EnrollmentsPage() {
             <option>Individual</option>
           </select>
         </label>
-        <label className="flex items-center gap-2 text-[13px] text-[var(--color-text-muted)]">
+        <label className="flex items-center gap-2 text-[13px] font-medium text-ink-soft">
           Owner
-          <select className="field-in !w-auto min-h-10">
+          <select className="field-in w-auto min-h-10">
             <option>Me</option>
             <option>Team</option>
           </select>
         </label>
       </div>
 
-      <section aria-label="Enrollment list" className="card px-5 pb-4 pt-2">
+      <section aria-label="Enrollment list" className="card overflow-hidden p-0">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[900px] border-collapse">
             <thead>
               <tr>
                 <th scope="col" className="th w-8">
-                  <input type="checkbox" aria-label="Select all" className="h-[18px] w-[18px] accent-[var(--brand-ink)]" />
+                  <input type="checkbox" aria-label="Select all" className="h-[18px] w-[18px] accent-ink" />
                 </th>
                 <th scope="col" className="th">Person</th>
                 <th scope="col" className="th">Group</th>
@@ -124,7 +120,7 @@ export default function EnrollmentsPage() {
               {rows.map((r) => (
                 <tr key={r.name}>
                   <td className="td">
-                    <input type="checkbox" aria-label={`Select ${r.name}`} className="h-[18px] w-[18px] accent-[var(--brand-ink)]" />
+                    <input type="checkbox" aria-label={`Select ${r.name}`} className="h-[18px] w-[18px] accent-ink" />
                   </td>
                   <td className="td font-semibold">{r.name}</td>
                   <td className="td">
@@ -141,7 +137,7 @@ export default function EnrollmentsPage() {
               ))}
               {rows.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="td text-center text-[var(--color-text-muted)]">
+                  <td colSpan={8} className="td text-center text-muted">
                     No one in this view on this page.
                   </td>
                 </tr>
