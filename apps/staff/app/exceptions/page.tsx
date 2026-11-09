@@ -35,11 +35,11 @@ const FLAGS: {
 export default function ExceptionsPage() {
   return (
     <StaffShell>
-      <header className="flex flex-col gap-1">
-        <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
+      <header className="page-header">
+        <h1 className="page-title">
           Exceptions for staff
         </h1>
-        <p className="m-0 text-[var(--color-text-muted)]">
+        <p className="page-sub">
           Only what the automations couldn&apos;t handle. Each item is a task on
           the person&apos;s record.
         </p>
@@ -53,7 +53,7 @@ export default function ExceptionsPage() {
       </div>
 
       <section aria-labelledby="esc" className="card flex flex-col gap-3">
-        <h2 id="esc" className="heading m-0 text-lg">
+        <h2 id="esc" className="section-title">
           Escalations and overdue
         </h2>
         <div className="overflow-x-auto">
@@ -86,10 +86,10 @@ export default function ExceptionsPage() {
 
       <section aria-labelledby="dq" className="card flex flex-col gap-3">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 id="dq" className="heading m-0 text-lg">
+          <h2 id="dq" className="section-title">
             Nightly data checks · Automation 11
           </h2>
-          <span className="text-[13px] text-[var(--color-text-muted)]">
+          <span className="text-[13px] text-muted">
             Last run today 2:00 AM
           </span>
         </div>
