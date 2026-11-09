@@ -36,30 +36,28 @@ export default function StaffLoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--brand-ivory)]">
+    <div className="flex min-h-screen flex-col bg-ivory">
       <div className="mx-auto grid w-full max-w-6xl flex-1 lg:grid-cols-2">
-        <aside className="relative hidden flex-col justify-between bg-[var(--brand-ink)] px-10 py-12 text-[var(--brand-ivory)] lg:flex">
+        <aside className="relative hidden flex-col justify-between bg-ink px-10 py-12 text-ivory lg:flex">
           <div>
-            <p className="eyebrow !text-[var(--brand-pale-gold)]">Staff CRM</p>
+            <p className="eyebrow text-pale-gold">Staff CRM</p>
             <h1
-              className="mt-4 max-w-sm text-[42px] leading-[1.1]"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              className="mt-4 max-w-sm font-serif text-[42px] leading-[1.1]"
             >
               Sign in to your book of business.
             </h1>
-            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-[var(--brand-gray)]">
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-gray">
               Password plus authenticator app for every Blackford staff
               account. Sessions end after 30 idle minutes.
             </p>
           </div>
           <div>
             <p
-              className="text-[56px] leading-none text-[var(--brand-pale-gold)]"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="font-serif text-[56px] leading-none text-pale-gold"
             >
               48
             </p>
-            <p className="mt-2 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.14em] text-[var(--brand-gray)]">
+            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-gray">
               Active groups in Dana’s book · demo
             </p>
           </div>
@@ -73,12 +71,11 @@ export default function StaffLoginPage() {
           <div className="rise mx-auto w-full max-w-md">
             <Link href="/" className="inline-flex items-center gap-2 no-underline">
               <span
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--brand-ink)] text-[var(--brand-ivory)]"
-                style={{ fontFamily: "var(--font-display)" }}
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink font-serif text-ivory"
               >
                 B
               </span>
-              <span className="text-sm font-semibold text-[var(--brand-ink)]">
+              <span className="text-sm font-semibold text-ink">
                 Blackford
               </span>
             </Link>
@@ -88,8 +85,7 @@ export default function StaffLoginPage() {
             {step === 1 ? (
               <>
                 <h2
-                  className="mt-2 text-[32px] leading-tight text-[var(--brand-ink)]"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  className="page-title mt-2 text-[32px]"
                 >
                   Staff sign-in
                 </h2>
@@ -128,7 +124,7 @@ export default function StaffLoginPage() {
                 </form>
                 <button
                   type="button"
-                  className="mt-4 cursor-pointer border-0 bg-transparent p-0 text-[13px] font-semibold text-[var(--brand-gold-deep)] underline underline-offset-[3px]"
+                  className="link-action no-arrow mt-4 self-start"
                 >
                   Forgot password?
                 </button>
@@ -136,12 +132,11 @@ export default function StaffLoginPage() {
             ) : (
               <>
                 <h2
-                  className="mt-2 text-[32px] leading-tight text-[var(--brand-ink)]"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  className="page-title mt-2 text-[32px]"
                 >
                   Enter your authenticator code
                 </h2>
-                <p className="mt-2 text-[15px] text-[var(--brand-gray)]">
+                <p className="mt-2 text-[15px] text-muted">
                   Open your authenticator app and enter the 6-digit code for
                   Blackford. Demo: any code works except 000000.
                 </p>
@@ -163,21 +158,21 @@ export default function StaffLoginPage() {
                         onKeyDown={(e) => {
                           if (e.key === "Backspace" && !d && i > 0) inputs.current[i - 1]?.focus();
                         }}
-                        className="h-14 w-12 rounded-[var(--radius-md)] border border-[var(--brand-hairline)] bg-[var(--brand-surface)] text-center font-[family-name:var(--font-mono)] text-[22px] focus:border-[var(--brand-gold-deep)]"
+                        className="h-14 w-12 rounded-lg border border-hairline bg-surface text-center font-mono text-[22px] focus:border-gold-deep focus:shadow-[0_0_0_3px_var(--brand-parchment)] focus:outline-none"
                       />
                     ))}
                   </fieldset>
                   <label className="flex min-h-11 items-center gap-2.5 text-[14px]">
-                    <input type="checkbox" className="h-5 w-5 accent-[var(--brand-ink)]" />
+                    <input type="checkbox" className="h-5 w-5 accent-ink" />
                     Trust this device for 12 hours
                   </label>
                   {wrong > 0 && !locked ? (
-                    <p role="alert" className="m-0 text-[14px] font-semibold text-[var(--brand-ruby)]">
+                    <p role="alert" className="m-0 text-[14px] font-semibold text-ruby">
                       That code didn&apos;t match. {MAX_TRIES - wrong} tries left.
                     </p>
                   ) : null}
                   {locked ? (
-                    <p role="alert" className="m-0 rounded-[10px] border border-[var(--brand-ruby)] bg-[var(--brand-surface)] px-3.5 py-3 text-[14px] text-[var(--brand-ruby)]">
+                    <p role="alert" className="m-0 callout callout-bad text-ruby">
                       Account locked for 15 minutes. A Blackford admin has been
                       notified.
                     </p>
@@ -193,30 +188,30 @@ export default function StaffLoginPage() {
                 <div className="mt-4 flex flex-wrap gap-4 text-[13px]">
                   <button
                     type="button"
-                    className="cursor-pointer border-0 bg-transparent p-0 font-semibold text-[var(--brand-gold-deep)] underline underline-offset-[3px]"
+                    className="link-action no-arrow"
                   >
                     Use a recovery code
                   </button>
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="cursor-pointer border-0 bg-transparent p-0 font-semibold text-[var(--brand-gold-deep)] underline underline-offset-[3px]"
+                    className="link-action no-arrow"
                   >
                     Back
                   </button>
                 </div>
-                <div className="mt-6 rounded-[10px] border border-[var(--brand-gold)] bg-[var(--brand-parchment)] px-3.5 py-3 text-[13px] leading-relaxed">
+                <div className="callout callout-warn mt-6 text-[13px]">
                   After 5 wrong codes the account locks for 15 minutes and a
                   Blackford admin is notified.
                 </div>
               </>
             )}
 
-            <p className="mt-6 text-[13px] text-[var(--brand-gray)]">
+            <p className="mt-6 text-[13px] text-muted">
               For Blackford staff only. Every sign-in attempt is recorded in the
               audit log.
             </p>
-            <p className="mt-2 text-[13px] text-[var(--brand-gray)]">
+            <p className="mt-2 text-[13px] text-muted">
               Employer HR?{" "}
               <a href="http://localhost:3300/employer/invite">
                 Open the employer portal
