@@ -1,9 +1,15 @@
 /**
  * Hyacinth Industries / Blackford platform brand tokens
  * Source: Scope of Work v2.0 + Brand Color Guidelines
- * Use tokens only — do not invent hues.
+ *
+ * Three tiers:
+ *   1. Brand palette  (--brand-*)  the only raw hex values allowed anywhere.
+ *   2. Semantic roles (--color-*, --status-*, --chart-*) derived from the
+ *      palette with color-mix(). Components read these, never raw hexes.
+ *   3. Legacy aliases kept so older screens keep inheriting the brand.
  */
 :root {
+  /* ── 1. Brand palette ─────────────────────────────────────────────── */
   --brand-ink: #16130f;
   --brand-ruby: #c8191e;
   --brand-gold: #a8820f;
@@ -16,26 +22,109 @@
   --brand-white: #ffffff;
   --brand-surface: #ffffff;
 
-  /* App aliases */
+  /* ── 2. Semantic roles ────────────────────────────────────────────── */
+
+  /* Surfaces */
   --color-bg: var(--brand-ivory);
   --color-surface: var(--brand-surface);
+  --color-surface-sunken: var(--brand-ivory);
+  --color-surface-hover: color-mix(in srgb, var(--brand-ivory) 55%, var(--brand-white));
+
+  /* Text — Gray alone is ~3.3:1 on Ivory, so readable copy mixes in Ink */
   --color-text: var(--brand-ink);
-  --color-text-muted: var(--brand-gray);
+  --color-text-secondary: color-mix(in srgb, var(--brand-ink) 50%, var(--brand-gray)); /* ≈7.5:1 */
+  --color-text-caption: color-mix(in srgb, var(--brand-ink) 25%, var(--brand-gray)); /* ≈4.9:1 */
+  --color-text-disabled: var(--brand-gray);
+  --color-text-muted: var(--color-text-secondary);
+  --color-text-on-dark: var(--brand-ivory);
+
+  /* Lines */
   --color-border: var(--brand-hairline);
+  --color-border-strong: color-mix(in srgb, var(--brand-gray) 70%, var(--brand-hairline));
+  --color-divider: color-mix(in srgb, var(--brand-hairline) 60%, var(--brand-white));
+
+  /* Interaction */
+  --color-action: var(--brand-ink);
+  --color-action-hover: color-mix(in srgb, var(--brand-ink) 86%, var(--brand-gold));
+  --color-action-text: var(--brand-ivory);
+  --color-link: var(--brand-gold-deep);
+  --color-link-hover: var(--brand-ink);
+  --color-focus: var(--brand-gold-deep);
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--brand-gold) 35%, transparent);
+
+  /* Status — no green: success is Gold Deep, errors are Ruby */
+  --status-success-fg: var(--brand-gold-deep);
+  /* Success is outlined on white; warning is filled Parchment, so they never blur */
+  --status-success-bg: var(--brand-white);
+  --status-success-border: color-mix(in srgb, var(--brand-gold-deep) 55%, var(--brand-white));
+  --status-success-dot: var(--brand-gold-deep);
+
+  --status-warning-fg: var(--brand-ink);
+  --status-warning-bg: var(--brand-parchment);
+  --status-warning-border: var(--brand-gold);
+  --status-warning-dot: var(--brand-gold);
+
+  --status-danger-fg: var(--brand-ruby);
+  --status-danger-bg: color-mix(in srgb, var(--brand-ruby) 6%, var(--brand-white));
+  --status-danger-border: color-mix(in srgb, var(--brand-ruby) 40%, var(--brand-white));
+  --status-danger-dot: var(--brand-ruby);
+
+  --status-info-fg: var(--brand-ink);
+  --status-info-bg: color-mix(in srgb, var(--brand-ink) 5%, var(--brand-white));
+  --status-info-border: color-mix(in srgb, var(--brand-ink) 20%, var(--brand-white));
+  --status-info-dot: var(--brand-ink);
+
+  --status-neutral-fg: var(--color-text-secondary);
+  --status-neutral-bg: var(--brand-ivory);
+  --status-neutral-border: var(--brand-hairline);
+  --status-neutral-dot: var(--brand-gray);
+
+  /* Data visualisation (ordered, darkest first) */
+  --chart-1: var(--brand-ink);
+  --chart-2: var(--brand-gold);
+  --chart-3: var(--brand-pale-gold);
+  --chart-4: var(--brand-hairline);
+
+  /* Dark navigation surface */
+  --color-nav: var(--brand-ink);
+  --color-nav-text: color-mix(in srgb, var(--brand-ivory) 80%, var(--brand-ink));
+  --color-nav-text-strong: var(--brand-ivory);
+  --color-nav-text-active: var(--brand-pale-gold);
+  --color-nav-label: var(--brand-gold);
+  --color-nav-hover: color-mix(in srgb, var(--brand-ivory) 7%, var(--brand-ink));
+  --color-nav-active: color-mix(in srgb, var(--brand-pale-gold) 12%, var(--brand-ink));
+  --color-nav-border: color-mix(in srgb, var(--brand-ivory) 12%, var(--brand-ink));
+  --color-nav-muted: var(--color-nav-hover);
+
+  /* Elevation (Ink-tinted, never pure black) */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--brand-ink) 6%, transparent);
+  --shadow-md: 0 1px 2px color-mix(in srgb, var(--brand-ink) 5%, transparent),
+    0 6px 20px -8px color-mix(in srgb, var(--brand-ink) 14%, transparent);
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 999px;
+
+  /* Type */
+  --font-display: var(--font-dm-serif), Georgia, serif;
+  --font-body: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-heading: var(--font-display);
+
+  /* Convenience aliases */
   --color-ink: var(--brand-ink);
   --color-ruby: var(--brand-ruby);
   --color-gold: var(--brand-gold);
   --color-gold-deep: var(--brand-gold-deep);
   --color-pale-gold: var(--brand-pale-gold);
   --color-parchment: var(--brand-parchment);
-  --color-nav: var(--brand-ink);
-  --color-nav-muted: #201c16;
-  --color-nav-text: var(--brand-ivory);
   --color-white: var(--brand-white);
 
-  /* Legacy aliases → brand (so existing screens inherit Hyacinth) */
+  /* ── 3. Legacy aliases → brand (deprecated; use semantic roles) ──── */
   --color-navy: var(--brand-ink);
-  --color-navy-muted: #201c16;
+  --color-navy-muted: var(--color-nav-hover);
   --color-teal: var(--brand-gold-deep);
   --color-teal-hover: var(--brand-ink);
   --color-teal-muted: var(--brand-parchment);
@@ -44,14 +133,6 @@
   --color-amber-bg: var(--brand-parchment);
   --color-amber-border: var(--brand-gold);
   --color-row-border: var(--brand-hairline);
-
-  --radius-md: 10px;
-  --radius-lg: 10px;
-
-  --font-display: var(--font-dm-serif), Georgia, serif;
-  --font-body: var(--font-plex-sans), system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
-  --font-heading: var(--font-display);
 }
 
 @media (prefers-reduced-motion: reduce) {
