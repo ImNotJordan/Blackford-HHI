@@ -32,17 +32,17 @@ export default function CarrierFilePage() {
 
   return (
     <StaffShell>
-      <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)]">
-        <Link href="/carrier-files" className="no-underline">
+      <nav aria-label="Breadcrumb" className="breadcrumb">
+        <Link href="/carrier-files">
           Carrier files
         </Link>{" "}
         <span aria-hidden>/</span> Dental change file
       </nav>
 
-      <header className="flex flex-wrap items-start justify-between gap-4">
+      <header className="page-header">
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-center gap-3">
-            <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
+            <h1 className="page-title">
               [Carrier] Dental — weekly change file
             </h1>
             {sent ? (
@@ -51,7 +51,7 @@ export default function CarrierFilePage() {
               <Tag variant="warn">Waiting for approval</Tag>
             )}
           </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-[var(--color-text-muted)]">
+          <div className="meta-row">
             <span>Built Feb 16, 6:00 AM by Automation 15</span>
             <span>Changes since Feb 9 file</span>
             <span>Delivery: SFTP</span>
@@ -83,8 +83,8 @@ export default function CarrierFilePage() {
 
       <div className="flex flex-wrap items-start gap-6">
         <div className="flex min-w-0 flex-[3_1_520px] flex-col gap-6">
-          <section aria-labelledby="err" className="card flex flex-col gap-3.5 border-[var(--brand-gold)]">
-            <h2 id="err" className="heading m-0 text-lg">
+          <section aria-labelledby="err" className="card flex flex-col gap-3.5 border-gold">
+            <h2 id="err" className="section-title">
               Fix before sending
             </h2>
             {held ? (
@@ -93,7 +93,7 @@ export default function CarrierFilePage() {
                 the newborn&apos;s date of birth is on her record.
               </p>
             ) : (
-              <div className="flex flex-wrap items-center justify-between gap-4 rounded-[10px] bg-[var(--brand-parchment)] px-4 py-3.5">
+              <div className="flex flex-wrap items-center justify-between gap-4 rounded-lg border border-ruby bg-ruby-soft px-4 py-3.5">
                 <div className="flex flex-[1_1_300px] items-start gap-3">
                   <svg aria-hidden width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="var(--brand-ruby)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="mt-px shrink-0">
                     <path d="M12 3 2 20h20L12 3z" />
@@ -122,12 +122,12 @@ export default function CarrierFilePage() {
 
           <section aria-labelledby="recs" className="card flex flex-col gap-3">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h2 id="recs" className="heading m-0 text-lg">
+              <h2 id="recs" className="section-title">
                 Records in this file
               </h2>
-              <label className="flex items-center gap-2 text-[13px] text-[var(--color-text-muted)]">
+              <label className="flex items-center gap-2 text-[13px] text-muted">
                 Show
-                <select className="field-in !w-auto min-h-9">
+                <select className="field-in w-auto min-h-9">
                   <option>All 14</option>
                   <option>Adds</option>
                   <option>Changes</option>
@@ -150,12 +150,12 @@ export default function CarrierFilePage() {
                 </thead>
                 <tbody>
                   {RECORDS.map((r) => (
-                    <tr key={r.person} className={r.error && !held ? "bg-[var(--brand-ivory)]" : undefined}>
+                    <tr key={r.person} className={r.error && !held ? "bg-ruby-soft" : undefined}>
                       <td className="td font-semibold">{r.person}</td>
                       <td className="td">{r.group}</td>
                       <td className="td">{r.type}</td>
                       <td className="td">{r.coverage}</td>
-                      <td className="td font-[family-name:var(--font-mono)] text-[13px]">{r.effective}</td>
+                      <td className="td font-mono text-[13px]">{r.effective}</td>
                       <td className="td">
                         {r.error ? (
                           held ? <Tag variant="mute">Held</Tag> : <Tag variant="bad">1 error</Tag>
@@ -168,7 +168,7 @@ export default function CarrierFilePage() {
                 </tbody>
               </table>
             </div>
-            <button type="button" className="self-start cursor-pointer border-0 bg-transparent p-0 text-[13px] font-semibold text-[var(--brand-gold-deep)] underline underline-offset-[3px]">
+            <button type="button" className="link-action no-arrow self-start">
               Show 9 more
             </button>
           </section>
@@ -176,7 +176,7 @@ export default function CarrierFilePage() {
 
         <aside className="flex min-w-0 flex-[2_1_300px] flex-col gap-6">
           <section aria-labelledby="deliv" className="card flex flex-col gap-3">
-            <h2 id="deliv" className="heading m-0 text-lg">
+            <h2 id="deliv" className="section-title">
               Delivery
             </h2>
             <Row label="Method" value="SFTP · encrypted" />
@@ -186,7 +186,7 @@ export default function CarrierFilePage() {
           </section>
 
           <section aria-labelledby="log" className="card flex flex-col gap-1">
-            <h2 id="log" className="heading m-0 mb-2 text-lg">
+            <h2 id="log" className="section-title">
               Export log
             </h2>
             {sent ? (
@@ -206,19 +206,19 @@ function Figure({ label, value, warn }: { label: string; value: string; warn?: b
   return (
     <div
       className={`card flex flex-col gap-1 px-5 py-4 ${
-        warn ? "border-[var(--brand-gold)] bg-[var(--brand-parchment)]" : ""
+        warn ? "border-gold bg-parchment" : ""
       }`}
     >
-      <span className="text-[13px] text-[var(--brand-ink)]">{label}</span>
-      <span className="stat-figure !text-[26px]">{value}</span>
+      <span className="label">{label}</span>
+      <span className="stat-figure text-[26px]">{value}</span>
     </div>
   );
 }
 
 function Row({ label, value, last }: { label: string; value: string; last?: boolean }) {
   return (
-    <div className={`flex justify-between gap-3 text-[14px] ${last ? "" : "border-b border-[var(--brand-hairline)] pb-2.5"}`}>
-      <span className="text-[var(--color-text-muted)]">{label}</span>
+    <div className={`flex justify-between gap-3 text-[14px] ${last ? "" : "border-b border-hairline pb-2.5"}`}>
+      <span className="text-muted">{label}</span>
       <span className="text-right font-semibold">{value}</span>
     </div>
   );
@@ -238,10 +238,10 @@ function LogRow({
   last?: boolean;
 }) {
   return (
-    <div className={`flex justify-between gap-3 py-2.5 ${last ? "" : "border-b border-[var(--brand-hairline)]"}`}>
+    <div className={`flex justify-between gap-3 py-2.5 ${last ? "" : "border-b border-hairline"}`}>
       <div className="flex flex-col gap-0.5">
         <span className="font-semibold">{title}</span>
-        <span className="text-xs text-[var(--color-text-muted)]">{sub}</span>
+        <span className="text-xs text-muted">{sub}</span>
       </div>
       <span className="self-start">
         <Tag variant={tag}>{status}</Tag>
