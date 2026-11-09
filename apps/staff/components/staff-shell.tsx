@@ -225,7 +225,7 @@ export function StaffShell({ children }: { children: ReactNode }) {
         <nav
           id="main-nav"
           aria-label="Main"
-          className={`flex h-full flex-col overflow-y-auto overflow-x-hidden bg-ink pt-7 ${
+          className={`no-scrollbar flex h-full flex-col overflow-y-auto overflow-x-hidden bg-ink pt-7 ${
             collapsed ? "gap-6 px-2" : "gap-7 px-4"
           }`}
         >
