@@ -3,6 +3,16 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Avatar, SignatureBar } from "@/components/ui";
+import {
+  BanknoteIcon,
+  BuildingIcon,
+  ChartIcon,
+  ChevronLeftIcon,
+  DocumentCheckIcon,
+  SignOutIcon,
+  UploadIcon,
+  UsersIcon,
+} from "@/components/icons";
 
 export type EmployerNavKey =
   | "company"
@@ -14,48 +24,24 @@ export type EmployerNavKey =
 
 const STORAGE_KEY = "blackford.sidebar";
 
-function ChartIcon() {
-  return (
-    <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <path d="M2.5 10V7M6 10V3.5M9.5 10V5.5" />
-    </svg>
-  );
-}
-
-function PayIcon() {
-  return (
-    <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8.2 3.6C7.8 2.9 7 2.6 6 2.6c-1.2 0-2 .6-2 1.5 0 2 4.2 1 4.2 3.2 0 .9-.9 1.6-2.2 1.6-1.1 0-1.9-.4-2.3-1.1M6 1.5v1.1M6 9v1.5" />
-    </svg>
-  );
-}
-
-function SignOutIcon() {
-  return (
-    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 2.5H3.5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1H6M10.5 11 13.5 8l-3-3M13.5 8H6" />
-    </svg>
-  );
-}
-
 const NAV_GROUPS: {
   label: string;
-  items: { key: EmployerNavKey; label: string; href: string; badge: ReactNode }[];
+  items: { key: EmployerNavKey; label: string; href: string; icon: ReactNode; step?: number }[];
 }[] = [
   {
     label: "Onboarding",
     items: [
-      { key: "company", label: "Company and payroll", href: "/employer/company", badge: 1 },
-      { key: "plans", label: "Plans and agreement", href: "/employer/setup", badge: 2 },
-      { key: "census", label: "Census upload", href: "/employer/census", badge: 3 },
-      { key: "employees", label: "Employees", href: "/employer/employees", badge: 4 },
+      { key: "company", label: "Company and payroll", href: "/employer/company", icon: <BuildingIcon />, step: 1 },
+      { key: "plans", label: "Plans and agreement", href: "/employer/setup", icon: <DocumentCheckIcon />, step: 2 },
+      { key: "census", label: "Census upload", href: "/employer/census", icon: <UploadIcon />, step: 3 },
+      { key: "employees", label: "Employees", href: "/employer/employees", icon: <UsersIcon />, step: 4 },
     ],
   },
   {
     label: "Enrollment",
     items: [
-      { key: "progress", label: "Enrollment progress", href: "/employer/progress", badge: <ChartIcon /> },
-      { key: "payroll", label: "Payroll updates", href: "/employer/payroll", badge: <PayIcon /> },
+      { key: "progress", label: "Enrollment progress", href: "/employer/progress", icon: <ChartIcon /> },
+      { key: "payroll", label: "Payroll updates", href: "/employer/payroll", icon: <BanknoteIcon /> },
     ],
   },
 ];
@@ -143,11 +129,7 @@ export function PortalShell({
           title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           {pulse > 0 ? <span key={pulse} className="toggle-ripple" aria-hidden /> : null}
-          <svg className="toggle-chevron" viewBox="0 0 16 16" width="14" height="14" aria-hidden fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <g className="toggle-chevron-arm">
-              <path d="M10 3.5 5.5 8l4.5 4.5" />
-            </g>
-          </svg>
+          <ChevronLeftIcon className="toggle-chevron" />
         </button>
 
         <div className="shell-nav-inner">
@@ -163,6 +145,7 @@ export function PortalShell({
             </Link>
             <div className="only-mobile items-center gap-3">
               <Link href="/employer/invite" className="shell-signout">
+                <SignOutIcon />
                 Sign out
               </Link>
               <span title={userName}>
@@ -181,13 +164,20 @@ export function PortalShell({
                     href={item.href}
                     aria-current={item.key === activeNav ? "page" : undefined}
                     className="nav-link"
-                    title={collapsed ? item.label : undefined}
                     style={{ "--i": gi * 4 + i } as CSSProperties}
                   >
-                    <span className="nav-step" aria-hidden>
-                      {item.badge}
+                    <span className="nav-icon">
+                      {item.icon}
+                      {item.step ? (
+                        <span className="nav-step" aria-hidden>
+                          {item.step}
+                        </span>
+                      ) : null}
                     </span>
-                    <span className="nav-text">{item.label}</span>
+                    <span className="nav-text">
+                      {item.step ? <span className="sr-only">Step {item.step}: </span> : null}
+                      {item.label}
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -195,18 +185,14 @@ export function PortalShell({
           </nav>
 
           <div className="shell-user only-desktop">
-            <div className="shell-user-row" title={collapsed ? `${userName} · Employer HR` : undefined}>
+            <div className="shell-user-row">
               <Avatar initials={userInitials} />
               <div className="nav-text flex min-w-0 flex-col">
                 <span className="shell-user-name">{userName}</span>
                 <span className="shell-user-role">Employer HR</span>
               </div>
             </div>
-            <Link
-              href="/employer/invite"
-              className="shell-signout"
-              title={collapsed ? "Sign out" : undefined}
-            >
+            <Link href="/employer/invite" className="shell-signout">
               <SignOutIcon />
               <span className="nav-text">Sign out</span>
             </Link>
