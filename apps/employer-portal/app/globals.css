@@ -123,6 +123,7 @@
     width: 264px;
     height: 100vh;
     flex-shrink: 0;
+    z-index: 20;
     background: var(--color-nav);
     color: var(--color-nav-text);
   }
@@ -240,18 +241,45 @@
     border-radius: var(--radius-full);
     background: var(--brand-gold);
   }
-  .nav-step {
+  /* Icon with an optional onboarding step badge in its corner */
+  .nav-icon {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 22px;
     height: 22px;
     flex-shrink: 0;
+    color: var(--color-nav-text);
+    transition: color 0.15s ease, transform 0.2s cubic-bezier(0.34, 1.6, 0.6, 1);
+  }
+  .nav-link:hover .nav-icon {
+    color: var(--color-nav-text-strong);
+  }
+  .nav-link[aria-current="page"] .nav-icon {
+    color: var(--brand-gold);
+  }
+  .nav-step {
+    position: absolute;
+    right: -7px;
+    bottom: -5px;
+    min-width: 14px;
+    height: 14px;
+    box-sizing: border-box;
+    padding: 0 3px;
     border: 1px solid var(--color-nav-border);
     border-radius: var(--radius-full);
+    background: var(--color-nav);
+    color: var(--color-nav-text);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 500;
+    line-height: 12px;
+    text-align: center;
+    transition: background 0.15s ease;
+  }
+  .nav-link:hover .nav-step {
+    background: var(--color-nav-hover);
   }
   .nav-link[aria-current="page"] .nav-step {
     border-color: var(--brand-gold);
@@ -406,8 +434,8 @@
       transform: none;
     }
   }
-  /* Collapsing: rail badges pop in */
-  .shell[data-animated][data-sidebar="collapsed"] .nav-step {
+  /* Collapsing: rail icons pop in */
+  .shell[data-animated][data-sidebar="collapsed"] .nav-icon {
     animation: badge-pop 0.35s cubic-bezier(0.34, 1.6, 0.6, 1) both;
     animation-delay: calc(0.08s + var(--i, 0) * 0.03s);
   }
@@ -435,6 +463,63 @@
   .shell[data-sidebar="collapsed"] .shell-nav-inner {
     padding-left: 12px;
     padding-right: 12px;
+    overflow: visible; /* let tooltips escape the rail */
+  }
+  .shell[data-sidebar="collapsed"] .nav-link:hover .nav-icon {
+    transform: scale(1.1);
+  }
+
+  /* Collapsed rail: the hidden label becomes a tooltip on hover/focus */
+  .shell[data-sidebar="collapsed"] .shell-signout,
+  .shell[data-sidebar="collapsed"] .shell-user-row {
+    position: relative;
+  }
+  .shell[data-sidebar="collapsed"] .nav-link:is(:hover, :focus-visible) > .nav-text,
+  .shell[data-sidebar="collapsed"] .shell-signout:is(:hover, :focus-visible) > .nav-text,
+  .shell[data-sidebar="collapsed"] .shell-user-row:hover > .nav-text {
+    left: calc(100% + 14px);
+    top: 50%;
+    z-index: 40;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    padding: 7px 11px;
+    border: 1px solid var(--color-nav-border);
+    border-radius: var(--radius-sm);
+    background: var(--brand-ink);
+    color: var(--brand-ivory);
+    box-shadow: var(--shadow-md);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    pointer-events: none;
+    transform: translateY(-50%);
+    animation: tooltip-in 0.16s ease-out both;
+  }
+  .shell[data-sidebar="collapsed"] .nav-link:is(:hover, :focus-visible) > .nav-text::before,
+  .shell[data-sidebar="collapsed"] .shell-signout:is(:hover, :focus-visible) > .nav-text::before,
+  .shell[data-sidebar="collapsed"] .shell-user-row:hover > .nav-text::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-bottom: 1px solid var(--color-nav-border);
+    border-left: 1px solid var(--color-nav-border);
+    background: var(--brand-ink);
+    transform: translateY(-50%) rotate(45deg);
+  }
+  @keyframes tooltip-in {
+    from {
+      opacity: 0;
+      transform: translate(-4px, -50%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
   }
   .shell[data-sidebar="collapsed"] .shell-top {
     justify-content: center;
