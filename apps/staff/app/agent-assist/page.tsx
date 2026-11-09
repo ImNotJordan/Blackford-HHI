@@ -23,12 +23,12 @@ export default function AgentAssistPage() {
   const chosen = PLANS.find((p) => p.id === plan)!;
 
   return (
-    <div className="flex min-h-screen bg-[var(--brand-ivory)] text-[15px] text-[var(--brand-ink)]">
-      <aside className="flex w-[300px] shrink-0 flex-col gap-3.5 border-r border-[var(--brand-hairline)] bg-[var(--brand-surface)] px-3.5 py-5 max-[900px]:w-[240px]">
+    <div className="flex min-h-screen bg-ivory text-[15px] text-ink">
+      <aside className="flex w-[300px] shrink-0 flex-col gap-3.5 border-r border-hairline bg-surface px-3.5 py-5 max-[900px]:w-[240px]">
         <div className="flex flex-col gap-0.5 px-1.5">
           <span className="eyebrow">In-person meeting</span>
           <span className="heading text-[20px]">Riverside Dental · Feb 16</span>
-          <span className="text-[13px] text-[var(--color-text-muted)]">Dana Whitfield assisting</span>
+          <span className="text-[13px] text-muted">Dana Whitfield assisting</span>
         </div>
         <ul className="m-0 flex list-none flex-col gap-0.5 p-0" aria-label="People at this meeting">
           {PEOPLE.map((p) => {
@@ -38,8 +38,8 @@ export default function AgentAssistPage() {
                 <button
                   type="button"
                   aria-current={current ? "true" : undefined}
-                  className={`flex min-h-[52px] w-full cursor-pointer items-center justify-between gap-2 rounded-[10px] border-0 px-3 text-left text-[15px] text-[var(--brand-ink)] ${
-                    current ? "bg-[var(--brand-parchment)] font-semibold" : "bg-transparent hover:bg-[var(--brand-ivory)]"
+                  className={`flex min-h-[52px] w-full cursor-pointer items-center justify-between gap-2 rounded-lg border-0 px-3 text-left text-[15px] text-ink ${
+                    current ? "bg-parchment font-semibold" : "bg-transparent hover:bg-ivory"
                   }`}
                 >
                   <span>{p.name}</span>
@@ -58,11 +58,11 @@ export default function AgentAssistPage() {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex items-center gap-5 border-b border-[var(--brand-hairline)] bg-[var(--brand-surface)] px-6 py-3.5">
+        <div className="flex items-center gap-5 border-b border-hairline bg-surface px-6 py-3.5">
           <div className="flex flex-1 flex-col gap-2">
             <div className="flex flex-wrap justify-between gap-2">
               <span className="font-semibold">Tuan Nguyen · Compare medical plans</span>
-              <span className="text-[13px] text-[var(--color-text-muted)]">
+              <span className="text-[13px] text-muted">
                 Same steps as the phone portal
               </span>
             </div>
@@ -72,9 +72,9 @@ export default function AgentAssistPage() {
               aria-valuemin={0}
               aria-valuemax={6}
               aria-valuenow={3}
-              className="h-1.5 overflow-hidden rounded-full bg-[var(--brand-hairline)]"
+              className="progress progress-sm"
             >
-              <div className="h-full w-1/2 bg-[var(--brand-gold)]" />
+              <span className="w-1/2" />
             </div>
           </div>
           <button type="button" className="btn btn-secondary">
@@ -84,8 +84,8 @@ export default function AgentAssistPage() {
 
         <div className="flex flex-1 flex-col gap-5 p-6">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h1 className="heading m-0 text-[28px]">Choose a medical plan</h1>
-            <span className="text-[var(--color-text-muted)]">
+            <h1 className="page-title">Choose a medical plan</h1>
+            <span className="text-muted">
               Covering: Tuan, Linh (spouse), 2 children · Family tier
             </span>
           </div>
@@ -97,8 +97,8 @@ export default function AgentAssistPage() {
               return (
                 <label
                   key={p.id}
-                  className={`flex min-w-[200px] flex-1 cursor-pointer flex-col gap-1.5 rounded-[14px] bg-[var(--brand-surface)] p-4 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--brand-gold-deep)] ${
-                    on ? "border-2 border-[var(--brand-ink)]" : "border border-[var(--brand-hairline)]"
+                  className={`flex min-w-[200px] flex-1 cursor-pointer flex-col gap-1.5 rounded-xl bg-surface p-4 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold-deep ${
+                    on ? "border-2 border-ink" : "border border-hairline"
                   }`}
                 >
                   <input
@@ -113,24 +113,24 @@ export default function AgentAssistPage() {
                     <span className="text-[17px] font-semibold">{p.name}</span>
                     {p.current ? <Tag variant="ok">Current plan</Tag> : null}
                   </span>
-                  <span className="text-[13px] text-[var(--color-text-muted)]">{p.detail}</span>
-                  <span className="stat-figure !text-[28px]">{p.price}</span>
-                  <span className="text-[13px] text-[var(--color-text-muted)]">{p.sub}</span>
+                  <span className="text-[13px] text-muted">{p.detail}</span>
+                  <span className="stat-figure text-[28px]">{p.price}</span>
+                  <span className="text-[13px] text-muted">{p.sub}</span>
                 </label>
               );
             })}
           </fieldset>
 
-          <label className="field-label !flex-none">
+          <label className="field-label flex-none">
             Meeting note on Tuan&apos;s record (staff only)
             <textarea
               rows={3}
-              className="field-in py-3 !text-[15px] font-normal"
+              className="field-in py-3 text-[15px] font-normal"
               defaultValue="Asked about HSA. Wants to stay on PPO because of son's orthodontist."
             />
           </label>
 
-          <div className="flex items-center gap-3 rounded-[12px] border border-[var(--brand-gold)] bg-[var(--brand-parchment)] px-4 py-3.5">
+          <div className="flex items-center gap-3 rounded-lg border border-gold bg-parchment px-4 py-3.5">
             <svg aria-hidden width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
               <rect x="5" y="2" width="14" height="20" rx="2" />
               <path d="M12 18h.01" />
@@ -143,7 +143,7 @@ export default function AgentAssistPage() {
           </div>
         </div>
 
-        <div className="flex justify-between gap-3 border-t border-[var(--brand-hairline)] bg-[var(--brand-surface)] px-6 py-3.5">
+        <div className="flex justify-between gap-3 border-t border-hairline bg-surface px-6 py-3.5">
           <button type="button" className="btn btn-secondary min-h-[52px] px-6">
             Back
           </button>
