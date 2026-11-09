@@ -21,22 +21,22 @@ const TRAIL: { event: string; when: string; extra?: string }[] = [
 export default function SignedDocumentPage() {
   return (
     <StaffShell>
-      <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)]">
-        <Link href="/groups/riverside-dental" className="no-underline">
+      <nav aria-label="Breadcrumb" className="breadcrumb">
+        <Link href="/groups/riverside-dental">
           Riverside Dental Group
         </Link>{" "}
         <span aria-hidden>/</span> Maria Delgado <span aria-hidden>/</span> Documents
       </nav>
 
-      <header className="flex flex-wrap items-start justify-between gap-4">
+      <header className="page-header">
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-center gap-3">
-            <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
+            <h1 className="page-title">
               2027 benefit election form
             </h1>
             <Tag variant="ok">Signed</Tag>
           </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-[var(--color-text-muted)]">
+          <div className="meta-row">
             <span>Signer: Maria Delgado</span>
             <span>Signed Feb 16, 2027 · 9:05 AM ET</span>
             <span>Ready for carrier file</span>
@@ -55,35 +55,35 @@ export default function SignedDocumentPage() {
       <div className="flex flex-wrap items-start gap-6">
         <section
           aria-label="Document preview"
-          className="flex min-w-0 flex-[3_1_520px] justify-center rounded-[var(--radius-md)] border border-[var(--brand-hairline)] bg-[#ECE8DF] p-6"
+          className="flex min-w-0 flex-[3_1_520px] justify-center rounded-lg border border-hairline bg-sand p-6"
         >
-          <div className="flex w-full max-w-[560px] flex-col gap-5 bg-[var(--brand-surface)] p-8 shadow-sm">
-            <div className="flex justify-between gap-3 border-b border-[var(--brand-hairline)] pb-3">
+          <div className="flex w-full max-w-[560px] flex-col gap-5 bg-surface p-8 shadow-sm">
+            <div className="flex justify-between gap-3 border-b border-hairline pb-3">
               <span className="heading text-[18px]">Blackford &amp; Associates</span>
-              <span className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">
                 Page 1 of 2
               </span>
             </div>
             <span className="font-semibold">Benefit Election Form · Plan year 2027</span>
             <dl className="m-0 grid grid-cols-[120px_1fr] gap-x-3 gap-y-1.5 text-[14px]">
-              <dt className="text-[var(--color-text-muted)]">Employee</dt>
+              <dt className="text-muted">Employee</dt>
               <dd className="m-0">Maria Delgado</dd>
-              <dt className="text-[var(--color-text-muted)]">Employer</dt>
+              <dt className="text-muted">Employer</dt>
               <dd className="m-0">Riverside Dental Group</dd>
-              <dt className="text-[var(--color-text-muted)]">Effective</dt>
+              <dt className="text-muted">Effective</dt>
               <dd className="m-0">March 1, 2027</dd>
             </dl>
             <div className="flex flex-col">
               {LINES.map((l) => (
-                <div key={l.label} className="flex justify-between gap-3 border-b border-[var(--brand-hairline)] py-2 text-[14px]">
+                <div key={l.label} className="flex justify-between gap-3 border-b border-hairline py-2 text-[14px]">
                   <span>{l.label}</span>
-                  <span className="font-[family-name:var(--font-mono)] text-[13px]">{l.amount}</span>
+                  <span className="font-mono text-[13px]">{l.amount}</span>
                 </div>
               ))}
             </div>
-            <div className="flex flex-col gap-1 border-t-2 border-[var(--brand-ink)] pt-3">
+            <div className="flex flex-col gap-1 border-t-2 border-ink pt-3">
               <span className="heading text-[24px] italic">Maria Delgado</span>
-              <span className="font-[family-name:var(--font-mono)] text-[11px] text-[var(--color-text-muted)]">
+              <span className="font-mono text-[11px] text-muted">
                 Signed electronically · Feb 16, 2027 9:05 AM ET · ID 7F3A-21C9
               </span>
             </div>
@@ -92,25 +92,25 @@ export default function SignedDocumentPage() {
 
         <aside className="flex min-w-0 flex-[2_1_300px] flex-col gap-6">
           <section aria-labelledby="trail" className="card flex flex-col gap-1">
-            <h2 id="trail" className="heading m-0 mb-2 text-lg">
+            <h2 id="trail" className="section-title">
               Audit trail
             </h2>
             <ol className="m-0 flex list-none flex-col p-0">
               {TRAIL.map((t, i) => (
                 <li key={t.event} className="flex gap-3">
                   <span className="flex flex-col items-center" aria-hidden>
-                    <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--brand-gold)]" />
+                    <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-gold" />
                     {i < TRAIL.length - 1 ? (
-                      <span className="w-px flex-1 bg-[var(--brand-hairline)]" />
+                      <span className="w-px flex-1 bg-hairline" />
                     ) : null}
                   </span>
                   <div className="flex flex-col gap-0.5 pb-3.5">
                     <span className="font-semibold">{t.event}</span>
-                    <span className="font-[family-name:var(--font-mono)] text-[12px] text-[var(--color-text-muted)]">
+                    <span className="font-mono text-[12px] text-muted">
                       {t.when}
                     </span>
                     {t.extra ? (
-                      <span className="font-[family-name:var(--font-mono)] text-[12px] text-[var(--color-text-muted)]">
+                      <span className="font-mono text-[12px] text-muted">
                         {t.extra}
                       </span>
                     ) : null}
@@ -121,14 +121,14 @@ export default function SignedDocumentPage() {
           </section>
 
           <section aria-labelledby="docs" className="card flex flex-col gap-1">
-            <h2 id="docs" className="heading m-0 mb-2 text-lg">
+            <h2 id="docs" className="section-title">
               Other documents
             </h2>
-            <div className="flex items-center justify-between gap-3 border-b border-[var(--brand-hairline)] py-2.5">
+            <div className="flex items-center justify-between gap-3 border-b border-hairline py-2.5">
               <span>Carrier application · medical</span>
               <Tag variant="ok">Signed</Tag>
             </div>
-            <div className="flex items-center justify-between gap-3 border-b border-[var(--brand-hairline)] py-2.5">
+            <div className="flex items-center justify-between gap-3 border-b border-hairline py-2.5">
               <span>Life beneficiary form</span>
               <Tag variant="ok">Signed</Tag>
             </div>
