@@ -1,41 +1,30 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { StaffShell } from "@/components/staff-shell";
+import { PageHeader } from "@/components/ui/page-header";
 import { Tag } from "@/components/ui/tag";
+
+const MERGE_FIELDS = ["[first name]", "[window end]", "[secure link]", "[account manager]"];
 
 export default function BulkSendPage() {
   return (
     <StaffShell>
-      <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)]">
-        <Link href="/inbox" className="no-underline">
-          Inbox
-        </Link>{" "}
-        <span aria-hidden>/</span> New bulk message
-      </nav>
-
-      <header className="flex flex-col gap-1">
-        <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
-          New bulk message
-        </h1>
-        <p className="m-0 text-[var(--color-text-muted)]">
-          Replies land in the shared inbox and on each person&apos;s record.
-        </p>
-      </header>
+      <PageHeader
+        breadcrumb={[{ label: "Inbox", href: "/inbox" }, { label: "New bulk message" }]}
+        title="New bulk message"
+        description="Replies land in the shared inbox and on each person's record."
+      />
 
       <div className="flex flex-wrap items-start gap-6">
         <div className="flex min-w-0 flex-[3_1_520px] flex-col gap-5">
-          <section aria-labelledby="aud" className="card gap-3.5">
-            <h2 id="aud" className="heading m-0 text-lg font-bold">
-              1 · Who gets it
-            </h2>
+          <Step n={1} id="aud" title="Who gets it">
             <div className="flex flex-wrap gap-3">
-              <label className="field-label min-w-[220px] flex-[1_1_220px]">
+              <label className="field-label min-w-[220px]">
                 Group
                 <select className="field-in">
                   <option>Riverside Dental Group</option>
                 </select>
               </label>
-              <label className="field-label min-w-[220px] flex-[1_1_220px]">
+              <label className="field-label min-w-[220px]">
                 Filter
                 <select className="field-in">
                   <option>Not yet enrolled</option>
@@ -45,18 +34,15 @@ export default function BulkSendPage() {
                 </select>
               </label>
             </div>
-            <div className="flex flex-wrap items-center gap-2 text-[13px]">
-              <span className="font-semibold">27 people</span>
+            <div className="flex flex-wrap items-center gap-2 rounded-lg bg-ivory px-3.5 py-3 text-[14px]">
+              <span className="mr-1 font-semibold">27 people</span>
               <Tag variant="ok">24 can be texted</Tag>
               <Tag variant="mute">2 email only</Tag>
               <Tag variant="warn">1 opted out of both — left out</Tag>
             </div>
-          </section>
+          </Step>
 
-          <section aria-labelledby="msg" className="card gap-3.5">
-            <h2 id="msg" className="heading m-0 text-lg font-bold">
-              2 · Message
-            </h2>
+          <Step n={2} id="msg" title="Message">
             <div className="flex flex-wrap gap-3">
               <label className="field-label min-w-[260px] flex-[2_1_260px]">
                 Template
@@ -64,7 +50,7 @@ export default function BulkSendPage() {
                   <option>Open enrollment reminder · not started</option>
                 </select>
               </label>
-              <label className="field-label min-w-[160px] flex-[1_1_160px]">
+              <label className="field-label min-w-[160px]">
                 Channel
                 <select className="field-in">
                   <option>Text, email if no mobile</option>
@@ -73,11 +59,11 @@ export default function BulkSendPage() {
                 </select>
               </label>
             </div>
-            <div role="tablist" aria-label="Language" className="flex gap-1">
-              <button type="button" role="tab" aria-selected className="btn btn-secondary border-[var(--color-teal)] bg-[#E6F2F1] text-[#0B5953]">
+            <div role="tablist" aria-label="Language" className="segmented self-start">
+              <button type="button" role="tab" aria-selected="true">
                 English
               </button>
-              <button type="button" role="tab" aria-selected={false} className="btn btn-secondary">
+              <button type="button" role="tab" aria-selected="false">
                 Spanish · sent to 9
               </button>
             </div>
@@ -85,57 +71,62 @@ export default function BulkSendPage() {
               Text
               <textarea
                 rows={4}
-                className="field-in min-h-[100px] resize-y py-3 leading-normal"
+                className="field-in min-h-[110px]"
                 defaultValue="Hi [first name], Riverside Dental open enrollment closes [window end]. It takes about 15 minutes on your phone: [secure link] — Blackford. Reply STOP to opt out."
               />
             </label>
-            <div className="flex flex-wrap gap-1.5 text-xs">
-              <Tag variant="mute">[first name]</Tag>
-              <Tag variant="mute">[window end]</Tag>
-              <Tag variant="mute">[secure link]</Tag>
-              <Tag variant="mute">[account manager]</Tag>
-              <span className="self-center text-[var(--color-text-muted)]">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="mr-1 text-[13px] text-muted">Insert:</span>
+              {MERGE_FIELDS.map((f) => (
+                <button key={f} type="button" className="merge-field cursor-pointer hover:border-ink">
+                  {f}
+                </button>
+              ))}
+              <span className="ml-auto font-mono text-xs text-muted">
                 142 characters · 1 text segment
               </span>
             </div>
-          </section>
+          </Step>
 
-          <section aria-labelledby="when" className="card gap-3">
-            <h2 id="when" className="heading m-0 text-lg font-bold">
-              3 · When
-            </h2>
-            <label className="flex min-h-11 items-center gap-2.5">
-              <input type="radio" name="when" defaultChecked className="h-5 w-5 accent-[var(--color-teal)]" />
-              Now — anyone in quiet hours (9 PM–8 AM their time) gets it at 8 AM
-            </label>
-            <label className="flex min-h-11 items-center gap-2.5">
-              <input type="radio" name="when" className="h-5 w-5 accent-[var(--color-teal)]" />
-              Schedule for a date and time
-            </label>
-          </section>
+          <Step n={3} id="when" title="When">
+            <div className="flex flex-col">
+              <label className="check-row">
+                <input type="radio" name="when" defaultChecked />
+                Now — anyone in quiet hours (9 PM–8 AM their time) gets it at 8 AM
+              </label>
+              <label className="check-row">
+                <input type="radio" name="when" />
+                Schedule for a date and time
+              </label>
+            </div>
+          </Step>
         </div>
 
-        <aside className="flex min-w-0 flex-[2_1_300px] flex-col gap-5">
-          <section aria-labelledby="prev" className="card gap-3">
-            <h2 id="prev" className="heading m-0 text-lg font-bold">
+        <aside className="sticky top-8 flex min-w-0 flex-[2_1_300px] flex-col gap-5">
+          <section aria-labelledby="prev" className="card">
+            <h2 id="prev" className="section-title">
               Preview for Tuan Nguyen
             </h2>
-            <div className="max-w-[280px] self-start rounded-[16px_16px_16px_4px] bg-[#EEF1F5] px-3.5 py-3 leading-normal">
-              Hi Tuan, Riverside Dental open enrollment closes Feb 28. It takes
-              about 15 minutes on your phone: [secure enrollment link] —
-              Blackford. Reply STOP to opt out.
+            <div className="rounded-lg bg-ivory p-4">
+              <div className="bubble bubble-in max-w-[300px]">
+                Hi Tuan, Riverside Dental open enrollment closes Feb 28. It takes
+                about 15 minutes on your phone: [secure enrollment link] —
+                Blackford. Reply STOP to opt out.
+              </div>
             </div>
           </section>
-          <section aria-labelledby="rules" className="card">
-            <h2 id="rules" className="heading mb-1.5 m-0 text-lg font-bold">
+          <section aria-labelledby="rules" className="card gap-1">
+            <h2 id="rules" className="section-title mb-1">
               Applied automatically
             </h2>
-            <RuleRow label="STOP and HELP replies" value={<Tag variant="ok">Handled</Tag>} />
-            <RuleRow label="Opt-outs and no consent" value={<Tag variant="ok">Left out</Tag>} />
-            <RuleRow label="Failed text or bounce" value="Other channel, then call task" />
-            <RuleRow label="Delivery tracking" value="On each record" last />
+            <div className="divided">
+              <RuleRow label="STOP and HELP replies" value={<Tag variant="ok">Handled</Tag>} />
+              <RuleRow label="Opt-outs and no consent" value={<Tag variant="ok">Left out</Tag>} />
+              <RuleRow label="Failed text or bounce" value="Other channel, then call task" />
+              <RuleRow label="Delivery tracking" value="On each record" />
+            </div>
           </section>
-          <button type="button" className="btn btn-primary">
+          <button type="button" className="btn btn-primary min-h-12">
             Send to 26 people
           </button>
         </aside>
@@ -144,21 +135,38 @@ export default function BulkSendPage() {
   );
 }
 
-function RuleRow({
-  label,
-  value,
-  last,
+function Step({
+  n,
+  id,
+  title,
+  children,
 }: {
-  label: string;
-  value: ReactNode;
-  last?: boolean;
+  n: number;
+  id: string;
+  title: string;
+  children: ReactNode;
 }) {
   return (
-    <div
-      className={`flex justify-between gap-3 py-2.5 ${last ? "" : "border-b border-[#EEF1F5]"}`}
-    >
+    <section aria-labelledby={id} className="card">
+      <div className="flex items-center gap-3">
+        <span aria-hidden className="avatar avatar-sm avatar-ink font-mono">
+          {n}
+        </span>
+        <h2 id={id} className="section-title">
+          <span className="sr-only">Step {n}: </span>
+          {title}
+        </h2>
+      </div>
+      {children}
+    </section>
+  );
+}
+
+function RuleRow({ label, value }: { label: string; value: ReactNode }) {
+  return (
+    <div className="flex items-center justify-between gap-3 py-2.5 text-[14px]">
       <span>{label}</span>
-      <span>{value}</span>
+      <span className="text-right text-ink-soft">{value}</span>
     </div>
   );
 }
