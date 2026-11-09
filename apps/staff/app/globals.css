@@ -939,6 +939,14 @@
 }
 
 @layer utilities {
+  /* Scrollable, but with no visible scrollbar (sidebar rail) */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .rise {
     animation: rise 0.55s ease both;
   }
