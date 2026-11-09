@@ -31,39 +31,39 @@ const FILES: {
 export default function CarrierFilesPage() {
   return (
     <StaffShell>
-      <header className="flex flex-col gap-1">
-        <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
+      <header className="page-header">
+        <h1 className="page-title">
           Carrier files
         </h1>
-        <p className="m-0 text-[var(--color-text-muted)]">
+        <p className="page-sub">
           Approved CSV files by SFTP at launch. Nothing leaves without staff
           approval.
         </p>
       </header>
 
       <section aria-labelledby="st" className="card flex flex-col gap-3">
-        <h2 id="st" className="heading m-0 text-lg">
+        <h2 id="st" className="section-title">
           Enrollments on their way to carriers
         </h2>
         <div className="flex flex-wrap gap-3">
           {PIPELINE.map((p) => (
             <div
               key={p.label}
-              className={`flex flex-[1_1_140px] flex-col gap-1 rounded-[10px] border px-4 py-3.5 ${
+              className={`flex flex-[1_1_140px] flex-col gap-1 rounded-lg border px-4 py-3.5 ${
                 p.highlight
-                  ? "border-[var(--brand-gold)] bg-[var(--brand-parchment)]"
-                  : "border-[var(--brand-hairline)] bg-[var(--brand-ivory)]"
+                  ? "border-gold bg-parchment"
+                  : "border-hairline bg-ivory"
               }`}
             >
-              <span className="text-[13px] text-[var(--brand-ink)]">{p.label}</span>
-              <span className="stat-figure !text-[26px]">{p.value}</span>
+              <span className="label">{p.label}</span>
+              <span className="stat-figure text-[26px]">{p.value}</span>
             </div>
           ))}
         </div>
       </section>
 
       <section aria-labelledby="q" className="card flex flex-col gap-3">
-        <h2 id="q" className="heading m-0 text-lg">
+        <h2 id="q" className="section-title">
           Files
         </h2>
         <div className="overflow-x-auto">
@@ -89,18 +89,18 @@ export default function CarrierFilesPage() {
                   </td>
                   <td className="td">{f.carrier}</td>
                   <td className="td">{f.records}</td>
-                  <td className="td font-[family-name:var(--font-mono)] text-[13px]">{f.built}</td>
+                  <td className="td font-mono text-[13px]">{f.built}</td>
                   <td className="td">{f.delivery}</td>
                   <td className="td">
                     <Tag variant={f.tag}>{f.status}</Tag>
                   </td>
                   <td className="td">
                     {f.href ? (
-                      <Link href={f.href} className="font-semibold">
+                      <Link href={f.href} className="btn btn-secondary btn-sm">
                         {f.action}
                       </Link>
                     ) : (
-                      <button type="button" className="cursor-pointer border-0 bg-transparent p-0 font-semibold text-[var(--brand-gold-deep)] underline underline-offset-[3px]">
+                      <button type="button" className="link-action no-arrow">
                         {f.action}
                       </button>
                     )}
