@@ -1,81 +1,63 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { StaffShell } from "@/components/staff-shell";
+import { Callout } from "@/components/ui/callout";
+import { PageHeader } from "@/components/ui/page-header";
 
 export default function ClientsPage() {
   return (
     <StaffShell>
-      <header className="flex flex-wrap items-end justify-between gap-4">
-        <div className="flex flex-col gap-1">
-          <p className="m-0 text-[13px] text-[var(--color-text-muted)]">
-            74 groups · 186 individual and Medicare households
-          </p>
-          <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
-            Clients and groups
-          </h1>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Link href="/import" className="btn btn-secondary no-underline">
-            Import spreadsheet
-          </Link>
-          <Link href="/clients/new" className="btn btn-primary no-underline">
-            New client
-          </Link>
-        </div>
-      </header>
+      <PageHeader
+        eyebrow="74 groups · 186 individual and Medicare households"
+        title="Clients and groups"
+        actions={
+          <>
+            <Link href="/import" className="btn btn-secondary">
+              Import spreadsheet
+            </Link>
+            <Link href="/clients/new" className="btn btn-primary">
+              New client
+            </Link>
+          </>
+        }
+      />
 
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#F3D3AE] bg-[#FDF3E7] px-4 py-3.5">
-        <div className="flex min-w-[360px] flex-1 items-start gap-3">
-          <WarningIcon />
-          <div className="flex flex-col gap-0.5">
-            <span className="font-semibold">
-              Import of current_book.xlsx: 6 possible duplicates
-            </span>
-            <span className="text-[13px] text-[#5C3204]">
-              412 records imported. 6 match an existing client by EIN, email or
-              phone and are waiting for you to merge or keep separate.
-            </span>
-          </div>
-        </div>
-        <Link href="/import" className="btn min-h-10 border-0 bg-[var(--color-text)] text-white no-underline">
-          Review duplicates
-        </Link>
-      </div>
+      <Callout
+        tone="warn"
+        title="Import of current_book.xlsx: 6 possible duplicates"
+        action={
+          <Link href="/import" className="btn btn-primary btn-sm">
+            Review duplicates
+          </Link>
+        }
+      >
+        412 records imported. 6 match an existing client by EIN, email or phone
+        and are waiting for you to merge or keep separate.
+      </Callout>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-1.5">
+        <div role="group" aria-label="Client filter" className="flex flex-wrap gap-2">
           <FilterPill active>All</FilterPill>
           <FilterPill>Employer groups</FilterPill>
           <FilterPill>Individuals</FilterPill>
           <FilterPill>Medicare</FilterPill>
           <FilterPill>My clients</FilterPill>
-          <button
-            type="button"
-            className="min-h-[38px] rounded-full border border-dashed border-[#8A97A6] bg-transparent px-3.5 text-[13px] text-[#3A4756]"
-          >
+          <button type="button" className="pill pill-dashed">
             + Save filter
           </button>
         </div>
-        <div
-          role="group"
-          aria-label="View"
-          className="flex gap-1 rounded-[10px] bg-[#E9EDF2] p-0.5"
-        >
-          <button type="button" className="min-h-9 rounded-lg px-3.5 text-[13px] text-[#3A4756]">
+        <div role="group" aria-label="View" className="segmented">
+          <button type="button" aria-pressed="false">
             List
           </button>
-          <button
-            type="button"
-            aria-pressed
-            className="min-h-9 rounded-lg bg-white px-3.5 text-[13px] font-semibold"
-          >
+          <button type="button" aria-pressed="true">
             Pipeline
           </button>
         </div>
       </div>
 
       <div className="overflow-x-auto pb-2">
-        <div className="grid min-w-[1150px] grid-cols-5 gap-3.5">
+        <div className="grid min-w-[1150px] grid-cols-5 gap-4">
           <PipelineColumn title="Prospect" count={12}>
             <PipelineCard title="Mayport Auto Body" sub="Group · ~22 employees · referral" meta="Follow up Feb 18" owner="DW" />
             <PipelineCard title="Helen and Roy Carter" sub="Medicare household · turns 65 Jun" meta="Call scheduled" owner="ML" />
@@ -96,10 +78,9 @@ export default function ClientsPage() {
             <PipelineCard
               title="Atlantic Beach Fitness"
               sub="Census errors returned to HR"
-              subWarn
+              warn
               progress={33}
               progressLabel="3/9"
-              warnBorder
             />
           </PipelineColumn>
           <PipelineColumn title="Enrolling" count={4}>
@@ -120,7 +101,7 @@ export default function ClientsPage() {
         </div>
       </div>
 
-      <p className="m-0 text-[13px] text-[var(--color-text-muted)]">
+      <p className="m-0 text-[13px] text-muted">
         Active clients (48) are in List view. Drag a card to move it to the next
         stage; marking a group Signed starts its onboarding checklist.
       </p>
@@ -128,27 +109,9 @@ export default function ClientsPage() {
   );
 }
 
-function WarningIcon() {
-  return (
-    <svg aria-hidden width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#A1540A" strokeWidth={2} className="mt-px shrink-0">
-      <path d="M12 3 2 20h20L12 3z" />
-      <path d="M12 10v4" />
-      <path d="M12 17h.01" />
-    </svg>
-  );
-}
-
 function FilterPill({ children, active }: { children: ReactNode; active?: boolean }) {
   return (
-    <button
-      type="button"
-      aria-pressed={active}
-      className={`min-h-[38px] rounded-full px-3.5 text-[13px] ${
-        active
-          ? "border border-[var(--color-text)] bg-[var(--color-text)] font-semibold text-white"
-          : "border border-[var(--color-border)] bg-white"
-      }`}
-    >
+    <button type="button" aria-pressed={active ? "true" : "false"} className="pill">
       {children}
     </button>
   );
@@ -164,12 +127,10 @@ function PipelineColumn({
   children: ReactNode;
 }) {
   return (
-    <section aria-label={title} className="flex flex-col gap-2.5 rounded-xl bg-[#E9EDF2] p-3">
-      <div className="flex justify-between px-1 py-0.5">
-        <h2 className="m-0 text-[13px] font-bold uppercase tracking-wider text-[#3A4756]">
-          {title}
-        </h2>
-        <span className="text-[13px] text-[var(--color-text-muted)]">{count}</span>
+    <section aria-label={title} className="flex flex-col gap-2.5 rounded-lg bg-sand p-3">
+      <div className="flex items-center justify-between px-1 py-0.5">
+        <h2 className="label m-0 text-ink-soft">{title}</h2>
+        <span className="rounded-full bg-surface px-2 font-mono text-[11px] text-muted">{count}</span>
       </div>
       {children}
     </section>
@@ -180,57 +141,47 @@ function PipelineCard({
   href,
   title,
   sub,
-  subWarn,
+  warn,
   meta,
   owner,
   progress,
   progressLabel,
   progressWarn,
-  warnBorder,
 }: {
   href?: string;
   title: string;
   sub: string;
-  subWarn?: boolean;
+  warn?: boolean;
   meta?: string;
   owner?: string;
   progress?: number;
   progressLabel?: string;
   progressWarn?: boolean;
-  warnBorder?: boolean;
 }) {
   const inner = (
     <>
-      <span className="font-semibold">{title}</span>
-      <span className={`text-xs ${subWarn ? "font-semibold text-[var(--color-amber-dark)]" : "text-[var(--color-text-muted)]"}`}>
+      <span className="font-semibold leading-snug">{title}</span>
+      <span className={`text-[13px] ${warn ? "font-semibold text-gold-deep" : "text-muted"}`}>
         {sub}
       </span>
       {progress != null ? (
-        <span className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#EEF1F5]">
-            <span
-              className="block h-full"
-              style={{
-                width: `${progress}%`,
-                background: progressWarn ? "#D97A0B" : "var(--color-teal)",
-              }}
-            />
+        <span className="mt-1 flex items-center gap-2 text-xs text-muted">
+          <span className={`progress progress-sm ${progressWarn ? "progress-warn" : ""}`}>
+            <span style={{ width: `${progress}%` }} />
           </span>
-          {progressLabel}
+          <span className="font-mono">{progressLabel}</span>
         </span>
       ) : (
-        <span className="flex justify-between text-xs text-[var(--color-text-muted)]">
+        <span className="mt-1 flex items-center justify-between text-xs text-muted">
           <span>{meta}</span>
-          {owner ? (
-            <span className="font-bold text-[var(--color-teal)]">{owner}</span>
-          ) : null}
+          {owner ? <span className="avatar avatar-sm avatar-gold h-6 w-6 text-[10px]">{owner}</span> : null}
         </span>
       )}
     </>
   );
-  const className = `flex flex-col gap-1.5 rounded-[10px] border bg-white p-3 no-underline text-[var(--color-text)] ${
-    warnBorder ? "border-[#F3D3AE]" : "border-[var(--color-border)]"
-  }`;
+  const className = `flex flex-col gap-1 rounded-lg border bg-surface p-3.5 text-ink no-underline shadow-[var(--shadow-card)] transition-[border-color,box-shadow] ${
+    warn ? "border-gold" : "border-hairline"
+  } ${href ? "hover:border-ink hover:text-ink hover:shadow-[var(--shadow-raised)]" : ""}`;
   return href ? (
     <Link href={href} className={className}>
       {inner}
