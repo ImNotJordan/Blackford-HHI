@@ -11,7 +11,7 @@ export function SearchToolbar() {
           height={18}
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#586575"
+          stroke="currentColor"
           strokeWidth={2}
           strokeLinecap="round"
         >
@@ -24,10 +24,10 @@ export function SearchToolbar() {
         />
       </label>
       <div className="flex flex-wrap gap-2">
-        <Link href="/import" className="btn btn-secondary no-underline">
+        <Link href="/import" className="btn btn-secondary">
           Import spreadsheet
         </Link>
-        <Link href="/clients/new" className="btn btn-primary no-underline">
+        <Link href="/clients/new" className="btn btn-primary">
           New client
         </Link>
       </div>
