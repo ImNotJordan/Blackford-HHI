@@ -1,5 +1,5 @@
 /**
- * Validate env for staff / portal / worker.
+ * Validate env for staff / worker.
  *   npx tsx scripts/check-env.ts
  *   npx tsx scripts/check-env.ts staff
  */
@@ -12,7 +12,6 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 const targets: Record<string, string> = {
   staff: "apps/staff",
-  portal: "apps/portal",
   worker: "apps/worker",
 };
 

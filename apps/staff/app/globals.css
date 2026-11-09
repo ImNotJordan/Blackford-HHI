@@ -179,6 +179,11 @@ a:hover {
   color: var(--brand-gray);
   background: var(--brand-ivory);
 }
+.tag-bad {
+  color: var(--brand-ruby);
+  background: var(--brand-surface);
+  border-color: var(--brand-ruby);
+}
 
 .th {
   padding: 12px 10px;

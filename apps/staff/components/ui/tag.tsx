@@ -5,6 +5,7 @@ const VARIANT_CLASS = {
   warn: "tag-warn",
   info: "tag-info",
   mute: "tag-mute",
+  bad: "tag-bad",
 } as const;
 
 export function Tag({

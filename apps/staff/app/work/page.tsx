@@ -44,7 +44,7 @@ export default function MyWorkTodayPage() {
           <h2 id="closing" className="heading m-0 text-lg font-bold">
             Enrollment windows closing soon
           </h2>
-          <Link href="/onboarding" className="text-[13px] font-semibold">
+          <Link href="/enrollments" className="text-[13px] font-semibold">
             All enrollments
           </Link>
         </div>

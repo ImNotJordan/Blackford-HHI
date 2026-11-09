@@ -40,6 +40,9 @@ export default async function GroupRecordPage({
           <button type="button" className="btn btn-secondary">
             Add task
           </button>
+          <Link href="/agent-assist" className="btn btn-secondary no-underline">
+            Start in-person session
+          </Link>
           <button type="button" className="btn btn-primary">
             Message group
           </button>
@@ -237,7 +240,7 @@ export default async function GroupRecordPage({
               2 dependents turn 26 within 90 days. 1 dependent is missing a date
               of birth.
             </p>
-            <Link href="#" className="text-[13px] font-semibold text-[#7A3F06]">
+            <Link href="/exceptions" className="text-[13px] font-semibold text-[#7A3F06]">
               Review flags
             </Link>
           </section>

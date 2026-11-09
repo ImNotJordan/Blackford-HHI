@@ -25,9 +25,9 @@ const SharedEnvSchema = z.object({
     .default("development"),
 
   /** Staff CRM public URL */
-  STAFF_APP_URL: optionalUrl.default("http://localhost:3000"),
+  STAFF_APP_URL: optionalUrl.default("http://localhost:3200"),
   /** Employer portal public URL */
-  PORTAL_APP_URL: optionalUrl.default("http://localhost:3001"),
+  PORTAL_APP_URL: optionalUrl.default("http://localhost:3300"),
 
   /** Cloud SQL Postgres connection string */
   DATABASE_URL: optionalString,

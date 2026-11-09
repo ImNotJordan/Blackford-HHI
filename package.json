@@ -6,16 +6,14 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently -k -n staff,portal -c cyan,magenta \"npm run dev -w @blackford/staff\" \"npm run dev -w @blackford/portal\"",
+    "dev": "npm run dev -w @blackford/staff",
     "dev:staff": "npm run dev -w @blackford/staff",
-    "dev:portal": "npm run dev -w @blackford/portal",
-    "build": "npm run build -w apps/staff && npm run build -w apps/portal",
+    "build": "npm run build -w @blackford/staff",
     "typecheck": "npm run typecheck -w @blackford/core && npm run typecheck -w @blackford/db && npm run typecheck -w @blackford/worker",
     "check-env": "node scripts/check-env.mjs",
-    "env:init": "node -e \"const fs=require('fs');const p=require('path');for (const a of ['staff','portal']){const d=p.join('apps',a);const src=p.join(d,'.env.example');const dest=p.join(d,'.env.local');if(!fs.existsSync(dest)){fs.copyFileSync(src,dest);console.log('created',dest);}else{console.log('exists',dest);}}const w='apps/worker/.env';if(!fs.existsSync(w)){fs.copyFileSync('apps/worker/.env.example',w);console.log('created',w);}else{console.log('exists',w);}}\""
+    "env:init": "node -e \"const fs=require('fs');const p=require('path');for (const a of ['staff']){const d=p.join('apps',a);const src=p.join(d,'.env.example');const dest=p.join(d,'.env.local');if(!fs.existsSync(dest)){fs.copyFileSync(src,dest);console.log('created',dest);}else{console.log('exists',dest);}}const w='apps/worker/.env';if(!fs.existsSync(w)){fs.copyFileSync('apps/worker/.env.example',w);console.log('created',w);}else{console.log('exists',w);}}\""
   },
   "devDependencies": {
-    "concurrently": "^10.0.6",
     "tsx": "^4.19.4",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3"

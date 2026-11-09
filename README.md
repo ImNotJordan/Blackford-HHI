@@ -1,22 +1,25 @@
-# Blackford Platform — CRM and onboarding MVP
+# Blackford Platform — staff CRM and onboarding MVP
 
-Modules **A, B, C**, and staff side of **F**. Blackford staff on desktop or iPad, plus employer HR during onboarding.
+Modules **A, B, C**, staff side of **D** and **F**, and the carrier file queue (**G**). Blackford staff on desktop or iPad.
+
+The employer HR portal is a separate system in its own folder: `../blackford-employer-portal` (runs on http://localhost:3300).
 
 ```bash
 npm install
-npm run dev          # both apps: staff :3000 + portal :3001
-npm run dev:staff    # staff CRM only — http://localhost:3000
-npm run dev:portal   # employer portal only — http://localhost:3001
+npm run dev          # staff CRM — http://localhost:3200
 ```
 
-**Staff entry points:** `/` landing · `/login` staff sign-in · `/work` my work today  
+Port 3200 is used so the CRM doesn't clash with other local projects on 3000.
+
+**Staff entry points:** `/` opens My work today · `/login` staff sign-in with MFA (also the sidebar's Sign out)  
 **Brand:** Hyacinth Ink / Ruby / Gold / Ivory — see `BRAND.md` and `packages/brand/tokens.css`
 
-## Staff CRM (`apps/staff` · :3000)
+## Staff CRM (`apps/staff` · :3200)
 
 | Screen | Module | Route |
 |--------|--------|-------|
-| My work today | A | `/` |
+| Staff sign-in with MFA | H | `/login` |
+| My work today | A | `/work` |
 | Clients and pipeline | A | `/clients` |
 | Group record | A | `/groups/[id]` |
 | Household record | A | `/households/[id]` |
@@ -28,16 +31,18 @@ npm run dev:portal   # employer portal only — http://localhost:3001
 | Onboarding checklist and setup | C | `/onboarding` |
 | Changes and renewals | F | `/changes` |
 | Group renewal | F | `/renewals` |
+| Enrollments list | D | `/enrollments` |
+| Agent-assisted enrollment (iPad) | D | `/agent-assist` |
+| Carrier files and status | G | `/carrier-files` |
+| Carrier file approval | G | `/carrier-files/[id]` |
+| Exceptions: escalations and data checks | H | `/exceptions` |
+| Signed document and audit trail | E | `/documents/[id]` |
 
-## Employer HR onboarding (`apps/portal` · :3001)
+On iPad widths (under 1200px) the sidebar collapses to a 76px icon rail with 52px touch targets.
 
-| Screen | Module | Route |
-|--------|--------|-------|
-| Invite and secure sign-in | C | `/employer/invite` |
-| Company, contacts and payroll schedule | C | `/employer/company` |
-| Group setup and agreement | C · E | `/employer/setup` |
-| Census upload | C | `/employer/census` |
-| Employees and new hires | C | `/employer/employees` |
+## Employer HR portal
+
+Moved to `../blackford-employer-portal` (its own `npm install` / `npm run dev`). It holds invite and sign-in, company and payroll schedule, group setup and agreement, census upload, employees and new hires, enrollment progress, and payroll deduction updates.
 
 There is **no benefits / employee enrollment portal** in this MVP scope.
 
@@ -51,7 +56,7 @@ There is **no benefits / employee enrollment portal** in this MVP scope.
 
 ## Legacy design canvas
 
-Sanitized `.dc.html` references in `1-staff/` and `2-employer-hr-onboarding/`.
+Sanitized `.dc.html` references in `1-staff/` (the employer references moved with the employer portal).
 
 ## Tech stack doc
 
@@ -74,10 +79,10 @@ npm run check-env     # validates APP_ENV and required vars
 
 Templates:
 - Root reference: `.env.example`
-- Per app: `apps/staff/.env.example`, `apps/portal/.env.example`, `apps/worker/.env.example`
+- Per app: `apps/staff/.env.example`, `apps/worker/.env.example`
 - Secrets go in `.env.local` / `apps/worker/.env` (gitignored)
 
-Typed loader: `@blackford/core` → `loadEnv()` / `getStaffEnv()` / `getPortalEnv()`. Staging and production fail fast if database, identity, or AWS messaging are missing.
+Typed loader: `@blackford/core` → `loadEnv()` / `getStaffEnv()`. Staging and production fail fast if database, identity, or AWS messaging are missing.
 
 ### Setup links (BAAs and consoles)
 
