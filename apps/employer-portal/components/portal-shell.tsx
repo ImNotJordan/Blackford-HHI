@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { Avatar, SignatureBar } from "@/components/ui";
 
 export type EmployerNavKey =
   | "company"
@@ -9,24 +12,50 @@ export type EmployerNavKey =
   | "progress"
   | "payroll";
 
+const STORAGE_KEY = "blackford.sidebar";
+
+function ChartIcon() {
+  return (
+    <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+      <path d="M2.5 10V7M6 10V3.5M9.5 10V5.5" />
+    </svg>
+  );
+}
+
+function PayIcon() {
+  return (
+    <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8.2 3.6C7.8 2.9 7 2.6 6 2.6c-1.2 0-2 .6-2 1.5 0 2 4.2 1 4.2 3.2 0 .9-.9 1.6-2.2 1.6-1.1 0-1.9-.4-2.3-1.1M6 1.5v1.1M6 9v1.5" />
+    </svg>
+  );
+}
+
+function SignOutIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 2.5H3.5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1H6M10.5 11 13.5 8l-3-3M13.5 8H6" />
+    </svg>
+  );
+}
+
 const NAV_GROUPS: {
   label: string;
-  items: { key: EmployerNavKey; label: string; href: string }[];
+  items: { key: EmployerNavKey; label: string; href: string; badge: ReactNode }[];
 }[] = [
   {
     label: "Onboarding",
     items: [
-      { key: "company", label: "Company and payroll", href: "/employer/company" },
-      { key: "plans", label: "Plans and agreement", href: "/employer/setup" },
-      { key: "census", label: "Census upload", href: "/employer/census" },
-      { key: "employees", label: "Employees", href: "/employer/employees" },
+      { key: "company", label: "Company and payroll", href: "/employer/company", badge: 1 },
+      { key: "plans", label: "Plans and agreement", href: "/employer/setup", badge: 2 },
+      { key: "census", label: "Census upload", href: "/employer/census", badge: 3 },
+      { key: "employees", label: "Employees", href: "/employer/employees", badge: 4 },
     ],
   },
   {
     label: "Enrollment",
     items: [
-      { key: "progress", label: "Enrollment progress", href: "/employer/progress" },
-      { key: "payroll", label: "Payroll updates", href: "/employer/payroll" },
+      { key: "progress", label: "Enrollment progress", href: "/employer/progress", badge: <ChartIcon /> },
+      { key: "payroll", label: "Payroll updates", href: "/employer/payroll", badge: <PayIcon /> },
     ],
   },
 ];
@@ -42,83 +71,155 @@ export function PortalShell({
   userInitials: string;
   children: ReactNode;
 }) {
+  const [collapsed, setCollapsed] = useState(false);
+  const [ready, setReady] = useState(false);
+  // Bumped on every click; remounting the ripple via `key` replays its animation.
+  const [pulse, setPulse] = useState(0);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  // Restore the saved choice once, then enable the width transition.
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem(STORAGE_KEY) === "collapsed") setCollapsed(true);
+    } catch {
+      /* storage unavailable: stay open */
+    }
+    // On narrow screens the nav is a horizontal strip: bring the current page into view.
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      document
+        .querySelector<HTMLElement>('.nav-groups .nav-link[aria-current="page"]')
+        ?.scrollIntoView({ inline: "center", block: "nearest" });
+    }
+    const id = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  function toggle() {
+    setPulse((n) => n + 1);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) {
+      // Squash-and-stretch press, springing back past rest before settling.
+      toggleRef.current?.animate(
+        [
+          { transform: "scale(1)" },
+          { transform: "scale(0.8)", offset: 0.3 },
+          { transform: "scale(1.14)", offset: 0.65 },
+          { transform: "scale(1)" },
+        ],
+        { duration: 420, easing: "ease-out" },
+      );
+    }
+    setCollapsed((prev) => {
+      const next = !prev;
+      try {
+        window.localStorage.setItem(STORAGE_KEY, next ? "collapsed" : "open");
+      } catch {
+        /* ignore */
+      }
+      return next;
+    });
+  }
+
   return (
-    <div className="flex min-h-screen bg-[var(--brand-ivory)] text-[var(--brand-ink)]">
-      <nav
-        aria-label="Employer"
-        className="relative flex min-h-screen w-[248px] shrink-0 flex-col gap-7 bg-[var(--brand-ink)] px-4 py-7 max-[900px]:w-[200px] max-[640px]:w-[160px] max-[640px]:px-2"
-      >
-        <Link href="/" className="flex items-center gap-2.5 px-2 no-underline">
-          <div
-            className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-lg bg-[var(--brand-ruby)] text-base text-white"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            B
-          </div>
-          <div className="flex min-w-0 flex-col">
-            <span
-              className="text-base leading-tight text-[var(--brand-ivory)]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Blackford
-            </span>
-            <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.14em] text-[var(--brand-pale-gold)]">
-              Employer portal
-            </span>
-          </div>
-        </Link>
+    <div
+      className="shell"
+      data-sidebar={collapsed ? "collapsed" : "open"}
+      data-ready={ready ? "" : undefined}
+      data-animated={pulse > 0 ? "" : undefined}
+    >
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
 
-        {NAV_GROUPS.map((group) => (
-          <div key={group.label} className="flex flex-col gap-1">
-            <span className="px-3 pb-1 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.14em] text-[var(--brand-pale-gold)]">
-              {group.label}
-            </span>
-            {group.items.map((item) => {
-              const active = item.key === activeNav;
-              return (
-                <Link
-                  key={item.key}
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`flex min-h-11 items-center rounded-[10px] border-l-[3px] px-3 py-2.5 text-[15px] leading-snug no-underline transition-colors hover:no-underline ${
-                    active
-                      ? "border-[var(--brand-gold)] bg-[#2A241C] font-semibold text-[var(--brand-pale-gold)]"
-                      : "border-transparent text-[var(--brand-ivory)] hover:bg-[#2A241C] hover:text-[var(--brand-pale-gold)]"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-        ))}
-
-        <div className="mt-auto flex items-center gap-2.5 border-t border-[#3A352C] px-2 pt-4">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--brand-parchment)] text-sm font-semibold text-[var(--brand-ink)]">
-            {userInitials}
-          </div>
-          <div className="flex min-w-0 flex-col">
-            <span className="truncate text-[14px] font-semibold text-[var(--brand-ivory)]">
-              {userName}
-            </span>
-            <span className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.08em] text-[var(--brand-pale-gold)]">
-              Employer HR
-            </span>
-          </div>
-        </div>
-        <Link
-          href="/employer/invite"
-          className="px-2 text-[13px] text-[var(--brand-pale-gold)] hover:text-[var(--brand-ivory)]"
+      <aside id="sidebar" className="shell-nav">
+        <button
+          ref={toggleRef}
+          type="button"
+          className="sidebar-toggle"
+          onClick={toggle}
+          aria-controls="sidebar"
+          aria-expanded={!collapsed}
+          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
-          Sign out
-        </Link>
-        <div className="signature-bar -mx-4 max-[640px]:-mx-2" aria-hidden>
-          <span />
-          <span />
-        </div>
-      </nav>
+          {pulse > 0 ? <span key={pulse} className="toggle-ripple" aria-hidden /> : null}
+          <svg className="toggle-chevron" viewBox="0 0 16 16" width="14" height="14" aria-hidden fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <g className="toggle-chevron-arm">
+              <path d="M10 3.5 5.5 8l4.5 4.5" />
+            </g>
+          </svg>
+        </button>
 
-      <div className="flex min-w-0 flex-1 flex-col">{children}</div>
+        <div className="shell-nav-inner">
+          <div className="shell-top">
+            <Link href="/" className="brand-lockup" title="Blackford employer portal">
+              <span className="brand-mark" aria-hidden>
+                B
+              </span>
+              <span className="brand-text flex min-w-0 flex-col">
+                <span className="brand-name">Blackford</span>
+                <span className="brand-sub">Employer portal</span>
+              </span>
+            </Link>
+            <div className="only-mobile items-center gap-3">
+              <Link href="/employer/invite" className="shell-signout">
+                Sign out
+              </Link>
+              <span title={userName}>
+                <Avatar initials={userInitials} />
+              </span>
+            </div>
+          </div>
+
+          <nav aria-label="Employer" className="nav-groups">
+            {NAV_GROUPS.map((group, gi) => (
+              <div key={group.label} className="nav-group">
+                <span className="nav-group-label">{group.label}</span>
+                {group.items.map((item, i) => (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    aria-current={item.key === activeNav ? "page" : undefined}
+                    className="nav-link"
+                    title={collapsed ? item.label : undefined}
+                    style={{ "--i": gi * 4 + i } as CSSProperties}
+                  >
+                    <span className="nav-step" aria-hidden>
+                      {item.badge}
+                    </span>
+                    <span className="nav-text">{item.label}</span>
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </nav>
+
+          <div className="shell-user only-desktop">
+            <div className="shell-user-row" title={collapsed ? `${userName} · Employer HR` : undefined}>
+              <Avatar initials={userInitials} />
+              <div className="nav-text flex min-w-0 flex-col">
+                <span className="shell-user-name">{userName}</span>
+                <span className="shell-user-role">Employer HR</span>
+              </div>
+            </div>
+            <Link
+              href="/employer/invite"
+              className="shell-signout"
+              title={collapsed ? "Sign out" : undefined}
+            >
+              <SignOutIcon />
+              <span className="nav-text">Sign out</span>
+            </Link>
+          </div>
+        </div>
+        <SignatureBar />
+      </aside>
+
+      <div className="shell-main">
+        <main id="main" className="page rise">
+          {children}
+        </main>
+      </div>
     </div>
   );
 }
