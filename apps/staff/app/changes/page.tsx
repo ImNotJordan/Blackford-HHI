@@ -1,92 +1,87 @@
 import Link from "next/link";
 import { StaffShell } from "@/components/staff-shell";
+import { Callout } from "@/components/ui/callout";
+import { PageHeader } from "@/components/ui/page-header";
 import { Tag } from "@/components/ui/tag";
 
 export default function ChangeApprovalsPage() {
   return (
     <StaffShell>
-      <header className="flex flex-wrap items-end justify-between gap-4">
-        <h1 className="heading m-0 text-[30px] font-extrabold tracking-tight">
-          Changes and renewals
-        </h1>
-        <button type="button" className="btn btn-secondary">
-          Enter a change or termination
-        </button>
-      </header>
+      <PageHeader
+        title="Changes and renewals"
+        description="Life events waiting for approval, and every group renewing in the next 120 days."
+        actions={
+          <button type="button" className="btn btn-secondary">
+            Enter a change or termination
+          </button>
+        }
+      />
 
       <div className="flex flex-wrap items-stretch gap-4">
-        <section
-          aria-labelledby="q"
-          className="flex min-w-0 flex-[1_1_300px] flex-col rounded-xl border border-[var(--color-border)] bg-white"
-        >
-          <h2 id="q" className="heading m-0 px-4 pt-4 pb-2.5 text-base font-bold">
-            Waiting for approval · 3
-          </h2>
-          <QueueItem active title="Priya Nair · birth" time="2 days" warn sub="Coastal Marine Supply · proof uploaded" />
-          <QueueItem title="James Okafor · marriage" time="Today" sub="Riverside Dental · proof uploaded" />
-          <QueueItem title="Lena Fischer · lost coverage" time="Today" sub="Outside 30-day window · exception" subWarn />
+        <section aria-labelledby="q" className="panel min-w-0 flex-[1_1_300px] self-start">
+          <div className="panel-head">
+            <h2 id="q" className="section-title text-[19px]">
+              Waiting for approval
+            </h2>
+            <span className="badge-count">3</span>
+          </div>
+          <div className="divided">
+            <QueueItem active title="Priya Nair · birth" time="2 days" warn sub="Coastal Marine Supply · proof uploaded" />
+            <QueueItem title="James Okafor · marriage" time="Today" sub="Riverside Dental · proof uploaded" />
+            <QueueItem title="Lena Fischer · lost coverage" time="Today" sub="Outside 30-day window · exception" subWarn />
+          </div>
         </section>
 
-        <section aria-labelledby="det" className="card min-w-0 flex-[2_1_460px] gap-4">
-          <div className="flex flex-wrap justify-between gap-3">
+        <section aria-labelledby="det" className="card min-w-0 flex-[2_1_460px] gap-5">
+          <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="flex flex-col gap-1">
-              <h2 id="det" className="heading m-0 text-xl font-bold">
+              <h2 id="det" className="section-title text-[24px]">
                 Priya Nair — had a baby
               </h2>
-              <span className="text-[13px] text-[var(--color-text-muted)]">
+              <span className="text-[13px] text-muted">
                 Reported Feb 14 from her phone · event date Feb 3, 2027
               </span>
             </div>
             <Tag variant="ok">Inside window · until Mar 5</Tag>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5 rounded-lg bg-ivory p-4">
             <div className="flex flex-col gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
-                Requested changes
-              </span>
-              <div className="flex flex-col gap-1.5 text-sm">
-                <span>Add child: Aanya Nair</span>
-                <span>Medical: Employee only → Employee + child</span>
-                <span>Dental: Employee only → Employee + child</span>
-              </div>
+              <span className="label">Requested changes</span>
+              <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-[14px]">
+                <li>Add child: Aanya Nair</li>
+                <li>Medical: Employee only → Employee + child</li>
+                <li>Dental: Employee only → Employee + child</li>
+              </ul>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
-                Payroll deduction
-              </span>
+              <span className="label">Payroll deduction</span>
               <div className="flex items-baseline gap-2.5">
-                <span className="text-[var(--color-text-muted)] line-through">$61.20</span>
-                <span className="heading text-[22px] font-extrabold">$154.80</span>
-                <span className="text-[13px] text-[var(--color-text-muted)]">per paycheck</span>
+                <span className="text-muted line-through">$61.20</span>
+                <span className="stat-figure text-[28px]">$154.80</span>
+                <span className="text-[13px] text-muted">per paycheck</span>
               </div>
-              <span className="text-[13px] text-[var(--color-text-muted)]">
+              <span className="text-[13px] text-muted">
                 HR is told the new amount once approved.
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-3 rounded-[10px] bg-[var(--color-bg)] px-3.5 py-3">
-            <svg aria-hidden width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth={2}>
-              <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-              <path d="M14 3v6h6" />
-            </svg>
-            <span className="flex-1">hospital_record.jpg</span>
-            <Link href="#" className="text-[13px] font-semibold">
-              View proof
-            </Link>
-          </div>
-          <div className="flex items-start gap-3 rounded-[10px] bg-[#FDF3E7] px-3.5 py-3 text-[13px] text-[#5C3204]">
-            <svg aria-hidden width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#A1540A" strokeWidth={2} className="mt-px shrink-0">
-              <path d="M12 3 2 20h20L12 3z" />
-              <path d="M12 10v4" />
-              <path d="M12 17h.01" />
-            </svg>
-            <span>
-              The baby&apos;s date of birth is missing on the dependent. It&apos;s
-              holding the dental change file — add it before approving.
-            </span>
-          </div>
-          <div className="flex flex-wrap justify-end gap-2">
-            <button type="button" className="btn btn-secondary">
+          <Callout
+            tone="info"
+            icon="file"
+            action={
+              <Link href="#" className="link-action">
+                View proof
+              </Link>
+            }
+          >
+            <span className="font-mono text-[13px] text-ink">hospital_record.jpg</span>
+          </Callout>
+          <Callout tone="warn" title="Date of birth missing">
+            The baby&apos;s date of birth is missing on the dependent. It&apos;s
+            holding the dental change file — add it before approving.
+          </Callout>
+          <div className="flex flex-wrap justify-end gap-2 border-t border-divider pt-5">
+            <button type="button" className="btn btn-ghost">
               Deny
             </button>
             <button type="button" className="btn btn-secondary">
@@ -99,35 +94,39 @@ export default function ChangeApprovalsPage() {
         </section>
       </div>
 
-      <section aria-labelledby="ren" className="card gap-3">
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 id="ren" className="heading m-0 text-lg font-bold">
+      <section aria-labelledby="ren" className="card">
+        <div className="card-head">
+          <h2 id="ren" className="section-title">
             Renewals in the next 120 days
           </h2>
-          <Link href="/renewals" className="text-[13px] font-semibold">
+          <Link href="/renewals" className="link-action">
             Renewal calendar
           </Link>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[760px] border-collapse">
+          <table className="table min-w-[760px]">
             <thead>
               <tr>
-                <th className="th">Group</th>
-                <th className="th">Renews</th>
-                <th className="th">Step</th>
-                <th className="th">Type</th>
-                <th className="th">Next task</th>
+                <th scope="col" className="th">Group</th>
+                <th scope="col" className="th">Renews</th>
+                <th scope="col" className="th">Step</th>
+                <th scope="col" className="th">Type</th>
+                <th scope="col" className="th">Next task</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="td font-semibold">Southside Pediatrics</td>
+                <td className="td font-semibold">
+                  <Link href="/renewals" className="text-ink no-underline hover:underline">
+                    Southside Pediatrics
+                  </Link>
+                </td>
                 <td className="td">May 1</td>
                 <td className="td">
                   <Tag variant="info">Options to HR</Tag>
                 </td>
                 <td className="td">Re-enroll everyone</td>
-                <td className="td text-[var(--color-text-muted)]">HR decision due Feb 26</td>
+                <td className="td text-muted">HR decision due Feb 26</td>
               </tr>
               <tr>
                 <td className="td font-semibold">Bartram Logistics</td>
@@ -136,16 +135,16 @@ export default function ChangeApprovalsPage() {
                   <Tag variant="warn">Waiting on rates</Tag>
                 </td>
                 <td className="td">Not decided</td>
-                <td className="td text-[var(--color-text-muted)]">Chase carrier rates</td>
+                <td className="td text-muted">Chase carrier rates</td>
               </tr>
               <tr>
-                <td className="td border-0 font-semibold">Coastal Marine Supply</td>
-                <td className="td border-0">Jun 1</td>
-                <td className="td border-0">
+                <td className="td font-semibold">Coastal Marine Supply</td>
+                <td className="td">Jun 1</td>
+                <td className="td">
                   <Tag variant="mute">Task list created</Tag>
                 </td>
-                <td className="td border-0">Passive renewal</td>
-                <td className="td border-0 text-[var(--color-text-muted)]">Request rates</td>
+                <td className="td">Passive renewal</td>
+                <td className="td text-muted">Request rates</td>
               </tr>
             </tbody>
           </table>
@@ -171,20 +170,14 @@ function QueueItem({
   active?: boolean;
 }) {
   return (
-    <a
-      href="#"
-      aria-current={active}
-      className={`flex flex-col gap-0.5 border-t border-[#EEF1F5] px-4 py-3 no-underline text-[var(--color-text)] ${
-        active ? "border-l-[3px] border-l-[var(--color-teal)] bg-[#F2F8F7]" : ""
-      }`}
-    >
-      <span className="flex justify-between">
-        <span className="font-bold">{title}</span>
-        <span className={`text-xs ${warn ? "font-semibold text-[var(--color-amber-dark)]" : "text-[var(--color-text-muted)]"}`}>
+    <a href="#" aria-current={active ? "true" : undefined} className="list-row">
+      <span className="flex justify-between gap-2">
+        <span className="font-semibold">{title}</span>
+        <span className={`shrink-0 text-xs ${warn ? "font-semibold text-gold-deep" : "text-muted"}`}>
           {time}
         </span>
       </span>
-      <span className={`text-xs ${subWarn ? "font-semibold text-[var(--color-amber-dark)]" : "text-[var(--color-text-muted)]"}`}>
+      <span className={`text-[13px] ${subWarn ? "font-semibold text-gold-deep" : "text-muted"}`}>
         {sub}
       </span>
     </a>
