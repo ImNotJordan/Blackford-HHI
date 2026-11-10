@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Signed document and audit trail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div>
+<div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="14-Enrollments.dc.html" data-nav="enrollments" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Enrollments</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+<a href="16-CarrierQueue.dc.html" data-nav="carrier" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Carrier files</a>
+<a href="18-DataChecks.dc.html" data-nav="exceptions" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Exceptions</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378">
+<div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div>
+<div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #586575"><a href="03-GroupRecord.dc.html" style="text-decoration: none">Riverside Dental Group</a> <span aria-hidden="true">/</span> <a href="#" style="text-decoration: none">Maria Delgado</a> <span aria-hidden="true">/</span> Documents</nav>
+
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">2027 benefit election form</h1>
+<span style="font-size: 12px; font-weight: 700; color: #0F766E; background: #E6F2F1; padding: 4px 10px; border-radius: 999px">Signed</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 20px; color: #586575; font-size: 13px"><span>Signer: Maria Delgado</span><span>Signed Feb 16, 2027 · 9:05 AM ET</span><span>Ready for carrier file</span></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-weight: 600">Download audit trail</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 600">Download signed PDF</button>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+<section aria-label="Document preview" style="flex: 3 1 460px; min-width: 0; background: #E9EDF2; border-radius: 12px; padding: 28px; display: flex; justify-content: center">
+<div style="width: 100%; max-width: 560px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(19,33,46,0.12); padding: 40px 44px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: Manrope, sans-serif; font-weight: 800">Blackford &amp; Associates</span><span style="font-size: 12px; color: #586575">Page 1 of 2</span></div>
+<span style="font-family: Manrope, sans-serif; font-size: 20px; font-weight: 800">Benefit Election Form · Plan year 2027</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; font-size: 13px">
+<span style="color: #586575">Employee</span><span>Maria Delgado</span>
+<span style="color: #586575">Employer</span><span>Riverside Dental Group</span>
+<span style="color: #586575">Effective</span><span>March 1, 2027</span>
+</div>
+<div style="border-top: 1px solid #DCE2E9; padding-top: 14px; display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+<div style="display: flex; justify-content: space-between"><span>Medical · PPO 1500 · Employee + spouse</span><span>$142.50</span></div>
+<div style="display: flex; justify-content: space-between"><span>Dental · Dental PPO · Employee + spouse</span><span>$18.40</span></div>
+<div style="display: flex; justify-content: space-between"><span>Vision · Waived (other coverage)</span><span>$0.00</span></div>
+<div style="display: flex; justify-content: space-between"><span>Basic life · $25,000 · Beneficiary Carlos Delgado</span><span>Employer paid</span></div>
+</div>
+<div aria-hidden="true" style="display: flex; flex-direction: column; gap: 8px; padding-top: 6px"><div style="height: 8px; background: #EEF1F5; border-radius: 4px"></div><div style="height: 8px; background: #EEF1F5; border-radius: 4px; width: 92%"></div><div style="height: 8px; background: #EEF1F5; border-radius: 4px; width: 80%"></div></div>
+<div style="border: 1px solid #0F766E; border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; margin-top: 8px">
+<span style="font-size: 20px; font-style: italic; font-family: Georgia, serif">Maria Delgado</span>
+<span style="font-size: 11px; color: #586575">Signed electronically · Feb 16, 2027 9:05 AM ET · ID 7F3A-21C9</span>
+</div>
+</div>
+</section>
+
+<aside style="flex: 2 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<section aria-labelledby="trail" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<h2 id="trail" style="margin: 0 0 8px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Audit trail</h2>
+<div style="display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #EEF1F5"><span style="width: 10px; height: 10px; flex: none; margin-top: 5px; border-radius: 999px; background: #8A97A6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Form generated</span><span style="font-size: 12px; color: #586575; font-family: 'JetBrains Mono', monospace">Feb 16 08:58:41 · System</span></div></div>
+<div style="display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #EEF1F5"><span style="width: 10px; height: 10px; flex: none; margin-top: 5px; border-radius: 999px; background: #8A97A6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Signing link sent by text</span><span style="font-size: 12px; color: #586575; font-family: 'JetBrains Mono', monospace">Feb 16 08:58:44 · to ••• 4821</span></div></div>
+<div style="display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #EEF1F5"><span style="width: 10px; height: 10px; flex: none; margin-top: 5px; border-radius: 999px; background: #8A97A6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Identity confirmed with one-time code</span><span style="font-size: 12px; color: #586575; font-family: 'JetBrains Mono', monospace">Feb 16 09:03:10</span></div></div>
+<div style="display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #EEF1F5"><span style="width: 10px; height: 10px; flex: none; margin-top: 5px; border-radius: 999px; background: #8A97A6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Agreed to electronic records</span><span style="font-size: 12px; color: #586575; font-family: 'JetBrains Mono', monospace">Feb 16 09:04:22 · consent v1.2</span></div></div>
+<div style="display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #EEF1F5"><span style="width: 10px; height: 10px; flex: none; margin-top: 5px; border-radius: 999px; background: #0F766E"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Signed</span><span style="font-size: 12px; color: #586575; font-family: 'JetBrains Mono', monospace">Feb 16 09:05:03 · iPhone, Safari</span><span style="font-size: 12px; color: #586575; font-family: 'JetBrains Mono', monospace">IP 203.0.113.24</span></div></div>
+<div style="display: flex; gap: 14px; padding: 10px 0"><span style="width: 10px; height: 10px; flex: none; margin-top: 5px; border-radius: 999px; background: #8A97A6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Stored on record; confirmation PDF sent</span><span style="font-size: 12px; color: #586575; font-family: 'JetBrains Mono', monospace">Feb 16 09:05:06 · System</span></div></div>
+</section>
+
+<section aria-labelledby="docs" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<h2 id="docs" style="margin: 0 0 8px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Other documents</h2>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EEF1F5"><span>Carrier application · medical</span><span style="font-size: 12px; font-weight: 700; color: #0F766E; background: #E6F2F1; padding: 3px 8px; border-radius: 6px">Signed</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EEF1F5"><span>Life beneficiary form</span><span style="font-size: 12px; font-weight: 700; color: #0F766E; background: #E6F2F1; padding: 3px 8px; border-radius: 6px">Signed</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0"><span>Paper signature upload</span><button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #13212E">Upload</button></div>
+</section>
+</aside>
+</div>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

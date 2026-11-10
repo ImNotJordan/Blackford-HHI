@@ -8,7 +8,10 @@ STAFF_NAV = """<div style="display: flex; flex-direction: column; gap: 2px">
 <a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
 <a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
 <a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="14-Enrollments.dc.html" data-nav="enrollments" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Enrollments</a>
 <a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+<a href="16-CarrierQueue.dc.html" data-nav="carrier" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Carrier files</a>
+<a href="18-DataChecks.dc.html" data-nav="exceptions" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Exceptions</a>
 </div>"""
 
 ACTIVE = {
@@ -24,6 +27,11 @@ ACTIVE = {
     "10-Onboarding.dc.html": "onboarding",
     "11-ChangeApprovals.dc.html": "changes",
     "12-Renewal.dc.html": "changes",
+    "14-Enrollments.dc.html": "enrollments",
+    "16-CarrierQueue.dc.html": "carrier",
+    "17-CarrierFile.dc.html": "carrier",
+    "18-DataChecks.dc.html": "exceptions",
+    "19-SignatureAudit.dc.html": "clients",
 }
 
 EMPLOYER_NAV = (
