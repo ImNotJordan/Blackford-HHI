@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/*
+ * Blackford Benefits Portal theme.
+ * Values come from the design canvas ("Blackford Platform — MVP Screens").
+ * Use these tokens in code; never raw hex in components.
+ */
+@theme {
+  /* Text */
+  --color-ink: #13212e;
+  --color-ink-2: #3a4756;
+  --color-muted: #586575;
+
+  /* Surfaces and lines */
+  --color-canvas: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-sunken: #eef1f5;
+  --color-line: #dce2e9;
+  --color-line-soft: #eef1f5;
+  --color-line-strong: #c5ced8;
+  --color-field: #8f99a6;
+
+  /* Brand: teal actions, navy chrome */
+  --color-brand: #0f766e;
+  --color-brand-hover: #0b5953;
+  --color-brand-tint: #e6f2f1;
+  --color-brand-ink: #2f4a47;
+  --color-navy: #17324d;
+  --color-navy-active: #24486b;
+  --color-navy-line: #2e5378;
+  --color-navy-border: #4f7396;
+  --color-on-navy: #c9d6e3;
+  --color-on-navy-subtle: #a9bbcd;
+  --color-gold: #e9d79a;
+
+  /* Status */
+  --color-warn: #a1540a;
+  --color-warn-tint: #fdf3e7;
+  --color-warn-line: #f3d3ae;
+  --color-warn-ink: #5c3204;
+  --color-warn-deep: #7a3f06;
+  --color-info: #1d4ed8;
+  --color-info-tint: #eaf0fd;
+  --color-info-ink: #1e3a8a;
+  --color-error: #9b1c1c;
+  --color-error-line: #c8161b;
+  --color-error-tint: #fdecec;
+  --color-error-ink: #7a1414;
+
+  /* Chart series (employer progress) */
+  --color-series-enrolled: #0f766e;
+  --color-series-waived: #6bb3ad;
+  --color-series-started: #d97a0b;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* Base element styles live in the base layer so utility classes can override them. */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  a {
+    color: var(--color-brand);
+  }
+
+  a:hover {
+    color: var(--color-brand-hover);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

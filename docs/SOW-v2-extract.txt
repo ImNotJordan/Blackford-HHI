@@ -1,0 +1,1074 @@
+
+
+===== PAGE 1 =====
+
+Scope of Work & Delivery Plan
+Version 2.0 · October 30, 2026
+For client review
+B E N E F I T S  C R M  &  E N R O L L M E N T  P L A T F O R M
+One system to manage
+clients and enroll
+them in benefits
+A CRM for Blackford's book of business, with Ease-style beneﬁts sign-up and
+policy management built in: invites, reminders, enrollment and signing by text,
+phone, iPad or web, and approved ﬁles sent to every carrier.
+P r e p a r e d  f o r
+Blackford & Associates
+Jacksonville, Florida
+P r e p a r e d  b y
+Hyacinth Industries, LLC
+P l a n n e d  k i c k o f f
+November 16, 2026
+May 7, 2027
+MVP live with a pilot group
+5½ months
+Kickoff to MVP go-live
+3–4
+Developers in two parallel tracks
+17
+Automations live at launch
+
+===== PAGE 2 =====
+
+CONTENTS
+01 Executive summary 02 Solution architecture 03 MVP scope 04 Automations
+05 MVP timeline 06 Sprint plan 07 Later releases 08 Team and delivery
+09 Dependencies 10 Risks 11 Quality and support 12 Assumptions and decisions
+A  Appendix A: Workflows
+Executive summary
+The MVP goes live May 7, 2027, about 5½ months after kickoff. Carrier APIs, ACA
+reporting, commissions and AI tools follow in two later releases between fall 2027 and
+mid-2028.
+Staff manage every client and group in one CRM.
+Employees are invited, reminded, enrolled and signed
+automatically. Changes and renewals run through the
+same flow, and completed enrollments go to carriers
+as approved files.
+The MVP is planned sprint by sprint. The later releases have date ranges
+instead, because carriers, vendors and the open enrollment calendar set
+their pace.
+The beneﬁts portal is built into the platform, so Blackford owns enrollment
+and carrier submissions. Ease, or the current process, stays in place until
+the MVP is live. Keeping Ease for enrollment instead would shorten the MVP
+by about 6 weeks.
+Design and scope sign-off Dec 11, 2026
+Firm
+MVP feature complete Mar 26, 2027
+Planned
+MVP live with a pilot group May 7, 2027
+Target date. Committed date: June 2027
+Release 2: carrier APIs, ACA Aug – Oct 2027
+Expected window
+ACA module ready to ﬁle Dec 2027
+Hard deadline
+Release 3: commissions, TPA, AI Jan – Jun 2028
+Expected window
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 1 of 21
+
+===== PAGE 3 =====
+
+Solution architecture
+Staff, employers and employees use one Blackford-branded platform. Outside services
+work behind it, so clients only ever deal with Blackford.
+WHO  USES  IT Blackford staff
+CRM on desktop or iPad: clients,
+onboarding, service, carrier ﬁles
+Employer HR contacts
+Employer portal: group setup,
+census, enrollment progress
+Employees and clients
+Beneﬁts portal on any device,
+opened from a text or email link
+BLACKFORD
+PLATFORM
+OUTSIDE
+SERVICES Messaging and e-signature
+Text, email and e-sign vendors, each
+under a BAA
+Insurance carriers
+CSV by SFTP at launch; API through
+Ideon or Noyo later
+ACA ﬁling vendor and TPA
+Forms ﬁled with the IRS; TPA reports
+imported
+Every module reads and writes the same records, so an enrollment ﬁnished in the portal appears
+at once in the CRM, the automation engine, the carrier gateway and the audit log.
+CRM and onboarding
+MVP
+Clients, groups, census, tasks, text
+and email
+Beneﬁts portal
+MVP
+Select, change and sign beneﬁts;
+life events; renewals
+Automation engine
+MVP
+Reminders, escalations, tasks and
+data checks
+Carrier gateway
+MVP · R2
+Approved CSV ﬁles at launch;
+carrier APIs in Release 2
+Audit and reporting
+MVP
+Every action logged; enrollment
+and carrier reports
+ACA reporting
+R2
+1094/1095 B and C forms; data
+captured from day one
+Shared data model · roles and MFA · audit log · HIPAA hosting under a BAA
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 2 of 21
+
+===== PAGE 4 =====
+
+MVP scope
+Eight modules cover every step from a signed employer group to enrolled employees and
+on through the plan year. Each lists the test that marks it done, and Appendix A shows its
+expected workflow for Blackford to conﬁrm.
+A Client management
+Done when staff can ﬁnd any client and see every plan, message and
+document tied to them.
+B Client communications
+Done when staff can text a whole group and see every reply on each client's
+record.
+C Employer onboarding
+Done when a new group goes from signed to ready to enroll without leaving
+the system.
+D Benefits portal
+Done when an employee opens a text link on a phone and ﬁnishes enrollment
+in one session.
+Linked records for groups, individual clients, employees,
+dependents and contacts
+Household view for individual and Medicare clients
+Plans, carriers, policy numbers and effective dates per group and
+client
+Pipelines: prospect, quoting, onboarding, enrolling, active, renewal
+Notes, tasks, documents and a full activity timeline on every record
+Staff assignment, team queues and a "my work today" view
+Search and saved ﬁlters; service requests with status and due date
+Spreadsheet import of the current book with duplicate detection
+Email and two-way text from any record, with a shared staff inbox
+Templates with merge ﬁelds, in English and Spanish
+Bulk send to a group or a ﬁltered list such as "not yet enrolled"
+Consent and opt-out tracking; STOP and HELP handled
+automatically
+Quiet hours by the recipient's time zone
+Delivery tracking, with fallback to the other channel
+Checklist per new group with due dates counted back from the
+effective date
+Employer portal invite and secure sign-in for the HR contact
+Census upload from a Blackford template, validated ﬁeld by ﬁeld
+Plans offered, rates by tier and employer contribution rules
+Eligibility: classes, waiting periods, minimum hours, dependent age
+limits
+Open enrollment and new-hire windows; intake for individual
+clients
+Passwordless sign-in from a text or email link with a one-time code
+Guided flow: details, dependents, compare plans, elect or waive,
+beneﬁciaries, sign
+Plan comparison with per-paycheck and annual cost
+Save and resume at the exact step; conﬁrmation PDF on the record
+Agent-assisted mode on iPad for in-person enrollment meetings
+Employer view of enrollment progress for their group
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 3 of 21
+
+===== PAGE 5 =====
+
+E Sign-up and signing by text
+Done when staff can produce any signed document and its audit trail on
+request.
+F Policy changes and renewals
+Done when an employee reports a birth from a phone and a test group renews
+end to end.
+G Carrier submission
+Done when a carrier accepts a test ﬁle built in the system.
+H Audit, reporting and platform
+Done when an outside penetration test passes with all ﬁndings ﬁxed.
+Automations at launch
+Seventeen automations run enrollment season without manual reminders, so staff act only
+on exceptions. Each is logged, can be paused per group, and has timings Blackford can
+change without a developer.
+# WHEN  THIS  HAPPENS THE  SYSTEM  DOES  THIS
+WHO  HEARS
+ABOUT  IT
+ENROLLMENT
+1 An enrollment window opens (open
+enrollment, new hire or life event)
+Sends the invite by text and email with a secure link Employee
+2 7, 3 and 1 days before the window closes
+(adjustable)
+Sends a reminder worded for the person's status: not started,
+started, or ready to sign
+Employee
+3 A person completes or waives Stops reminders, sends a conﬁrmation PDF, updates the
+employer view
+Employee, HR
+contact
+Election forms and carrier applications generated as PDFs
+E-signature on the phone, with consent to electronic records ﬁrst
+Audit trail per signature: name, time, device and IP address
+Employer agreements signed the same way
+Self-service life events (marriage, birth, address) with document
+upload
+Staff approval before a change reaches the carrier ﬁle
+Staff-entered changes and terminations
+Group renewal workflow: renewal calendar, rate updates, re-
+enrollment window
+Export template per carrier, mapped to its columns and codes
+Change-only ﬁles: adds, changes and terminations since the last
+ﬁle
+Validation before export, with errors listed per person
+Staff approval before any ﬁle is released
+Secure delivery by SFTP or encrypted download, never plain email
+Export log with resend; status per enrollment through carrier
+conﬁrmation
+Audit log of every sign-in, view, change, export, message and
+signature
+Enrollment status, carrier submission, onboarding and data quality
+reports
+Roles for Blackford admin, account manager, employer HR and
+employee
+MFA for staff; HIPAA hosting under a BAA; encryption; tested
+backups
+Phone, iPad and desktop; WCAG 2.1 AA on client screens
+ACA data (offers, elections, waivers by month) captured from day
+one
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 4 of 21
+
+===== PAGE 6 =====
+
+# WHEN  THIS  HAPPENS THE  SYSTEM  DOES  THIS
+WHO  HEARS
+ABOUT  IT
+4 A group is below 70% complete 3 days
+before close
+Sends the list of people outstanding HR contact, account
+manager
+5 A window closes with people outstanding Creates a task per person; marks no one as waived unless the
+employer's rules say so
+Account manager
+6 HR adds a new hire Works out the eligibility date from the waiting period and
+schedules the invite
+Employee, on that
+date
+7 Weekly while a window is open Sends a progress digest for the group HR contact
+ONBOARDING ,  CHANGES  AND  DATA  QUALITY
+8 A group is marked signed Builds the onboarding checklist with due dates Account manager
+9 A census upload has errors Returns the errors with a link to ﬁx and upload again HR contact
+10 An onboarding task is overdue Reminds the owner, then escalates after a set number of days Task owner, then
+admin
+11 Every night Flags missing dependent data, dependents turning 26 within 90
+days, clients turning 65 within 6 months
+Account manager
+12 A text fails or an email bounces Sends by the other channel; if both fail, creates a call task Account manager
+13 An employee reports a life event Opens the 30-day change window and queues the change for
+staff approval
+Account manager
+14 120 days before a group renews Starts the renewal workflow and task list Account manager
+CARRIER  SUBMISSION
+15 A window closes, or the weekly change day
+arrives
+Builds a draft change ﬁle per carrier, validates it and queues it
+for approval
+Blackford approver
+16 A ﬁle is approved Delivers it securely, logs it and marks enrollments submitted Account manager
+17 No carrier conﬁrmation after a set number of
+days
+Creates a follow-up task Account manager
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 5 of 21
+
+===== PAGE 7 =====
+
+MVP timeline
+Two build tracks run side by side for seven sprints, then three weeks of testing and a pilot
+group take the MVP live on May 7, 2027.
+Nov ’26 Dec ’26 Jan ’27 Feb ’27 Mar ’27 Apr ’27 May ’27
+Discovery and design Nov 16 – Dec 11
+Design sign-off Dec 11
+Sprint 1: Foundation Dec 14 – Dec 23
+Holiday buffer Dec 28 – Jan 1
+A · CRM and messaging (S2–3) Jan 4 – Jan 29
+A · Onboarding and rules (S4–5) Feb 1 – Feb 26
+A · Automation, renewals (S6–7) Mar 1 – Mar 26
+B · Portal and signing (S2–4) Jan 4 – Feb 12
+B · iPad, life events, reports (S5–7) Feb 15 – Mar 26
+Lead · Carrier export Jan 18 – Mar 12
+Lead · Security and load test Mar 15 – Mar 26
+Feature complete Mar 26
+Testing and pen test Mar 29 – Apr 16
+Pilot and go-live Apr 19 – May 7
+MVP live May 7
+Discovery, testing and launch Track A: CRM and operations Track B: portal and sign-up Tech lead: carriers and security
+Why 5½ months. AI-assisted development speeds up coding, but the MVP still depends on carrier test ﬁles, a
+penetration test before real health data goes live, acceptance testing by Blackford's staff, and a pilot group with a real
+enrollment date. May 7 is the target; June 2027 is the committed date, which leaves four weeks for carrier or testing
+delays.
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 6 of 21
+
+===== PAGE 8 =====
+
+Sprint plan
+Every two weeks Blackford sees working software in a test environment, and a sprint is
+accepted only when its exit test passes.
+STAGE DATES
+TRACK  A  ·  CRM  AND
+OPERATIONS
+TRACK  B  ·  PORTAL
+AND  SIGN -UP TECH  LEAD EXIT  TEST
+Discovery and
+design
+Nov 16 – Dec 11 Workflow interviews; carrier templates and census samples collected; phone,
+iPad and desktop screen designs; architecture; vendor BAAs started; texting
+registration ﬁled
+Blackford signs off
+designs and the MVP
+feature list
+1 · Foundation Dec 14 – Dec 23 Environments, staff sign-in
+with MFA, roles
+Portal shell and shared
+screen components
+Hosting under a BAA,
+audit log, data model
+for all releases
+A staff sign-in and
+every action appear in
+the audit log
+Holiday buffer Dec 28 – Jan 1 Reduced capacity; catch-up only —
+2 · Records Jan 4 – Jan 15 Group, client, employee,
+dependent and contact
+records; import
+Passwordless sign-in;
+employee proﬁle
+Plan, rate and
+contribution model;
+messaging vendors
+Current book imports
+cleanly; an employee
+signs in from a text
+3 · Workflow
+and messaging
+Jan 18 – Jan 29 Pipelines, tasks, notes,
+documents, search; email
+and two-way text
+Dependents; plan
+comparison with per-
+paycheck cost
+Carrier template
+mapping
+Staff text a whole
+group and see replies
+on each record
+4 · Onboarding
+and signing
+Feb 1 – Feb 12 Employer portal, checklist,
+census upload and
+validation
+Elect or waive,
+beneﬁciaries, review, e-
+sign by text, conﬁrmation
+PDF
+E-signature and
+signature audit trail
+An employee signs up
+and signs from a text in
+one session
+5 · Eligibility
+and devices
+Feb 15 – Feb 26 Plans, rates, contributions,
+eligibility, windows;
+employer progress view
+iPad agent mode, save
+and resume, Spanish;
+usability sessions
+Carrier change ﬁles
+and validation
+A test group reaches
+ready to enroll;
+employees ﬁnish on
+phones
+6 · Automation
+and changes
+Mar 1 – Mar 12 Automation engine and
+enrollment status
+dashboard
+Self-service life events
+with staff approval
+Approval step, SFTP
+delivery, export log
+A simulated open
+enrollment runs with
+no manual reminders
+7 · Renewals
+and reports
+Mar 15 – Mar 26 Group renewal workflow
+and 120-day automation
+Reports, audit viewer,
+service requests
+Security hardening
+and load test
+Feature complete; a
+test group renews end
+to end
+Stabilization
+and acceptance
+Mar 29 – Apr 16 Regression testing, outside penetration test and ﬁxes, acceptance testing by
+Blackford staff, migration rehearsal
+No open critical or high
+defects
+Pilot and go-
+live
+Apr 19 – May 7 Staff training, live data migration, ﬁrst pilot group enrolls (a June 1 or July 1
+renewal, or new hires)
+Pilot enrollments
+conﬁrmed by the
+carrier
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 7 of 21
+
+===== PAGE 9 =====
+
+Later releases
+Release 2 aims to land before fall 2027 open enrollment, and Release 3 waits until the
+season has passed. Both are re-planned sprint by sprint after the MVP pilot.
+May – Oct 2027
+Release 2: APIs and ACA
+Built May to August and live between
+August and October. Connects the ﬁrst 2–
+3 carriers by API and adds ACA reporting
+before the busy season.
+A carrier not certiﬁed by September 3 stays
+on CSV until January 2028. ACA must be
+ready by December 2027.
+Sep 2027 – mid-Jan 2028
+Open enrollment season
+Enrollment flows, reminders and carrier
+exports change only for urgent ﬁxes. The
+team supports every January 1 group,
+monitors daily and builds low-risk back-
+ofﬁce work behind on/off switches.
+Load test at full-book volume in August,
+before the freeze.
+Jan – Jun 2028
+Release 3: optimize
+Back-ofﬁce tools: commissions, TPA
+reports and AI assistance, plus the
+options Blackford chooses.
+Scope set at a review in December 2027.
+Runs alongside ACA ﬁling support.
+WHAT  EACH  RELEASE  ADDS
+FEATURE RELEASE WHY  IT  WAITS
+Carrier API enrollment (Ideon or Noyo) R2 CSV covers every carrier at launch; certiﬁcation takes 6–12
+weeks per carrier
+ACA reporting (1094/1095 B and C) R2 First ﬁling needs a full year of data, which the MVP collects
+Dependent age-out and evidence-of-insurability tracking;
+dashboards
+R2 The MVP's nightly check already flags upcoming age-outs
+AI census cleanup and document extraction R2 Rule-based validation covers launch; AI cuts data entry once
+volume grows
+Enrollment versus carrier and TPA invoice audit R2 Needs a few months of export history
+Commission tracking and reconciliation R3 High value, but not needed to enroll anyone
+TPA billing, claims and broker-fee imports R3 Needed for self-funded renewals, mostly after the ﬁrst season
+AI follow-up drafting and inbox triage R3 Builds on a season of communication history
+Medicare tools, digital ID cards, payroll exports, voice
+signatures, offline iPad
+R3 Options Blackford selects at the December 2027 review
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 8 of 21
+
+===== PAGE 10 =====
+
+Team and delivery
+The MVP date assumes 3–4 developers using AI-assisted development in two parallel
+tracks, about 5½ full-time equivalents across 7–8 people.
+ROLE TIME RESPONSIBILITIES
+Technical lead 100% Architecture, data model, security, code review; carrier gateway and vendor integrations
+Developers 1–2
+Track A
+2 × 100% CRM, employer onboarding, messaging, automation engine, renewals
+Developers 3–4
+Track B
+1–2 × 100% Beneﬁts portal, e-signature, iPad mode, life events, reports; carrier APIs and ACA in Release 2
+Project lead 25–30% Scope, sprint planning, demos, change control, status reports
+UX / UI designer 50%, then as needed Phone, iPad and desktop screens; usability testing with real employees
+QA engineer 50%, 100% at launch Test plans, regression, carrier ﬁle checks, accessibility
+Security tester Per release Conﬁguration review and outside penetration test
+WORKING  RHYTHM
+Two-week sprints, each closing with a demo and acceptance
+Weekly 30-minute status call with Blackford's decision-maker
+Shared tracker for backlog, sprint progress and open decisions
+Written status report every two weeks: done, next, risks,
+decisions
+TEAM  SIZE  AND  THE  CALENDAR
+With 3 developers, self-service life events or iPad mode move just
+after launch to hold May 7
+More than 4 developers would not bring the MVP in much further
+After launch the team can step down to 2–3 developers for the
+later releases
+WHAT  BLACKFORD  PROVIDES
+ITEM WHEN
+One decision-maker who approves designs, sprints and changes, replying within 2 business
+days
+Throughout
+Two to three staff for workflow interviews and acceptance testing Discovery; Sprints 5–7; stabilization
+Branding, portal web address and email domain access Dec 11, 2026
+Carrier list, templates, contacts and delivery details Jan 8, 2027
+Pilot group and its HR contact Feb 1, 2027
+Plan, rate, contribution and eligibility data for each group Before its first enrollment
+Change control. Anything outside the signed feature list is written up with its effect on dates
+and starts only after Blackford approves it. Swapping features of similar size between releases
+needs no change request.
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 9 of 21
+
+===== PAGE 11 =====
+
+Dependencies and lead times
+The dates most at risk depend on outside parties, so each item below starts well before the
+sprint that needs it. Lead times are typical and will be conﬁrmed with each vendor.
+ITEM OWNER START  BY NEEDED  BY LEAD  TIME IF  LATE
+HIPAA BAAs with hosting, texting,
+email and e-signature vendors
+Hyacinth Nov 16, 2026 Dec 14, 2026 1–4 wks Build continues on test
+data only
+Business texting registration (A2P
+10DLC)
+Hyacinth, with
+Blackford details
+Nov 23, 2026 Jan 18, 2027 2–6 wks Email-only reminders at
+ﬁrst
+Each carrier's CSV template and
+delivery method
+Blackford Nov 16, 2026 Jan 18, 2027 2–8 wks That carrier stays manual
+at launch
+E-signature vendor contracted Hyacinth Dec 1, 2026 Feb 1, 2027 2–4 wks Signing moves a sprint
+later
+Pilot group's plan, rate and
+contribution data
+Blackford Jan 15, 2027 Mar 29, 2027 2–4 wks Pilot moves to the next
+enrollment event
+Penetration test booked Hyacinth Jan 15, 2027 Mar 29, 2027 2–4 wks Go-live waits for the test
+Ideon or Noyo contract and sandbox Blackford and
+Hyacinth
+Feb 2027 May 2027 4–10 wks Carrier APIs move to
+January 2028
+Carrier API certiﬁcation Provider and carrier May 2027 Sep 3, 2027 6–12 wks That carrier stays on CSV
+until January
+ACA ﬁling vendor and test
+transmission
+Blackford and
+Hyacinth
+Apr 2027 Oct 2027 4–8 wks File through the vendor's
+own portal
+MVP critical path: design sign-off → foundation and data model → onboarding → beneﬁts portal
+→ automation → carrier export → penetration test → pilot. A two-week slip in sign-off moves go-
+live by two weeks.
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 10 of 21
+
+===== PAGE 12 =====
+
+Risks and mitigations
+Carrier responsiveness and late scope changes are the risks most likely to move dates.
+Both are handled by starting outside work in week one and holding the MVP list ﬁrm after
+December 11.
+RISK LIKELIHOOD IMPACT MITIGATION
+Carriers slow to supply templates or
+approve test ﬁles
+High A carrier stays manual at
+launch
+Request templates in week one; launch with the carriers
+that are ready
+Messy census and plan data from
+employers
+High Onboarding takes longer
+per group
+Census template, upload validation, error reports
+straight to HR
+Carrier API certiﬁcation runs long High APIs slip past fall
+enrollment
+CSV already covers every carrier; APIs switch on one
+carrier at a time
+Scope added after design sign-off Medium Dates move Change control; new items default to the next release
+Low employee adoption of the portal Medium Staff fall back to paper Text links with no password, Spanish messages, iPad
+mode, usability tests in Sprint 5
+Texting registration delayed or
+messages ﬁltered
+Medium Reminders reach fewer
+people
+File in week two; email fallback built in
+Blackford staff unavailable for
+testing
+Medium Acceptance slips Testing windows booked during discovery
+Data breach or HIPAA ﬁnding Low Severe BAAs, encryption, MFA, audit log, least-privilege roles,
+penetration test each release
+Open enrollment volume overloads
+the system
+Low Failed enrollments at
+deadline
+Full-volume load test in August; code freeze from
+September 3
+Quality, acceptance and support
+A release goes live only after Blackford's staff accept it, no critical or high defects remain
+open, and an outside penetration test has passed.
+EVERY  FEATURE  IS  DONE  WHEN  IT
+Works on phone, iPad and desktop in current Safari, Chrome and
+Edge
+Has automated tests and a second developer's review
+Writes to the audit log for every view, change and export
+Meets WCAG 2.1 AA on client-facing screens
+Has been shown in a sprint demo and accepted by Blackford
+AFTER  LAUNCH
+Hypercare: four weeks of daily monitoring and same-day ﬁxes for
+anything blocking enrollment
+Ongoing support: hosting, monitoring, patches, ﬁxes, carrier
+template changes, annual ACA and Medicare rule updates
+Response times: critical within 2 hours, high within 1 business
+day, normal within 3
+Handover: admin guide, staff guides and short training videos
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 11 of 21
+
+===== PAGE 13 =====
+
+SUCCESS  MEASURES  targets confirmed in discovery
+MEASURE TARGET
+Employees who ﬁnish enrollment before their window closes 95% or more
+Enrollments completed on a phone or iPad Majority
+Carrier ﬁle records rejected for data errors Under 2%
+Staff time per group onboarding Half of today
+Manual reminder calls or emails during open enrollment Near zero
+Assumptions and decisions
+The dates in this plan hold if these assumptions are true and Blackford settles the open
+decisions by December 11, 2026.
+ASSUMPTIONS
+Kickoff on November 16, 2026, with the team above
+The platform replaces Ease for enrollment from the MVP onward
+Ease or a ﬁling vendor ﬁles tax year 2026 ACA forms (due early
+2027)
+Carriers accept CSV ﬁles and the platform's electronic signatures
+The platform runs in the browser; no app store apps
+NOT  INCLUDED
+COBRA administration, payroll processing and claims handling
+Direct EDI 834 certiﬁcation with individual carriers
+Native iOS or Android apps
+Ease history beyond active enrollments and the current plan year
+Third-party fees: hosting, texting, e-signature, connectivity, ACA
+ﬁling
+DECISIONS  NEEDED  FROM  BLACKFORD
+APPROVAL
+B L A C K F O R D  &  A S S O C I A T E S
+Name and signature Date
+H YA C I N T H  I N D U S T R I E S ,  L L C
+Name and signature Date
+Replace Ease for enrollment, or keep Ease and link to it Carriers used, and for each: CSV, API or portal entry only
+Which documents need signatures Number of groups and covered employees
+Individual and Medicare clients in scope, or groups only Large-employer and self-funded groups, and their TPAs
+Payroll systems the groups use Pilot group and its effective date
+Release 3 options to build Branding, portal web address and sending email domain
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 12 of 21
+
+===== PAGE 14 =====
+
+Appendix A: Expected workflows
+Each diagram shows how we expect one MVP module to work. Blackford conﬁrms or
+corrects each one during discovery, and the agreed versions become part of design sign-off
+on December 11, 2026.
+Columns show who does each step, and gold steps happen automatically. The questions under
+each diagram are what we need from Blackford to ﬁnish it.
+Start or ﬁnish Step done by a person Done automatically by the system Decision Outside service
+WORKFLOW  INDEX
+WORKFLOW WHO  TAKES  PART STEPS AUTOMATED DECISIONS
+A Client management Client or prospect, Blackford staff, System 9 5 2
+B Client communications Recipient, Blackford staff, System, Text and email provider 8 4 3
+C Employer onboarding Employer HR contact, Blackford staff, System 8 3 2
+D Beneﬁts enrollment portal Employee, Agent on iPad (optional), System 11 4 1
+E Sign-up and signing by text Signer, System, E-signature service, Blackford staff 7 3 1
+F Policy changes and renewals Employee, HR contact, Blackford staff, System 10 5 3
+G Carrier submission Blackford approver, System, Carrier 8 5 3
+H Audit, reporting and security Any user, System, Blackford admin 6 3 0
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 13 of 21
+
+===== PAGE 15 =====
+
+A Client management
+How a lead becomes a client record, how it moves to onboarding, and how service requests from
+active clients are handled.
+C L I E N T  O R  P R O S P E C T B L A C K F O R D  S TA F F S Y S T E M
+Lead arrives: referral,
+web form, call or
+renewal list
+Create the record, or
+import from a spreadsheet
+Check for duplicates by
+name, EIN, email, phone
+Possible duplicate?
+Merge, or conﬁrm it is a
+separate client
+Create linked records:
+group, contacts, employees,
+dependents
+Assign an owner by rule;
+add to pipeline as Prospect
+Quote and send proposal;
+log calls, notes, documents
+Client signs?
+Not signed: reason logged,
+follow-up date set
+Move to Onboarding; start
+the checklist (workflow C)
+SERVICING  AN  ACTIVE  CLIENT
+Asks for an ID card, a
+change or help with a claim
+Open a service request;
+route to the owner; set due
+date by request type
+Resolve and reply from the
+client record
+Logged on the timeline;
+overdue requests escalate
+yesyes
+nono
+nono
+yesyes
+text, email or portaltext, email or portal
+C O N F I R M  W I T H  B L A C K F O R D
+Which details identify a duplicate: EIN, company name, email
+or phone?
+How should new leads be assigned: by line of business, by
+territory, or in rotation?
+Which pipeline stages and lost reasons do you use today? Which service request types do you need, and how fast must
+each be answered?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 14 of 21
+
+===== PAGE 16 =====
+
+B Client communications
+How every text and email is checked for consent, timed, delivered and logged, and where replies
+go.
+RECIPIENT BLACKFORD  STAFF SYSTEM TEXT  AND  EMAIL  PROVIDER
+Staff send a message, or
+an automation ﬁres
+Consent for this channel?
+Call task: conﬁrm consent
+or another channel
+Hold for quiet hours in the
+recipient's time zone
+Fill the template; texts
+carry a secure link, never
+health details
+Deliver the text or email
+Delivered?
+Retry once, then use the
+other channel; if both
+fail, create a call task
+Reads it; replies or opens
+the secure link
+Reply is STOP or HELP?
+Record the opt-out, or send
+help text; conﬁrm to the
+recipient
+Reply lands in the shared
+inbox and on the client
+timeline; owner notiﬁed
+Staff reply from the record;
+full history kept
+nono
+yesyes
+nono
+yesyes
+yesyes
+nono
+C O N F I R M  W I T H  B L A C K F O R D
+Which messages may go by text, and which must be email
+only?
+What quiet hours should apply? The default is 8 a.m. to 8 p.m.
+in the recipient's time zone.
+Who watches the shared inbox, and who covers replies after
+hours?
+Should Spanish messages go to everyone who chooses
+Spanish, or only on request?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 15 of 21
+
+===== PAGE 17 =====
+
+C Employer onboarding
+How a newly signed group goes from agreement to "ready to enroll", with the employer doing
+their part in the employer portal.
+EMPLOYER  HR  CONTACT BLACKFORD  STAFF SYSTEM
+Group signs the broker
+agreement (e-signed)
+Create the onboarding
+checklist; due dates set back
+from the effective date
+Invite the HR contact to
+the employer portal
+Conﬁrm company details,
+contacts, payroll schedule
+Upload the census from the
+Blackford template
+Census passes validation?
+Get the error list; ﬁx it
+and upload again
+Enter plans, rates by tier
+and employer contributions
+Set eligibility: classes,
+waiting periods, hours,
+enrollment window dates
+Approves the setup
+summary?
+Lock the setup; status Ready
+to enroll; schedule invites
+Group ready to enroll
+(workflow D)
+portal inviteportal invite
+nono
+yesyes
+re-uploadre-upload
+changeschanges
+yesyes
+C O N F I R M  W I T H  B L A C K F O R D
+Who uploads the census today: the employer or Blackford
+staff?
+Which census ﬁelds do you need: hire date, class, salary,
+hours, others?
+Does the employer approve the plan and contribution setup in
+writing?
+How many days before the effective date must onboarding be
+ﬁnished?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 16 of 21
+
+===== PAGE 18 =====
+
+D Benefits enrollment portal
+How an employee signs in from a text link and chooses or waives each beneﬁt, on their own or
+with an agent on an iPad.
+EMPLOYEE AGENT  ON  IPAD  (OPTIONAL ) SYSTEM
+Window opens: invite by
+text and email with a
+secure link
+Opens the link on a phone
+or computer
+In person: agent opens the
+employee on an iPad
+Send a one-time code to the
+phone or email on ﬁle
+Enter the code; conﬁrm
+personal details
+Add or conﬁrm dependents
+Save progress at every step;
+resume any time before the
+window closes
+Compare plans side by side:
+per-paycheck and annual cost
+Enroll or waive each
+beneﬁt?
+Record the waiver and the
+reason (kept for ACA)
+Choose plan and tier; add
+beneﬁciaries for life
+coverage
+Review the summary and
+sign (workflow E)
+Save elections; send a
+conﬁrmation PDF; update
+the employer view
+Enrollment ready for the
+carrier ﬁle (workflow G)
+in personin person
+waivewaive
+enrollenroll
+C O N F I R M  W I T H  B L A C K F O R D
+Which beneﬁts are offered: medical, dental, vision, life,
+disability, others?
+Must employees give a reason when they waive coverage?
+Is beneﬁciary information required for every life plan? Will agents run in-person enrollment meetings, and on which
+devices?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 17 of 21
+
+===== PAGE 19 =====
+
+E Sign-up and signing by text
+How election forms and carrier applications are signed on a phone, with a full audit trail and a
+paper fallback.
+SIGNER SYSTEM E -SIGNATURE  SERVICE BLACKFORD  STAFF
+Elections reviewed;
+signature needed
+Build the election form and
+any carrier application
+as PDFs
+Agrees to sign
+electronically?
+Paper or in-person
+signing; staff upload the
+signed copy
+Signing session opens on
+the phone
+Unsigned after 48 hours:
+text reminder; after the
+window closes, staff task
+Reviews the documents and
+signs on screen
+Returns the signed PDF and
+audit trail: name, time,
+device, IP address
+Store the signed PDF on the
+record; mark it ready for
+the carrier ﬁle
+Signed and stored; audit
+trail on ﬁle
+nono
+yesyes
+not signednot signed
+reminderreminder
+C O N F I R M  W I T H  B L A C K F O R D
+Which documents need a signature: election forms, carrier
+applications, Medicare forms?
+Do any carriers require their own signature forms or ink
+signatures?
+How long before an unsigned form gets a reminder? The
+default is 48 hours.
+Who uploads paper signatures, and where are originals kept?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 18 of 21
+
+===== PAGE 20 =====
+
+F Policy changes and renewals
+How mid-year life events are reported, checked and approved, and how each group renews
+every year.
+E M P L O Y E E H R  C O N TA C T B L A C K F O R D  S TA F F S Y S T E M
+MID -YEAR  CHANGE  (LIFE  EVENT )
+Reports a life event: birth,
+marriage, address, lost
+coverage
+Check the 30-day window
+from the event date
+Inside the window?
+Review the exception with
+the employer and carrier
+Upload proof and make the
+allowed changes
+Approve the change?
+Told what is missing;
+sends it
+Queue for the next carrier
+ﬁle; tell HR the new
+payroll deduction
+HR updates the payroll
+deduction
+ANNUAL  GROUP  RENEWAL
+120 days before the
+renewal date
+Create the renewal
+workflow and task list
+Collect carrier renewal
+rates; build options
+Changes to plans or
+contributions?
+Update plans, rates and
+contributions
+Passive renewal: carry
+elections forward; notify
+employees
+Open the re-enrollment
+window; invites and
+reminders run (workflow D)
+Renewed group active on
+the effective date
+nono
+yesyes
+nono yesyes
+resendresend
+yesyes
+nono
+C O N F I R M  W I T H  B L A C K F O R D
+Which life events do your groups allow, and what proof does
+each need?
+Who approves a change: Blackford staff, the employer, or
+both?
+Do most groups renew passively, or does every employee re-
+enroll each year?
+How far ahead of renewal do carriers send renewal rates?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 19 of 21
+
+===== PAGE 21 =====
+
+G Carrier submission
+How completed enrollments and changes become a validated, approved ﬁle for each carrier, and
+how conﬁrmations are tracked.
+BLACKFORD  APPROVER SYSTEM CARRIER
+Window closes, or the
+weekly change day arrives
+Collect adds, changes and
+terminations since the last
+ﬁle, per carrier
+Map to the carrier template;
+validate every record
+Errors found?
+Fix the data, or hold that
+person and send the rest
+Draft ﬁle queued for
+approval
+Approve the ﬁle?
+Deliver by SFTP or
+encrypted download; log
+who, what and when
+Load the ﬁle; conﬁrm or
+reject each record
+Conﬁrmation received in
+the set number of days?
+Follow-up task: contact the
+carrier; resend if needed
+Mark conﬁrmed; rejected
+records go back to staff
+Enrollments active with
+the carrier
+yesyes
+nono
+revalidaterevalidate
+nono
+yesyes
+nono
+yesyes
+resendresend
+C O N F I R M  W I T H  B L A C K F O R D
+Which carriers take CSV ﬁles, and how does each want them
+delivered?
+Who may approve a carrier ﬁle, and does every ﬁle need
+approval?
+How often should change ﬁles go out: weekly, every two
+weeks, or on demand?
+How do carriers conﬁrm receipt, and how long should we wait
+before following up?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 20 of 21
+
+===== PAGE 22 =====
+
+H Audit, reporting and security
+How access is controlled, how every action is recorded, and what Blackford's admin reviews on a
+schedule.
+ANY  USER SYSTEM BLACKFORD  ADMIN
+Signs in: staff with MFA,
+clients with a one-time code
+Check the role: assigned
+groups only, or own record
+only
+Views, changes, exports
+or signs
+Write an audit entry: who,
+what, when, from where;
+cannot be edited
+Sign out after inactivity;
+nightly data checks and
+tested backups
+Weekly: review enrollment,
+carrier ﬁle, overdue task
+and data quality reports
+Quarterly: review the user
+access report; remove
+people who have left
+On request: ﬁlter the
+audit log and export
+evidence for an audit
+C O N F I R M  W I T H  B L A C K F O R D
+HYACINTH  INDUSTRIES ,  LLC Scope of Work · Blackford Beneﬁts CRM & Enrollment Platform · v2.0 · October 30, 2026 · Conﬁdential
+Which staff roles see which groups and reports? How long must records and audit logs be kept?
+Which reports do you review each week today, and who
+receives them?
+Who reviews user access each quarter?
+HYACINTH INDUSTRIES, LLC · Blackford Benefits Platform · Scope of Work v2.0 · Confidential Page 21 of 21
