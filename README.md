@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hyacinth Legal Support
 
-## Getting Started
+Clickable prototype for Hyacinth Industries, LLC — Legal Support: the marketing website, the client operations portal and the internal admin area, sharing one in-memory data store.
 
-First, run the development server:
+Built with Next.js 16 (App Router), React 19, TypeScript, Zustand + Immer. No backend: all data is mock data held in the browser and resets on a full page reload.
+
+## Run it locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production build:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start          # http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Surfaces and routes
 
-## Learn More
+| Surface | Start at | Notes |
+|---|---|---|
+| Website | `/` | Sections `/#services`, `/#contact` …; legal pages `/privacy`, `/terms`, `/accessibility` |
+| Client portal | `/portal` | `/portal/workflows`, `/portal/deadlines`, `/portal/reports`, `/portal/account`, `/portal/help` |
+| Admin | `/admin` | Sign in with any email and password. `/admin/clients`, `/admin/workflows`, `/admin/team`, `/admin/leads`, `/admin/content`, `/admin/users`, `/admin/audit`, `/admin/settings`, `/admin/design-system` |
 
-To learn more about Next.js, take a look at the following resources:
+Unknown paths redirect to the nearest surface home.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  app/                  routes: (site)/, portal/, admin/
+  components/
+    ui/                 shared UI kit: dropdowns, date pickers, modals, sheet, toasts, charts, blocks
+    site/  portal/  admin/  shared/   surface components
+    shell/              app shell: mount gate, surface switcher, global hosts
+    icons.tsx
+  lib/
+    store.ts            shared Zustand store (state + actions; every change returns an Undo)
+    selectors.ts        derived data
+    seed.ts  data.ts    mock data
+    format.ts           date, time-zone and display formatting
+    types.ts
+legacy/                 the original single-file vanilla HTML/CSS/JS prototype (reference)
+```

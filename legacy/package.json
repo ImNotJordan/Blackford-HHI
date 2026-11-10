@@ -1,0 +1,15 @@
+{
+  "name": "hyacinth-legal-support",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hyacinth Industries, LLC — Legal Support: marketing website, client operations portal and admin area (clickable prototype).",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js --no-reload",
+    "build": "node build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
