@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hyacinth Legal Support</title>
+<meta name="description" content="Hyacinth Industries, LLC — Legal Support. A managed operating layer behind the practice of law.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
+<link rel="icon" href="src/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="src/styles/base.css">
+<link rel="stylesheet" href="src/styles/components.css">
+<script src="src/js/core.js" defer></script>
+<script src="src/js/ui-components.js" defer></script>
+<script src="src/js/admin.js" defer></script>
+<script src="src/js/glue.js" defer></script>
+<script src="src/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#home" data-action="skip">Skip to main content</a>
+
+<!-- Prototype surface switcher -->
+<div class="switcher" role="region" aria-label="Prototype surface switcher">
+  <div class="wrap">
+    <p class="switcher-label"><i data-icon="layers"></i><span><b>Prototype</b><span class="long"> · Hyacinth Legal Support</span></span></p>
+    <nav class="surface-tabs" aria-label="Choose surface">
+      <a href="#home" data-surface-link="site">Website</a>
+      <a href="#overview" data-surface-link="portal"><span class="long">Client portal</span><span class="short">Portal</span></a>
+      <a href="#admin" data-surface-link="admin">Admin</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ===================== WEBSITE ===================== -->
+<div id="site">
+  <header class="site-header on-ink">
+    <div class="wrap">
+      <a class="brand" href="#home" aria-label="Hyacinth Legal Support, home"><span data-logo></span><span class="brand-word"><b>Hyacinth</b><span>Legal Support</span></span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#services" data-nav="services">Services</a>
+        <a href="#model" data-nav="model">Operating model</a>
+        <a href="#difference" data-nav="difference">Why Hyacinth</a>
+        <a href="#proof" data-nav="proof">Proof</a>
+        <a href="#approach" data-nav="approach">How we start</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost btn-sm hide-md" href="#overview">Client portal</a>
+        <a class="btn btn-primary btn-sm" href="#contact" data-focus="#c-name">Talk to us</a>
+        <button class="icon-btn menu-toggle" type="button" data-action="site-menu" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i data-icon="menu"></i></button>
+      </div>
+    </div>
+  </header>
+  <div id="mobile-menu" class="mobile-menu on-ink" hidden>
+    <div class="wrap">
+      <nav aria-label="Mobile">
+        <a href="#services">Services <i data-icon="arrow-right"></i></a>
+        <a href="#model">Operating model <i data-icon="arrow-right"></i></a>
+        <a href="#difference">Why Hyacinth <i data-icon="arrow-right"></i></a>
+        <a href="#proof">Proof of execution <i data-icon="arrow-right"></i></a>
+        <a href="#approach">How we start <i data-icon="arrow-right"></i></a>
+        <a href="#overview">Client portal <i data-icon="arrow-right"></i></a>
+      </nav>
+      <div class="menu-ctas">
+        <a class="btn btn-primary btn-block" href="#contact" data-focus="#c-name">Talk to us about capacity</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="site-main" tabindex="-1">
+    <!-- HOME -->
+    <div id="page-home">
+      <section class="hero on-ink" id="home" data-spy aria-labelledby="hero-title">
+        <div class="wrap">
+          <div class="hero-copy">
+            <p class="eyebrow">Managed operations for midsize law firms</p>
+            <h1 class="display" id="hero-title" tabindex="-1"><span data-c="hero.line">Add capacity. Protect focus.</span> <span class="accent-line" data-c="hero.accent">Scale with control.</span></h1>
+            <p class="lede" data-c="hero.sub">A managed operating layer behind the practice of law. Hyacinth builds and manages dedicated teams around the recurring work that consumes attorney, paralegal, and leadership capacity.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contact" data-focus="#c-name">Talk about capacity <i data-icon="arrow-right"></i></a>
+              <a class="btn btn-ghost" href="#services">See where we plug in</a>
+            </div>
+          </div>
+          <figure class="layer" aria-labelledby="layer-cap">
+            <figcaption id="layer-cap" class="sr-only">How Hyacinth sits behind your firm: your attorneys, paralegals and leadership stay focused on the practice of law while Hyacinth runs three lanes of recurring work.</figcaption>
+            <div class="layer-top">
+              <span class="layer-k">The practice of law</span>
+              <span class="roles">Attorneys · Paralegals · Leadership</span>
+            </div>
+            <div class="layer-flow">Focus protected. Recurring work moves below.</div>
+            <span class="layer-k">Hyacinth operating layer</span>
+            <div class="lanes">
+              <button class="lane" type="button" data-action="lane" data-target="svc-client"><span class="lane-n">01</span><span><b>Client Operations</b><span class="small">Intake, communications, scheduling, follow-up</span></span><i data-icon="arrow-right"></i></button>
+              <button class="lane" type="button" data-action="lane" data-target="svc-legal"><span class="lane-n">02</span><span><b>Legal Support</b><span class="small">Records, documents, deadlines, data</span></span><i data-icon="arrow-right"></i></button>
+              <button class="lane" type="button" data-action="lane" data-target="svc-business"><span class="lane-n">03</span><span><b>Business Operations</b><span class="small">Billing, reporting, CRM, finance</span></span><i data-icon="arrow-right"></i></button>
+            </div>
+            <div class="layer-foot"><i data-icon="eye"></i><span>Visible execution, managed with accountability</span></div>
+          </figure>
+        </div>
+        <div class="sigbar" role="presentation"></div>
+      </section>
+
+      <section class="band on-light" id="pillars" data-spy aria-labelledby="pillars-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">How Hyacinth works</p>
+            <h2 class="h2" id="pillars-title" tabindex="-1">Three commitments <span class="accent-line">behind every engagement.</span></h2>
+          </div>
+          <div class="pillars">
+            <div class="pillar">
+              <span class="pi"><i data-icon="users"></i></span>
+              <h3 class="h3" data-c="p0.title">Dedicated teams</h3>
+              <p><em data-c="p0.tag">Aligned to your workflows.</em> <span data-c="p0.text">A team that learns how your firm works and stays on your account.</span></p>
+            </div>
+            <div class="pillar">
+              <span class="pi"><i data-icon="workflow"></i></span>
+              <h3 class="h3" data-c="p1.title">Defined workflows</h3>
+              <p><em data-c="p1.tag">Built for consistency.</em> <span data-c="p1.text">Recurring work runs on a documented process, the same way every time.</span></p>
+            </div>
+            <div class="pillar">
+              <span class="pi"><i data-icon="eye"></i></span>
+              <h3 class="h3" data-c="p2.title">Visible execution</h3>
+              <p><em data-c="p2.tag">Managed with accountability.</em> <span data-c="p2.text">You can see what the team is doing, what is due, and what needs you.</span></p>
+              <a class="link-arrow" href="#overview">See it in the client portal <i data-icon="arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band on-light" id="services" data-spy aria-labelledby="services-title" style="border-top:1px solid var(--hairline)">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Where we plug in</p>
+            <h2 class="h2" id="services-title" tabindex="-1">Built around the recurring work <span class="accent-line">that consumes your team's capacity.</span></h2>
+          </div>
+          <div class="svc-grid">
+            <article class="card svc" id="svc-client" aria-labelledby="svc-client-h">
+              <span class="svc-icon"><i data-icon="message"></i></span>
+              <h3 class="h3" id="svc-client-h">Client Operations</h3>
+              <ul><li>Intake</li><li>Client communications</li><li>Scheduling</li><li>Document collection</li><li>Status updates</li><li>Follow-up</li></ul>
+              <div class="card-foot"><a class="link-arrow" href="#contact" data-area="Client Operations" data-focus="#c-name">Discuss Client Operations <i data-icon="arrow-right"></i></a></div>
+            </article>
+            <article class="card svc" id="svc-legal" aria-labelledby="svc-legal-h">
+              <span class="svc-icon"><i data-icon="file"></i></span>
+              <h3 class="h3" id="svc-legal-h">Legal Support</h3>
+              <ul><li>Records coordination</li><li>Document organization</li><li>Deadline tracking</li><li>Data administration</li><li>Attorney-directed workflows</li></ul>
+              <div class="card-foot"><a class="link-arrow" href="#contact" data-area="Legal Support" data-focus="#c-name">Discuss Legal Support <i data-icon="arrow-right"></i></a></div>
+            </article>
+            <article class="card svc" id="svc-business" aria-labelledby="svc-business-h">
+              <span class="svc-icon"><i data-icon="briefcase"></i></span>
+              <h3 class="h3" id="svc-business-h">Business Operations</h3>
+              <ul><li>Billing support</li><li>Reporting</li><li>CRM administration</li><li>Finance workflows</li><li>Research</li><li>Back-office processes</li></ul>
+              <div class="card-foot"><a class="link-arrow" href="#contact" data-area="Business Operations" data-focus="#c-name">Discuss Business Operations <i data-icon="arrow-right"></i></a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band on-light" id="model" data-spy aria-labelledby="model-title" style="background:var(--white);border-block:1px solid var(--hairline)">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Operating model</p>
+            <h2 class="h2" id="model-title" tabindex="-1">Six service areas. <span class="accent-line">One managed operating layer.</span></h2>
+          </div>
+          <ol class="model-grid">
+            <li class="model-item"><span class="model-num" aria-hidden="true">01</span><h3 class="h3"><span class="sr-only">01 </span><span data-c="a0.title">Client Experience</span></h3><p data-c="a0.text">Intake, communications, scheduling, and status updates that keep clients informed.</p></li>
+            <li class="model-item"><span class="model-num" aria-hidden="true">02</span><h3 class="h3"><span class="sr-only">02 </span><span data-c="a1.title">Legal Operations</span></h3><p data-c="a1.text">Records coordination, document organization, and deadline tracking under attorney direction.</p></li>
+            <li class="model-item"><span class="model-num" aria-hidden="true">03</span><h3 class="h3"><span class="sr-only">03 </span><span data-c="a2.title">Finance + Administration</span></h3><p data-c="a2.text">Billing support, finance workflows, and the back-office processes behind them.</p></li>
+            <li class="model-item"><span class="model-num" aria-hidden="true">04</span><h3 class="h3"><span class="sr-only">04 </span><span data-c="a3.title">Growth Operations</span></h3><p data-c="a3.text">CRM administration, outreach, and research that support new business.</p></li>
+            <li class="model-item"><span class="model-num" aria-hidden="true">05</span><h3 class="h3"><span class="sr-only">05 </span><span data-c="a4.title">Data + Management Visibility</span></h3><p data-c="a4.text">Data administration and reporting that show leadership what is moving.</p></li>
+            <li class="model-item"><span class="model-num" aria-hidden="true">06</span><h3 class="h3"><span class="sr-only">06 </span><span data-c="a5.title">Custom Operating Teams</span></h3><p data-c="a5.text">A dedicated team built around a workflow specific to your firm.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="band on-ink" id="difference" data-spy aria-labelledby="diff-title">
+        <div class="wrap">
+          <div class="diff">
+            <div class="stack-16" style="align-content:start">
+              <p class="eyebrow">The difference</p>
+              <h2 class="h2" id="diff-title" tabindex="-1">Capacity is useful. <span class="accent-line">Managed execution creates leverage.</span></h2>
+            </div>
+            <div class="diff-points">
+              <div class="diff-point"><span class="diff-letter" aria-hidden="true">A</span><div><h3 class="h3">Defined Process</h3><p>Each workflow is mapped and documented, so it runs the same way regardless of who picks it up.</p></div></div>
+              <div class="diff-point"><span class="diff-letter" aria-hidden="true">B</span><div><h3 class="h3">Active Management</h3><p>Hyacinth manages the team day to day, including priorities, quality checks, and escalations.</p></div></div>
+              <div class="diff-point"><span class="diff-letter" aria-hidden="true">C</span><div><h3 class="h3">Scalable Support</h3><p>Start with one workflow and add capacity as the process proves itself.</p></div></div>
+            </div>
+          </div>
+
+          <div class="proof" id="proof" data-spy aria-labelledby="proof-title">
+            <div class="proof-head">
+              <div class="stack-16">
+                <p class="eyebrow">Proof of execution</p>
+                <h2 class="h2" id="proof-title" tabindex="-1">PFAS water litigation <span class="accent-line">for a plaintiff firm.</span></h2>
+              </div>
+              <p style="max-width:44ch">Hyacinth ran the operating lifecycle for the firm, end to end.</p>
+            </div>
+            <div class="stats">
+              <div class="stat"><span class="stat-fig" data-c="s0.fig">120+</span><p data-c="s0.label">cities across the operating lifecycle</p></div>
+              <div class="stat"><span class="stat-fig" data-c="s1.fig">$270M+</span><p data-c="s1.label">in settlements for the firm's clients</p></div>
+              <div class="stat"><span class="stat-fig" data-c="s2.fig">End-to-end</span><p data-c="s2.label">operating ownership</p></div>
+            </div>
+            <div class="work-covered">
+              <h3 class="h4">The work covered</h3>
+              <ul class="work-list">
+                <li>Outreach</li><li>Historical data collection</li><li>Contractor and lab coordination</li><li>Settlement projections</li><li>Filings</li><li>Deadline management</li><li>Follow-up</li>
+              </ul>
+            </div>
+            <div class="why">
+              <div class="why-col">
+                <p class="eyebrow">Why it worked</p>
+                <p class="h4" style="font-weight:500">One team owned the full lifecycle, from first outreach to final follow-up, on defined workflows under active management.</p>
+              </div>
+              <div class="why-col callout">
+                <p class="eyebrow">The transferable lesson</p>
+                <p class="h4" style="font-weight:500">High-volume, deadline-driven work scales when it runs on a defined process with visible execution. The same model applies to your firm's recurring work.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band on-light" id="approach" data-spy aria-labelledby="approach-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Engagement path</p>
+            <h2 class="h2" id="approach-title" tabindex="-1">Start with one bottleneck. <span class="accent-line">Scale from there.</span></h2>
+          </div>
+          <ol class="timeline">
+            <li class="t-step"><span class="t-marker" aria-hidden="true"></span><span class="t-num">01</span><h3 class="h3">Start with one bottleneck</h3><p>Pick the recurring work that is costing your team the most time.</p></li>
+            <li class="t-step"><span class="t-marker" aria-hidden="true"></span><span class="t-num">02</span><h3 class="h3">Build the process</h3><p>Define the workflow, the handoffs, and what the team owns.</p></li>
+            <li class="t-step"><span class="t-marker" aria-hidden="true"></span><span class="t-num">03</span><h3 class="h3">Prove the leverage</h3><p>Run it with visible execution so you can see the capacity returned.</p></li>
+            <li class="t-step"><span class="t-marker" aria-hidden="true"></span><span class="t-num">04</span><h3 class="h3">Scale from there</h3><p>Extend the model to the next workflow once the first one works.</p></li>
+          </ol>
+          <div class="approach-cta">
+            <a class="btn btn-dark" href="#contact" data-focus="#c-name">Start with your bottleneck <i data-icon="arrow-right"></i></a>
+            <a class="link-arrow" href="#overview">Preview the client portal <i data-icon="arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band contact on-ink" id="contact" data-spy aria-labelledby="contact-title">
+        <div class="wrap">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2 class="h2" id="contact-title" tabindex="-1">Let's talk about where your firm <span class="accent-line">needs more capacity.</span></h2>
+            <p class="lede">Share a few details and a Hyacinth representative will follow up to talk through one bottleneck.</p>
+            <ul class="contact-points">
+              <li><i data-icon="check"></i><span>Start with one bottleneck</span></li>
+              <li><i data-icon="check"></i><span>Build the process around your workflows</span></li>
+              <li><i data-icon="check"></i><span>Scale once the leverage is proven</span></li>
+            </ul>
+            <div class="contact-rep"><span class="layer-k">Your representative</span><b data-c="rep.name" style="font-size:var(--fs-18)">Dana Okafor</b>
+              <span class="row"><i data-icon="message"></i><span data-c="rep.email">dana.okafor@hyacinth.example</span><button class="btn btn-quiet btn-sm" type="button" data-action="copy-text" data-c="rep.email" aria-label="Copy email address">Copy</button></span>
+              <span class="row"><i data-icon="user"></i><span data-c="rep.phone">(312) 555-0170</span><button class="btn btn-quiet btn-sm" type="button" data-action="copy-text" data-c="rep.phone" aria-label="Copy phone number">Copy</button></span></div>
+          </div>
+          <div class="form-card" id="contact-card"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- LEGAL / POLICY PAGES -->
+    <div id="page-legal" hidden></div>
+  </main>
+
+  <footer class="site-footer on-ink">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-col foot-brand">
+          <a class="brand" href="#home" aria-label="Hyacinth Legal Support, home"><span data-logo></span><span class="brand-word"><b>Hyacinth</b><span>Legal Support</span></span></a>
+          <p>A managed operating layer behind the practice of law.</p>
+          <a class="btn btn-primary" href="#contact" data-focus="#c-name" style="width:fit-content">Talk to us</a>
+        </div>
+        <nav class="foot-col" aria-label="Services">
+          <h2>Services</h2>
+          <a href="#services">Where we plug in</a>
+          <a href="#model">Operating model</a>
+          <a href="#proof">Proof of execution</a>
+          <a href="#approach">How we start</a>
+        </nav>
+        <nav class="foot-col" aria-label="Client portal">
+          <h2>Client portal</h2>
+          <a href="#overview">Overview</a>
+          <a href="#workflows">Workflows</a>
+          <a href="#deadlines">Deadlines</a>
+          <a href="#reports">Reports</a>
+        </nav>
+        <nav class="foot-col" aria-label="Legal">
+          <h2>Legal</h2>
+          <a href="#privacy">Privacy notice</a>
+          <a href="#terms">Terms of use</a>
+          <a href="#accessibility">Accessibility</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Hyacinth Industries, LLC. All rights reserved.</span>
+        <span>Managed operations for midsize law firms</span>
+      </div>
+    </div>
+    <div class="sigbar" role="presentation"></div>
+  </footer>
+</div>
+
+<!-- ===================== PORTAL ===================== -->
+<div id="portal" class="portal" hidden>
+  <aside id="sidebar" class="sidebar on-ink" aria-label="Portal navigation">
+    <div class="sidebar-top">
+      <a class="brand" href="#overview" aria-label="Portal overview"><span data-logo></span><span class="brand-word"><b>Hyacinth</b><span>Client portal</span></span></a>
+      <button class="icon-btn close-side" type="button" data-action="close-sidebar" aria-label="Close navigation"><i data-icon="x"></i></button>
+    </div>
+    <div class="firm-chip" id="firm-chip"><b>Calder Whitmore LLP</b><span>Managed by Hyacinth since March 2025</span></div>
+    <nav class="side-nav" aria-label="Portal">
+      <p class="side-label">Workspace</p>
+      <a class="side-link" href="#overview" data-view-link="overview"><i data-icon="grid"></i>Overview</a>
+      <a class="side-link" href="#workflows" data-view-link="workflows"><i data-icon="list"></i>Workflows<span class="side-count" data-count="open" aria-label="open workflows"></span></a>
+      <a class="side-link" href="#deadlines" data-view-link="deadlines"><i data-icon="calendar"></i>Deadlines<span class="side-count" data-count="week" aria-label="due this week"></span></a>
+      <a class="side-link" href="#reports" data-view-link="reports"><i data-icon="chart"></i>Reports</a>
+      <p class="side-label">Account</p>
+      <a class="side-link" href="#account" data-view-link="account"><i data-icon="sliders"></i>Account &amp; preferences</a>
+      <a class="side-link" href="#help" data-view-link="help"><i data-icon="help"></i>Help &amp; support</a>
+      <a class="side-link" href="#home"><i data-icon="home"></i>Back to website</a>
+    </nav>
+    <div class="lead-card" id="portal-lead">
+      <span class="person"><span class="avatar">DO</span><span><b>Dana Okafor</b><span class="small">Your engagement lead</span></span></span>
+      <button class="btn btn-ghost btn-sm" type="button" data-action="message" data-member="dana"><i data-icon="message"></i>Message Dana</button>
+    </div>
+  </aside>
+  <div id="sidebar-scrim" class="sidebar-scrim" data-action="close-sidebar" hidden></div>
+
+  <div class="portal-body">
+    <div class="viewas" id="viewas" hidden></div>
+    <header class="topbar on-light">
+      <div class="wrap topbar-row">
+        <button class="icon-btn side-toggle" type="button" data-action="open-sidebar" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><i data-icon="menu"></i></button>
+        <p class="crumb-trail"><span class="firm" id="crumb-firm">Calder Whitmore LLP</span><span class="firm" aria-hidden="true">/</span><b id="crumb-view">Overview</b></p>
+        <form class="top-search" role="search" data-form="global-search">
+          <i data-icon="search"></i>
+          <label class="sr-only" for="global-q">Search workflows</label>
+          <input class="input" id="global-q" type="search" placeholder="Search workflows, matters, people" autocomplete="off">
+        </form>
+        <button class="icon-btn search-toggle" type="button" data-action="toggle-search" aria-expanded="false" aria-controls="mobile-search" aria-label="Search"><i data-icon="search"></i></button>
+        <div class="top-actions">
+          <button class="icon-btn" type="button" id="bell-btn" data-action="toggle-pop" data-pop="notif-pop" aria-expanded="false" aria-controls="notif-pop" aria-label="Notifications"><i data-icon="bell"></i><span class="bell-dot" id="bell-dot" aria-hidden="true"></span></button>
+          <button class="profile-btn" type="button" id="profile-btn" data-action="profile-menu" aria-expanded="false" aria-haspopup="menu"><span class="avatar">MH</span><span class="who"><b>Morgan Hale</b><span>Director of Operations</span></span><i data-icon="chevron-down"></i><span class="sr-only">Account menu</span></button>
+
+          <div class="pop" id="notif-pop" role="dialog" aria-label="Notifications" hidden>
+            <div class="pop-head"><h2 class="h4">Notifications</h2><button class="btn btn-quiet btn-sm" type="button" data-action="notif-read-all">Mark all as read</button></div>
+            <div class="notif-list" id="notif-list"></div>
+            <div class="pop-foot"><a class="btn btn-quiet btn-sm" href="#account" data-focus="#pref-alerts">Notification preferences</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap mobile-search" id="mobile-search">
+        <form role="search" data-form="global-search-m" class="search-field">
+          <i data-icon="search"></i>
+          <label class="sr-only" for="global-q-m">Search workflows</label>
+          <input class="input" id="global-q-m" type="search" placeholder="Search workflows, matters, people" autocomplete="off">
+        </form>
+      </div>
+    </header>
+    <main id="portal-main" tabindex="-1"></main>
+  </div>
+</div>
+
+<!-- Signed-out screen -->
+<div class="signed-out on-ink" id="signed-out" hidden>
+  <div class="box">
+    <span data-logo></span>
+    <div class="sigbar" role="presentation"></div>
+    <h1 class="ph1" id="so-title" tabindex="-1">You're signed out.</h1>
+    <p>Your Calder Whitmore portal session has ended. Sign back in to see your workflows, deadlines and reports.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" type="button" data-action="sign-in">Sign back in</button>
+      <a class="btn btn-ghost" href="#home">Go to the website</a>
+    </div>
+  </div>
+</div>
+
+<!-- Layers -->
+<div class="layer-root" id="sheet-root" hidden>
+  <div class="scrim" data-action="close-layer"></div>
+  <aside class="sheet on-light" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"></aside>
+</div>
+<div class="layer-root" id="modal-root" hidden style="z-index:110">
+  <div class="scrim" data-action="close-layer"></div>
+  <div class="modal on-light" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"></div>
+</div>
+<div class="floatmenu" id="floatmenu" hidden><div class="menu" role="menu" id="floatmenu-list"></div></div>
+<div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+<div class="sr-only" id="announcer" aria-live="polite"></div>
+
+<!-- ===================== ADMIN ===================== -->
+<div class="signin on-ink" id="admin-signin" hidden>
+  <div class="signin-wrap">
+    <div class="stack-16">
+      <span data-logo></span>
+      <span class="admin-flag">Admin</span>
+      <h1 class="h2" id="signin-title" tabindex="-1">Hyacinth staff sign-in</h1>
+      <p>Run client firms, workflows, team capacity, leads and website content from one place.</p>
+    </div>
+    <form class="signin-card" data-form="admin-signin" novalidate aria-labelledby="signin-title">
+      <div class="field"><label class="label" for="as-email">Work email</label><input class="input" id="as-email" type="email" autocomplete="username" placeholder="name@hyacinth.example" aria-describedby="as-email-err" aria-required="true"><p class="err" id="as-email-err" hidden></p></div>
+      <div class="field"><label class="label" for="as-pass">Password</label><div class="pw-wrap"><input class="input" id="as-pass" type="password" autocomplete="current-password" aria-describedby="as-pass-err" aria-required="true"><button class="icon-btn" type="button" data-action="toggle-pw" aria-pressed="false" aria-label="Show password"><i data-icon="eye"></i></button></div><p class="err" id="as-pass-err" hidden></p></div>
+      <div class="switch-row"><span id="as-keep-l" class="label">Keep me signed in on this device</span><button class="switch" type="button" role="switch" id="as-keep" data-action="toggle-keep" aria-checked="true" aria-labelledby="as-keep-l"></button></div>
+      <button class="btn btn-primary btn-block" type="submit" id="as-submit">Sign in to admin</button>
+      <p class="small">Prototype: any email and password work. Nothing is sent anywhere.</p>
+    </form>
+    <a class="link-arrow" href="#home">Back to the website <i data-icon="arrow-right"></i></a>
+  </div>
+</div>
+
+<div id="admin" class="portal admin" hidden>
+  <aside id="admin-sidebar" class="sidebar on-ink" aria-label="Admin navigation">
+    <div class="sidebar-top">
+      <a class="brand" href="#admin" aria-label="Admin dashboard"><span data-logo></span><span class="brand-word"><b>Hyacinth</b><span>Admin</span></span></a>
+      <button class="icon-btn close-side" type="button" data-action="close-admin-sidebar" aria-label="Close navigation"><i data-icon="x"></i></button>
+    </div>
+    <span class="admin-flag">Admin · Internal</span>
+    <nav class="side-nav" aria-label="Admin">
+      <p class="side-label">Operations</p>
+      <a class="side-link" href="#admin" data-aview-link="admin"><i data-icon="grid"></i>Dashboard</a>
+      <a class="side-link" href="#admin-clients" data-aview-link="admin-clients"><i data-icon="briefcase"></i>Client firms</a>
+      <a class="side-link" href="#admin-workflows" data-aview-link="admin-workflows"><i data-icon="workflow"></i>Workflows</a>
+      <a class="side-link" href="#admin-team" data-aview-link="admin-team"><i data-icon="users"></i>Team &amp; capacity</a>
+      <a class="side-link" href="#admin-leads" data-aview-link="admin-leads"><i data-icon="inbox"></i>Leads<span class="lead-pill" id="lead-count" aria-label="new leads"></span></a>
+      <p class="side-label">Website</p>
+      <a class="side-link" href="#admin-content" data-aview-link="admin-content"><i data-icon="file"></i>Website content</a>
+      <p class="side-label">Governance</p>
+      <a class="side-link" href="#admin-users" data-aview-link="admin-users"><i data-icon="shield"></i>Users &amp; roles</a>
+      <a class="side-link" href="#admin-audit" data-aview-link="admin-audit"><i data-icon="list"></i>Audit log</a>
+      <a class="side-link" href="#admin-settings" data-aview-link="admin-settings"><i data-icon="sliders"></i>Settings</a>
+      <a class="side-link" href="#admin-design-system" data-aview-link="admin-design-system"><i data-icon="layers"></i>Design system</a>
+      <p class="side-label">Leave admin</p>
+      <a class="side-link" href="#overview"><i data-icon="eye"></i>Client portal</a>
+      <a class="side-link" href="#home"><i data-icon="home"></i>Website</a>
+    </nav>
+    <div class="lead-card"><span class="person"><span class="avatar" id="admin-avatar">HS</span><span><b id="admin-name">Hyacinth staff</b><span class="small" id="admin-role-l">Super Admin</span></span></span></div>
+  </aside>
+  <div id="admin-scrim" class="sidebar-scrim" data-action="close-admin-sidebar" hidden></div>
+  <div class="portal-body">
+    <header class="topbar admin-top on-light">
+      <div class="wrap topbar-row">
+        <button class="icon-btn side-toggle" type="button" data-action="open-admin-sidebar" aria-label="Open navigation" aria-expanded="false" aria-controls="admin-sidebar"><i data-icon="menu"></i></button>
+        <p class="crumb-trail"><span class="firm">Hyacinth admin</span><span class="firm" aria-hidden="true">/</span><b id="admin-crumb">Dashboard</b></p>
+        <div class="role-switch"><span class="label" id="role-l">Viewing as role</span><div id="role-slot"></div></div>
+        <button class="profile-btn" type="button" id="admin-user-btn" data-action="admin-user-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Staff account menu"><span class="avatar" id="admin-avatar-2">HS</span><i data-icon="chevron-down"></i></button>
+      </div>
+      <div class="sigbar" role="presentation"></div>
+    </header>
+    <main id="admin-main" tabindex="-1"></main>
+  </div>
+</div>
+
+<!-- Shared dropdown / date surface -->
+<div id="dd-scrim" hidden></div>
+<div id="dd-pop" class="dd-pop" hidden></div>
+<div id="dd-tip" role="tooltip" hidden></div>
+</body>
+</html>
