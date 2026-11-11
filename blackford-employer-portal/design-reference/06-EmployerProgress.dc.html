@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Employer enrollment progress</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px; display: flex; flex-direction: column">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DCE2E9">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 10px">
+<div style="width: 32px; height: 32px; border-radius: 8px; background: #17324D; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px">B</div>
+<div style="display: flex; flex-direction: column">
+<span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 15px">Blackford &amp; Associates</span>
+<span style="font-size: 12px; color: #586575">Employer portal</span>
+</div>
+</div>
+<nav aria-label="Employer" style="display: flex; flex-wrap: wrap; gap: 4px"><a class="tn" href="05-EmployerCompany.dc.html" data-nav="company">Company</a><a class="tn" href="02-EmployerSetup.dc.html" data-nav="plans">Plans &amp; agreement</a><a class="tn" href="03-CensusUpload.dc.html" data-nav="census">Census</a><a class="tn" href="04-EmployerEmployees.dc.html" data-nav="employees">Employees</a><a class="tn" href="06-EmployerProgress.dc.html" data-nav="progress" aria-current="page">Enrollment</a><a class="tn" href="07-EmployerPayroll.dc.html" data-nav="payroll">Payroll</a></nav>
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="font-size: 13px; color: #586575">Kevin Brooks</span>
+<div style="width: 32px; height: 32px; border-radius: 999px; background: #EAF0FD; color: #1D4ED8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">KB</div>
+</div>
+</div>
+</header>
+
+<main style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 32px 24px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; color: #586575; font-size: 13px">Riverside Dental Group · plan year starting Mar 1, 2027</p>
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Open enrollment progress</h1>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-weight: 600">Download outstanding list</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 600">Add a new hire</button>
+</div>
+</div>
+
+<section aria-labelledby="sum" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 14px; padding: 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+<h2 id="sum" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Summary</h2>
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: Manrope, sans-serif; font-size: 56px; font-weight: 800; line-height: 1">58%</span>
+<span style="color: #586575">37 of 64 employees have finished (enrolled or waived)</span>
+<span style="display: inline-flex; align-self: flex-start; margin-top: 6px; font-size: 13px; font-weight: 700; color: #A1540A; background: #FDF3E7; padding: 4px 10px; border-radius: 999px">Window closes Friday, Feb 19 · 3 days left</span>
+</div>
+<div style="flex: 2 1 420px; display: flex; flex-direction: column; gap: 14px">
+<div aria-hidden="true" style="display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: #EEF1F5">
+<div style="width: 45%; background: #0F766E"></div><div style="width: 13%; background: #6BB3AD"></div><div style="width: 17%; background: #D97A0B"></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #586575"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0F766E"></span>Enrolled</span><span style="font-family: Manrope, sans-serif; font-size: 22px; font-weight: 800">29</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #586575"><span style="width: 10px; height: 10px; border-radius: 3px; background: #6BB3AD"></span>Waived</span><span style="font-family: Manrope, sans-serif; font-size: 22px; font-weight: 800">8</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #586575"><span style="width: 10px; height: 10px; border-radius: 3px; background: #D97A0B"></span>Started</span><span style="font-family: Manrope, sans-serif; font-size: 22px; font-weight: 800">11</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #586575"><span style="width: 10px; height: 10px; border-radius: 3px; background: #EEF1F5; border: 1px solid #C5CED8; box-sizing: border-box"></span>Not started</span><span style="font-family: Manrope, sans-serif; font-size: 22px; font-weight: 800">16</span></div>
+</div>
+</div>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+<section aria-labelledby="out" style="flex: 3 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px">
+<h2 id="out" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Still to finish · 27</h2>
+<label style="display: flex; align-items: center; gap: 8px; background: #F4F6F9; border: 1px solid #DCE2E9; border-radius: 8px; padding: 0 10px; min-height: 40px">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#586575" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Find an employee</span>
+<input type="search" placeholder="Find an employee" style="border: 0; outline: none; background: transparent; font: inherit; color: #13212E; width: 180px">
+</label>
+</div>
+<p style="margin: 0; color: #586575; font-size: 13px">Blackford sends reminders automatically by text and email. You only see progress here — never anyone's plan choices.</p>
+<div style="overflow-x: auto">
+<table style="width: 100%; min-width: 560px; border-collapse: collapse">
+<thead>
+<tr style="text-align: left; color: #586575; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em">
+<th scope="col" style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #DCE2E9">Employee</th>
+<th scope="col" style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #DCE2E9">Department</th>
+<th scope="col" style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #DCE2E9">Status</th>
+<th scope="col" style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #DCE2E9">Last reminder</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; font-weight: 600">Ashley Kim</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5">Front office</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5"><span style="font-size: 12px; font-weight: 700; color: #A1540A; background: #FDF3E7; padding: 3px 8px; border-radius: 6px">Ready to sign</span></td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; color: #586575">Today</td></tr>
+<tr><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; font-weight: 600">Marcus Bell</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5">Hygiene</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5"><span style="font-size: 12px; font-weight: 700; color: #3A4756; background: #EEF1F5; padding: 3px 8px; border-radius: 6px">Not started</span></td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; color: #586575">Today</td></tr>
+<tr><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; font-weight: 600">Luis Ortega</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5">Lab</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5"><span style="font-size: 12px; font-weight: 700; color: #3A4756; background: #EEF1F5; padding: 3px 8px; border-radius: 6px">Not started</span></td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; color: #586575">Blackford is calling</td></tr>
+<tr><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; font-weight: 600">Sofia Ramirez</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5">Hygiene</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5"><span style="font-size: 12px; font-weight: 700; color: #A1540A; background: #FDF3E7; padding: 3px 8px; border-radius: 6px">Started</span></td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF1F5; color: #586575">Today</td></tr>
+<tr><td style="padding: 12px 8px; font-weight: 600">Derek Owens</td><td style="padding: 12px 8px">Front office</td><td style="padding: 12px 8px"><span style="font-size: 12px; font-weight: 700; color: #A1540A; background: #FDF3E7; padding: 3px 8px; border-radius: 6px">Started</span></td><td style="padding: 12px 8px; color: #586575">Today</td></tr>
+</tbody>
+</table>
+</div>
+<a href="#" style="font-weight: 600; font-size: 13px">Show all 27</a>
+</section>
+
+<aside style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+
+<section aria-labelledby="next" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="next" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">What happens next</h2>
+<ol style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; color: #3A4756">
+<li><strong style="color: #13212E">Feb 18</strong> — last reminder goes to everyone outstanding</li>
+<li><strong style="color: #13212E">Feb 19</strong> — window closes; Blackford follows up on each person</li>
+<li><strong style="color: #13212E">Feb 22</strong> — elections sent to carriers</li>
+<li><strong style="color: #13212E">Mar 1</strong> — coverage starts; you get new payroll deductions</li>
+</ol>
+</section>
+
+<section aria-labelledby="help" style="background: #17324D; color: #FFFFFF; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="help" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Your Blackford contact</h2>
+<div style="display: flex; gap: 12px; align-items: center">
+<div style="width: 40px; height: 40px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700">DW</div>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 600">Dana Whitfield</span><span style="font-size: 13px; color: #C9D6E3">Account manager</span></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 14px; border-radius: 8px; background: #FFFFFF; color: #17324D; font-weight: 600; text-decoration: none">Send a message</a>
+<a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 14px; border-radius: 8px; border: 1px solid #4F7396; color: #FFFFFF; font-weight: 600; text-decoration: none">[PHONE NUMBER]</a>
+</div>
+</section>
+
+</aside>
+</div>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

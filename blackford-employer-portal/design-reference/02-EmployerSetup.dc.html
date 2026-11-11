@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Group setup and agreement</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.tn{min-height:44px;display:flex;align-items:center;padding:0 14px;border-radius:8px;color:#3A4756;text-decoration:none}
+.tn[aria-current]{background:#E6F2F1;color:#0B5953;font-weight:600}
+th{text-align:left;padding:10px 8px;font-size:12px;font-weight:600;color:#586575;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #DCE2E9}
+td{padding:11px 8px;border-bottom:1px solid #EEF1F5}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+.card{background:#FFFFFF;border:1px solid #DCE2E9;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #EEF1F5}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px; display: flex; flex-direction: column">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DCE2E9">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 10px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #17324D; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 15px">Blackford &amp; Associates</span><span style="font-size: 12px; color: #586575">Employer portal</span></div></div>
+<nav aria-label="Employer" style="display: flex; flex-wrap: wrap; gap: 4px"><a class="tn" href="05-EmployerCompany.dc.html" data-nav="company">Company</a><a class="tn" href="02-EmployerSetup.dc.html" data-nav="plans" aria-current="page">Plans &amp; agreement</a><a class="tn" href="03-CensusUpload.dc.html" data-nav="census">Census</a><a class="tn" href="04-EmployerEmployees.dc.html" data-nav="employees">Employees</a><a class="tn" href="06-EmployerProgress.dc.html" data-nav="progress">Enrollment</a><a class="tn" href="07-EmployerPayroll.dc.html" data-nav="payroll">Payroll</a></nav>
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-size: 13px; color: #586575">Tom Brooks</span><div style="width: 32px; height: 32px; border-radius: 999px; background: #EAF0FD; color: #1D4ED8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">TB</div></div>
+</div>
+</header>
+
+<main style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 32px 24px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Check your 2027 plan setup</h1>
+<p style="margin: 0; color: #586575">Bartram Logistics · effective Jul 1, 2027 · set up by Dana Whitfield. Confirm it, or tell us what to fix, before enrollment opens.</p>
+</div>
+<span class="tag warn">Your sign-off due Apr 30</span>
+</div>
+
+<section aria-labelledby="plans" class="card">
+<h2 id="plans" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Plans offered and monthly cost</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 760px; border-collapse: collapse">
+<thead><tr><th scope="col">Plan</th><th scope="col">Employee</th><th scope="col">+ Spouse</th><th scope="col">+ Children</th><th scope="col">Family</th><th scope="col">You pay</th></tr></thead>
+<tbody>
+<tr><td><b>Medical PPO 1500</b></td><td>$612.40</td><td>$1,286.04</td><td>$1,102.32</td><td>$1,775.96</td><td>75% employee, 50% dependents</td></tr>
+<tr><td><b>Medical HDHP 3500</b></td><td>$471.15</td><td>$989.42</td><td>$848.07</td><td>$1,366.34</td><td>75% employee, 50% dependents</td></tr>
+<tr><td><b>Dental PPO</b></td><td>$38.20</td><td>$76.40</td><td>$84.04</td><td>$122.24</td><td>100% employee only</td></tr>
+<tr><td style="border-bottom: 0"><b>Basic life $25,000</b></td><td style="border-bottom: 0">$4.25</td><td style="border-bottom: 0">—</td><td style="border-bottom: 0">—</td><td style="border-bottom: 0">—</td><td style="border-bottom: 0">100%</td></tr>
+</tbody></table></div>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px">
+<section aria-labelledby="elig" class="card" style="gap: 0">
+<h2 id="elig" style="margin: 0 0 6px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Who is eligible</h2>
+<div class="row"><span style="color: #586575">Classes</span><span style="font-weight: 600">Office, Drivers</span></div>
+<div class="row"><span style="color: #586575">Minimum hours</span><span style="font-weight: 600">30 a week</span></div>
+<div class="row"><span style="color: #586575">Waiting period</span><span style="font-weight: 600">1st of the month after 60 days</span></div>
+<div class="row" style="border-bottom: 0"><span style="color: #586575">Dependent children</span><span style="font-weight: 600">Up to age 26</span></div>
+</section>
+<section aria-labelledby="win" class="card" style="gap: 0">
+<h2 id="win" style="margin: 0 0 6px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Enrollment windows</h2>
+<div class="row"><span style="color: #586575">Open enrollment</span><span style="font-weight: 600">May 15 – May 31</span></div>
+<div class="row"><span style="color: #586575">New hires</span><span style="font-weight: 600">30 days from eligibility</span></div>
+<div class="row" style="border-bottom: 0"><span style="color: #586575">Life events</span><span style="font-weight: 600">30 days from the event</span></div>
+</section>
+</div>
+
+<section aria-labelledby="agr" class="card">
+<h2 id="agr" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Employer agreement</h2>
+<p style="margin: 0; color: #3A4756; line-height: 1.5">Signing confirms the plans, contributions and eligibility above. It's signed electronically and kept with its audit trail on your group's record.</p>
+<label style="display: flex; gap: 10px; align-items: flex-start; line-height: 1.5"><input type="checkbox" style="width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: #0F766E"><span>I agree to sign electronically. <a href="#" style="font-weight: 600">Read the consent</a></span></label>
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" class="btn">Something's wrong — tell Dana</button><button type="button" class="btn p">Review and sign agreement</button></div>
+</section>
+<p style="margin: 0; font-size: 12px; color: #586575; line-height: 1.5">Sign in with a one-time code — no password. You're signed out after 15 minutes idle. Employee SSNs are stored securely; full SSNs are never shown here.</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "blackford-employer-portal",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @blackford/employer-portal",
+    "build": "npm run build -w @blackford/employer-portal",
+    "start": "npm run start -w @blackford/employer-portal",
+    "typecheck": "npm run typecheck -w @blackford/employer-portal",
+    "env:init": "node -e \"const fs=require('fs');const d='apps/employer-portal';if(!fs.existsSync(d+'/.env.local')){fs.copyFileSync(d+'/.env.example',d+'/.env.local');console.log('created',d+'/.env.local');}else{console.log('exists',d+'/.env.local');}\""
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
