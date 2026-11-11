@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The stack at a glance — Blackford Platform Tech Stack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-interior">
+  <article class="sheet">
+    <h1 class="page-title">The stack at a glance</h1>
+    <p class="page-intro">Every platform comes from one TypeScript codebase on Google Cloud. Client data leaves it only through outside services that have signed an agreement to protect it.</p>
+
+    <p class="section-label">Who uses it</p>
+    <div class="who-row">
+      <div class="mini-card">
+        <h3>Blackford staff</h3>
+        <p>Staff CRM on desktop or iPad, including agent mode at enrollment meetings</p>
+      </div>
+      <div class="mini-card">
+        <h3>Employer HR contacts</h3>
+        <p>Employer portal on any device</p>
+      </div>
+      <div class="mini-card">
+        <h3>Employees and clients</h3>
+        <p>Benefits portal on any device, opened from a text or email link</p>
+      </div>
+    </div>
+
+    <p class="section-label">Blackford platform</p>
+    <div class="platform-box">
+      <div class="platform-grid">
+        <div class="platform-cell">
+          <h4>Staff CRM</h4>
+          <div class="path">apps/staff</div>
+          <p>Next.js 16, React 19, Tailwind CSS, shadcn/ui</p>
+        </div>
+        <div class="platform-cell">
+          <h4>Benefits and employer portal</h4>
+          <div class="path">apps/portal</div>
+          <p>Next.js 16, React 19, next-intl for English and Spanish</p>
+        </div>
+        <div class="platform-cell">
+          <h4>Automation engine</h4>
+          <div class="path">apps/worker</div>
+          <p>Node.js, Graphile Worker, Puppeteer, pdf-lib</p>
+        </div>
+        <div class="platform-cell">
+          <h4>Core layer</h4>
+          <div class="path">packages/core</div>
+          <p>TypeScript and Zod: a permission check and an audit entry on every action</p>
+        </div>
+        <div class="platform-cell">
+          <h4>Database</h4>
+          <p>Cloud SQL, PostgreSQL, Drizzle ORM, row-level security</p>
+        </div>
+        <div class="platform-cell">
+          <h4>Sign-in, files and keys</h4>
+          <p>Google Cloud Identity Platform, Cloud Storage, Cloud KMS, Secret Manager</p>
+        </div>
+      </div>
+      <div class="platform-banner">Cloud Run · Cloud Armor · Cloud Logging · Terraform · under the Google Cloud BAA</div>
+    </div>
+
+    <p class="section-label">Outside services</p>
+    <div class="outside-row">
+      <div class="mini-card">
+        <h3>Email and text</h3>
+        <p>Amazon SES and AWS End User Messaging, under the AWS BAA</p>
+      </div>
+      <div class="mini-card">
+        <h3>Insurance carriers</h3>
+        <p>CSV files over SFTP at launch; Ideon or Noyo APIs in Release 2</p>
+      </div>
+      <div class="mini-card">
+        <h3>ACA filing and TPAs</h3>
+        <p>Filing vendor for IRS forms in Release 2; TPA reports in Release 3</p>
+      </div>
+    </div>
+    <p class="outside-note">E-signature is built into the platform, so no signing vendor receives client data. Page 5 lists all nine outside services, and page 6 the alternatives still open for decision.</p>
+
+    <div class="rules-block">
+      <p class="section-label">Four rules hold the stack together</p>
+      <div class="rules-grid">
+        <div class="rule-item">
+          <span class="rule-num">1</span>
+          <div>
+            <h4>One door to the data</h4>
+            <p>Only the core layer reads or writes the database, so every permission check runs every time.</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">2</span>
+          <div>
+            <h4>Every action logged</h4>
+            <p>Each sign-in, view, change, export, message and signature lands in a hash-chained audit log.</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">3</span>
+          <div>
+            <h4>No health details in transit</h4>
+            <p>Texts and emails carry secure links; logs, URLs and job queues hold record IDs only.</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">4</span>
+          <div>
+            <h4>Nothing without a BAA</h4>
+            <p>An outside service receives client data only after its agreement is signed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="doc-footer">
+      <span>Hyacinth Industries, LLC · Blackford Benefits Platform · Technology Stack v1.0 · Confidential</span>
+      <span>Page 1 of 6</span>
+    </footer>
+    <nav class="page-nav">
+      <a href="01-cover.html">← Cover</a>
+      <span class="nav-center"><a href="index.html">All pages</a></span>
+      <a href="03-staff-and-benefits.html">Next →</a>
+    </nav>
+  </article>
+</body>
+</html>

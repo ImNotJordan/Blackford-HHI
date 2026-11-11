@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Household record</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.nl{display:flex;align-items:center;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:8px;color:#C9D6E3;text-decoration:none}
+.nl[aria-current]{background:#24486B;color:#FFFFFF;font-weight:600}
+th{text-align:left;padding:10px 8px;font-size:12px;font-weight:600;color:#586575;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #DCE2E9}
+td{padding:12px 8px;border-bottom:1px solid #EEF1F5;vertical-align:top}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.info{color:#1D4ED8;background:#EAF0FD}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="14-Enrollments.dc.html" data-nav="enrollments" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Enrollments</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+<a href="16-CarrierQueue.dc.html" data-nav="carrier" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Carrier files</a>
+<a href="18-DataChecks.dc.html" data-nav="exceptions" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Exceptions</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378"><div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div><div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #586575"><a href="02-ClientsList.dc.html" style="text-decoration: none">Clients</a> <span aria-hidden="true">/</span> Okafor household</nav>
+
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap"><h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Okafor household</h1><span class="tag info">Individual and Medicare</span><span class="tag ok">Active</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 20px; color: #586575; font-size: 13px"><span>Owner: Dana Whitfield</span><span>Client since 2021</span><span>Texts and email: opted in</span><span>Prefers Spanish</span></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" class="btn">Text</button><button type="button" class="btn">Email</button><button type="button" class="btn p">New service request</button></div>
+</header>
+
+<div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; background: #FDF3E7; border: 1px solid #F3D3AE; border-radius: 12px; padding: 14px 16px">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A1540A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+<span style="flex: 1 1 300px; color: #5C3204"><b>Grace Okafor turns 65 on Jul 14.</b> Medicare enrollment window opens Apr 1. Task created by the nightly check.</span>
+<a href="#" style="font-weight: 600; color: #7A3F06">Open task</a>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+
+<section aria-labelledby="mem" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="mem" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Members and policies</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 640px; border-collapse: collapse">
+<thead><tr><th scope="col">Person</th><th scope="col">Plan and carrier</th><th scope="col">Policy</th><th scope="col">Effective</th><th scope="col">Flag</th></tr></thead>
+<tbody>
+<tr><td><b>Grace Okafor</b><div style="font-size: 12px; color: #586575">Primary · 64</div></td><td>Individual PPO · [Carrier]</td><td style="font-family: 'JetBrains Mono', monospace; font-size: 13px">IND-448210</td><td>2026-01-01</td><td><span class="tag warn">Turning 65</span></td></tr>
+<tr><td><b>Samuel Okafor</b><div style="font-size: 12px; color: #586575">Spouse · 67</div></td><td>Medicare Supplement G · [Carrier]</td><td style="font-family: 'JetBrains Mono', monospace; font-size: 13px">MS-190377</td><td>2024-09-01</td><td><span class="tag ok">OK</span></td></tr>
+<tr><td><b>Samuel Okafor</b><div style="font-size: 12px; color: #586575">Spouse · 67</div></td><td>Part D · [Carrier]</td><td style="font-family: 'JetBrains Mono', monospace; font-size: 13px">PD-552019</td><td>2024-09-01</td><td><span class="tag ok">OK</span></td></tr>
+<tr><td style="border-bottom: 0"><b>Ada Okafor</b><div style="font-size: 12px; color: #586575">Child · 25</div></td><td style="border-bottom: 0">Individual PPO · [Carrier]</td><td style="border-bottom: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">IND-448211</td><td style="border-bottom: 0">2026-01-01</td><td style="border-bottom: 0"><span class="tag warn">Turns 26 in 74 days</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section aria-labelledby="sr" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="sr" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Service requests</h2>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 560px; border-collapse: collapse">
+<thead><tr><th scope="col">Request</th><th scope="col">Assigned</th><th scope="col">Due</th><th scope="col">Status</th></tr></thead>
+<tbody>
+<tr><td><b>Replacement ID card for Samuel</b></td><td>Marcus Lee</td><td>Feb 18</td><td><span class="tag info">In progress</span></td></tr>
+<tr><td style="border-bottom: 0"><b>Compare Medicare Advantage options for Grace</b></td><td style="border-bottom: 0">Dana Whitfield</td><td style="border-bottom: 0">Mar 15</td><td style="border-bottom: 0"><span class="tag mute">Open</span></td></tr>
+</tbody></table></div>
+</section>
+</div>
+
+<aside style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<section aria-labelledby="tl" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<h2 id="tl" style="margin: 0 0 8px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Activity</h2>
+<div style="padding: 10px 0; border-bottom: 1px solid #EEF1F5; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Text received from Grace</span><span style="font-size: 13px; color: #3A4756">"¿Me pueden llamar sobre Medicare?"</span><span style="font-size: 12px; color: #586575">Today 8:41 AM</span></div>
+<div style="padding: 10px 0; border-bottom: 1px solid #EEF1F5; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Task created: Medicare window</span><span style="font-size: 12px; color: #586575">Nightly check · Today 2:00 AM</span></div>
+<div style="padding: 10px 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Document added: Samuel Part D letter</span><span style="font-size: 12px; color: #586575">Marcus Lee · Feb 12</span></div>
+</section>
+<section aria-labelledby="docs" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 id="docs" style="margin: 0 0 4px; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Documents and notes</h2>
+<a href="#" style="font-weight: 600">2026 individual application (signed)</a>
+<a href="#" style="font-weight: 600">Part D annual notice</a>
+<a href="#" style="font-weight: 600">3 notes</a>
+</section>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

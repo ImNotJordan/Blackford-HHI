@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Staff sign-in with MFA</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#17324D}
+a{color:#0F766E}a:hover{color:#0B5953}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
+.in{min-height:48px;box-sizing:border-box;padding:0 12px;border:1px solid #8F99A6;border-radius:10px;font:inherit;font-size:15px;font-weight:400;color:#13212E;background:#FFFFFF}
+.code{width:48px;height:56px;box-sizing:border-box;text-align:center;border:1px solid #8F99A6;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:22px;color:#13212E}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #17324D; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px; display: flex; align-items: center; justify-content: center; padding: 48px 16px; box-sizing: border-box">
+<div style="width: 100%; max-width: 920px; display: flex; flex-wrap: wrap; gap: 24px">
+
+<section aria-labelledby="s1" style="flex: 1 1 380px; background: #FFFFFF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px">Blackford Benefits Platform</span></div>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #586575">Step 1 of 2</span>
+<h1 id="s1" style="margin: 0; font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">Staff sign-in</h1>
+<label class="lbl">Work email<input class="in" type="email" value="dana.whitfield@blackford.example" autocomplete="username"></label>
+<label class="lbl">Password<input class="in" type="password" value="••••••••••••" autocomplete="current-password"></label>
+<button type="button" style="min-height: 48px; border-radius: 10px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 700">Continue</button>
+<a href="#" style="font-weight: 600; font-size: 13px">Forgot password?</a>
+<p style="margin: 0; font-size: 12px; color: #586575; line-height: 1.5">For Blackford staff only. Every sign-in attempt is recorded in the audit log.</p>
+</section>
+
+<section aria-labelledby="s2" style="flex: 1 1 380px; background: #FFFFFF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #586575">Step 2 of 2</span>
+<h2 id="s2" style="margin: 0; font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">Enter your authenticator code</h2>
+<p style="margin: 0; color: #3A4756; line-height: 1.5">Open your authenticator app and enter the 6-digit code for Blackford.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; gap: 8px">
+<legend style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">6-digit code</legend>
+<input class="code" aria-label="Digit 1" value="4"><input class="code" aria-label="Digit 2" value="8"><input class="code" aria-label="Digit 3" value="1"><input class="code" aria-label="Digit 4" value="0"><input class="code" aria-label="Digit 5" value=""><input class="code" aria-label="Digit 6" value="">
+</fieldset>
+<label style="display: flex; gap: 10px; align-items: center; min-height: 44px"><input type="checkbox" style="width: 20px; height: 20px; accent-color: #0F766E">Trust this device for 12 hours</label>
+<button type="button" style="min-height: 48px; border-radius: 10px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 700">Verify and sign in</button>
+<a href="#" style="font-weight: 600; font-size: 13px">Use a recovery code</a>
+<div style="background: #FDF3E7; border-radius: 10px; padding: 12px 14px; color: #5C3204; font-size: 13px; line-height: 1.5">After 5 wrong codes the account locks for 15 minutes and a Blackford admin is notified.</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

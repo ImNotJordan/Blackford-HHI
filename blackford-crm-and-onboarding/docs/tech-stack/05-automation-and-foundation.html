@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation engine and foundation — Blackford Platform Tech Stack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-interior">
+  <article class="sheet">
+    <h1 class="page-title">The automation engine and foundation</h1>
+    <p class="page-intro">The work that runs without a person, and the data layer every platform shares, both live on Google Cloud under the same BAA.</p>
+
+    <section class="platform-section">
+      <div class="section-head">
+        <span class="section-id">05</span>
+        <div class="section-head-right">
+          <div>apps/worker</div>
+          <div>The 17 automations; Modules B, F, G</div>
+        </div>
+      </div>
+      <h2 class="section-name">Automation engine</h2>
+      <p class="section-audience">No users · runs in the background on Cloud Run</p>
+
+      <div class="two-col">
+        <div>
+          <p class="col-label">Built with</p>
+          <table class="spec-table">
+            <tr><td>Runtime</td><td>Node.js and TypeScript on an always-on Cloud Run service</td></tr>
+            <tr><td>Jobs</td><td>Graphile Worker, with jobs and schedules stored in PostgreSQL</td></tr>
+            <tr><td>Email and text</td><td>Amazon SES and AWS End User Messaging</td></tr>
+            <tr><td>Templates</td><td>LiquidJS merge fields in English and Spanish</td></tr>
+            <tr><td>PDFs</td><td>Puppeteer for forms and confirmations; pdf-lib to fill carrier forms</td></tr>
+            <tr><td>Carrier files</td><td>CSV, OpenPGP encryption where required, SFTP from a fixed IP address</td></tr>
+            <tr><td>Release 2</td><td>Ideon or Noyo connections; ACA forms through the filing vendor</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="col-label">What it handles</p>
+          <ul class="handle-list">
+            <li>Invites and reminders at 7, 3 and 1 days, within quiet hours</li>
+            <li>Channel fallback, escalations and follow-up tasks</li>
+            <li>Nightly checks: missing data, dependents turning 26, clients turning 65</li>
+            <li>Life-event windows and the 120-day renewal start</li>
+            <li>Carrier change files, approval queue, delivery and follow-up</li>
+            <li>A nightly check that the audit log is intact</li>
+          </ul>
+        </div>
+      </div>
+      <div class="safeguards">
+        <p class="col-label">Safeguards</p>
+        <ul class="safeguard-list">
+          <li>A job is saved only when its data change is saved</li>
+          <li>Jobs carry record IDs, never health details</li>
+          <li>Every run is logged; any automation can be paused per group</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="platform-section">
+      <div class="section-head">
+        <span class="section-id">06</span>
+        <div class="section-head-right">
+          <div>packages/core · packages/db</div>
+          <div>infra/terraform</div>
+        </div>
+      </div>
+      <h2 class="section-name">Data and infrastructure</h2>
+      <p class="section-audience">Shared by every platform · Google Cloud, under the BAA</p>
+
+      <div class="two-col">
+        <div>
+          <p class="col-label">Built with</p>
+          <table class="spec-table">
+            <tr><td>Database</td><td>PostgreSQL on Cloud SQL: private network only, customer-managed encryption keys, point-in-time recovery</td></tr>
+            <tr><td>Data access</td><td>Drizzle ORM behind one core layer; row-level security on every client table</td></tr>
+            <tr><td>Audit log</td><td>Append-only and hash-chained, so any edit is detectable</td></tr>
+            <tr><td>Sensitive fields</td><td>Social Security numbers encrypted again with Cloud KMS and matched by keyed hash</td></tr>
+            <tr><td>Files</td><td>Cloud Storage buckets with public access blocked</td></tr>
+            <tr><td>Edge</td><td>Load balancer, managed certificates, Cloud Armor firewall and rate limits</td></tr>
+            <tr><td>Operations</td><td>Cloud Logging and Monitoring, Terraform, GitHub Actions with keyless deploys</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="col-label">What it provides</p>
+          <ul class="handle-list">
+            <li>One data model for every module and release</li>
+            <li>Separate dev, staging and production environments</li>
+            <li>Backups, with restores tested on staging</li>
+            <li>Alerts when a job, the load balancer or the audit chain fails</li>
+          </ul>
+          <div class="safeguards" style="margin-top: 14px;">
+            <p class="col-label">Safeguards</p>
+            <ul class="safeguard-list">
+              <li>Without a signed-in user's context, the database returns nothing</li>
+              <li>Logs and alerts never contain client data</li>
+              <li>Only production ever holds real client data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="doc-footer">
+      <span>Hyacinth Industries, LLC · Blackford Benefits Platform · Technology Stack v1.0 · Confidential</span>
+      <span>Page 4 of 6</span>
+    </footer>
+    <nav class="page-nav">
+      <a href="04-employer-and-agent.html">← Previous</a>
+      <span class="nav-center"><a href="index.html">All pages</a></span>
+      <a href="06-outside-services.html">Next →</a>
+    </nav>
+  </article>
+</body>
+</html>

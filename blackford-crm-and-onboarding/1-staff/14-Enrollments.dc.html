@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Enrollments</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.nl{display:flex;align-items:center;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:8px;color:#C9D6E3;text-decoration:none}
+.nl[aria-current]{background:#24486B;color:#FFFFFF;font-weight:600}
+th{text-align:left;padding:10px 8px;font-size:12px;font-weight:600;color:#586575;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #DCE2E9}
+td{padding:11px 8px;border-bottom:1px solid #EEF1F5;vertical-align:middle}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.info{color:#1D4ED8;background:#EAF0FD}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+.sel{min-height:40px;border:1px solid #C5CED8;border-radius:8px;padding:0 10px;font:inherit;color:#13212E;background:#FFFFFF}
+.chip{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #DCE2E9;background:#FFFFFF;font:inherit;font-weight:600;color:#3A4756}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="14-Enrollments.dc.html" data-nav="enrollments" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Enrollments</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+<a href="16-CarrierQueue.dc.html" data-nav="carrier" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Carrier files</a>
+<a href="18-DataChecks.dc.html" data-nav="exceptions" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Exceptions</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378"><div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div><div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Enrollments</h1>
+<p style="margin: 0; color: #586575">Everyone with an open window: open enrollment, new hires, life events and individual clients.</p>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><a href="08-BulkSend.dc.html" class="btn" style="display: flex; align-items: center; text-decoration: none">Message selected</a><a href="15-AgentAssist.dc.html" class="btn p" style="display: flex; align-items: center; text-decoration: none">Start in-person session</a></div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<button type="button" class="chip" aria-pressed="true" style="background: #13212E; color: #FFFFFF; border-color: #13212E">All · 84</button>
+<button type="button" class="chip" aria-pressed="false">Not started · 25</button>
+<button type="button" class="chip" aria-pressed="false">Started · 31</button>
+<button type="button" class="chip" aria-pressed="false">Ready to sign · 6</button>
+<button type="button" class="chip" aria-pressed="false">Done · 14</button>
+<button type="button" class="chip" aria-pressed="false">Waived · 8</button>
+<span style="flex: 1"></span>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #586575">Window<select class="sel"><option>All windows</option><option>Open enrollment</option><option>New hire</option><option>Life event</option><option>Individual</option></select></label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #586575">Owner<select class="sel"><option>Me</option><option>Team</option></select></label>
+</div>
+
+<section aria-label="Enrollment list" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 8px 20px 16px">
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 900px; border-collapse: collapse">
+<thead><tr><th scope="col" style="width: 32px"><input type="checkbox" aria-label="Select all" style="width: 18px; height: 18px; accent-color: #0F766E"></th><th scope="col">Person</th><th scope="col">Group</th><th scope="col">Window</th><th scope="col">Closes</th><th scope="col">Status</th><th scope="col">Last reminder</th><th scope="col">Channel</th></tr></thead>
+<tbody>
+<tr><td><input type="checkbox" aria-label="Select Tuan Nguyen" style="width: 18px; height: 18px; accent-color: #0F766E"></td><td style="font-weight: 600">Tuan Nguyen</td><td>Riverside Dental</td><td>Open enrollment</td><td>Feb 28</td><td><span class="tag warn">Started · step 3</span></td><td>Today 8:00</td><td>Text</td></tr>
+<tr><td><input type="checkbox" aria-label="Select Leah Morgan" style="width: 18px; height: 18px; accent-color: #0F766E"></td><td style="font-weight: 600">Leah Morgan</td><td>Riverside Dental</td><td>Open enrollment</td><td>Feb 28</td><td><span class="tag mute">Not started</span></td><td>Today 8:00</td><td>Text</td></tr>
+<tr><td><input type="checkbox" aria-label="Select Priya Nair" style="width: 18px; height: 18px; accent-color: #0F766E"></td><td style="font-weight: 600">Priya Nair</td><td>Coastal Marine</td><td>Life event · birth</td><td>Mar 5</td><td><span class="tag info">Ready to sign</span></td><td>Feb 14</td><td>Email</td></tr>
+<tr><td><input type="checkbox" aria-label="Select Jordan Price" style="width: 18px; height: 18px; accent-color: #0F766E"></td><td style="font-weight: 600">Jordan Price</td><td>Riverside Dental</td><td>New hire</td><td>May 1</td><td><span class="tag mute">Invite Apr 1</span></td><td>—</td><td>Text</td></tr>
+<tr><td><input type="checkbox" aria-label="Select Grace Okafor" style="width: 18px; height: 18px; accent-color: #0F766E"></td><td style="font-weight: 600">Grace Okafor</td><td>Individual</td><td>Medicare</td><td>Oct 31</td><td><span class="tag mute">Not started</span></td><td>—</td><td>Text · Spanish</td></tr>
+<tr><td style="border-bottom: 0"><input type="checkbox" aria-label="Select Maria Delgado" style="width: 18px; height: 18px; accent-color: #0F766E"></td><td style="border-bottom: 0; font-weight: 600">Maria Delgado</td><td style="border-bottom: 0">Riverside Dental</td><td style="border-bottom: 0">Open enrollment</td><td style="border-bottom: 0">Feb 28</td><td style="border-bottom: 0"><span class="tag ok">Done · signed</span></td><td style="border-bottom: 0">Stopped</td><td style="border-bottom: 0">Text</td></tr>
+</tbody></table></div>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

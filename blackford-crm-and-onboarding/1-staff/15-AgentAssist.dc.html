@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent-assisted enrollment (iPad)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0F766E}a:hover{color:#0B5953}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.mute{color:#3A4756;background:#EEF1F5}
+.person{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;border-radius:10px;min-height:52px;box-sizing:border-box;text-decoration:none;color:#13212E}
+.plan{display:flex;flex-direction:column;gap:6px;padding:16px;border:1px solid #DCE2E9;border-radius:14px;background:#FFFFFF;flex:1 1 0;min-width:0}
+</style>
+</helmet>
+<div style="width: 1180px; height: 820px; box-sizing: border-box; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 15px; display: flex">
+
+<aside style="width: 300px; flex: none; background: #FFFFFF; border-right: 1px solid #DCE2E9; padding: 20px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 0 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E">In-person meeting</span><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 18px">Riverside Dental · Feb 16</span><span style="font-size: 13px; color: #586575">Dana Whitfield assisting</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a class="person" href="#"><span>Ashley Kim</span><span class="tag ok">Signed</span></a>
+<a class="person" href="#" aria-current="true" style="background: #E6F2F1; font-weight: 700"><span>Tuan Nguyen</span><span class="tag warn">Step 3 of 6</span></a>
+<a class="person" href="#"><span>Leah Morgan</span><span class="tag mute">Not started</span></a>
+<a class="person" href="#"><span>Omar Haddad</span><span class="tag mute">Not started</span></a>
+<a class="person" href="#"><span>Jordan Price</span><span class="tag mute">Not started</span></a>
+</div>
+<button type="button" style="margin-top: auto; min-height: 48px; border-radius: 12px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-weight: 600; color: #13212E">Add someone at this meeting</button>
+</aside>
+
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<div style="background: #FFFFFF; border-bottom: 1px solid #DCE2E9; padding: 14px 24px; display: flex; align-items: center; gap: 20px">
+<div style="flex: 1; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between"><span style="font-weight: 700">Tuan Nguyen · Compare medical plans</span><span style="font-size: 13px; color: #586575">Same steps as the phone portal</span></div>
+<div aria-hidden="true" style="height: 6px; border-radius: 999px; background: #EEF1F5; overflow: hidden"><div style="width: 50%; height: 100%; background: #0F766E"></div></div>
+</div>
+<button type="button" style="min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-weight: 600; color: #13212E">Save, finish later</button>
+</div>
+
+<div style="flex: 1; padding: 24px; display: flex; flex-direction: column; gap: 18px; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">Choose a medical plan</h1><span style="color: #586575">Covering: Tuan, Linh (spouse), 2 children · Family tier</span></div>
+<div style="display: flex; gap: 16px">
+<div class="plan"><span style="font-weight: 700; font-size: 17px">HDHP 3500 + HSA</span><span style="color: #586575; font-size: 13px">Deductible $7,000 family</span><span style="font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">$118.40</span><span style="font-size: 13px; color: #586575">per paycheck · $3,078 a year</span></div>
+<div class="plan" style="border: 2px solid #0F766E"><span style="display: flex; justify-content: space-between"><span style="font-weight: 700; font-size: 17px">PPO 1500</span><span class="tag ok">Current plan</span></span><span style="color: #586575; font-size: 13px">Deductible $3,000 family</span><span style="font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">$212.75</span><span style="font-size: 13px; color: #586575">per paycheck · $5,532 a year</span></div>
+<div class="plan"><span style="font-weight: 700; font-size: 17px">Waive medical</span><span style="color: #586575; font-size: 13px">Reason required</span><span style="font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">$0</span><span style="font-size: 13px; color: #586575">ACA waiver recorded</span></div>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600">Meeting note on Tuan's record (staff only)
+<textarea rows="3" style="border: 1px solid #8F99A6; border-radius: 12px; padding: 12px; font: inherit; font-size: 15px; font-weight: 400; color: #13212E">Asked about HSA. Wants to stay on PPO because of son's orthodontist.</textarea>
+</label>
+<div style="display: flex; gap: 12px; align-items: center; background: #EAF0FD; border-radius: 12px; padding: 14px 16px; color: #1E3A8A">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><path d="M12 18h.01"></path></svg>
+<span>At the sign step, hand the iPad to Tuan. He consents and signs himself; the audit trail records the device and "assisted by Dana Whitfield".</span>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border-top: 1px solid #DCE2E9; padding: 14px 24px; display: flex; justify-content: space-between; gap: 12px">
+<button type="button" style="min-height: 52px; padding: 0 24px; border-radius: 12px; border: 1px solid #DCE2E9; background: #FFFFFF; font: inherit; font-weight: 600; color: #13212E">Back</button>
+<button type="button" style="min-height: 52px; padding: 0 32px; border-radius: 12px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 700">Continue with PPO 1500</button>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1180,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

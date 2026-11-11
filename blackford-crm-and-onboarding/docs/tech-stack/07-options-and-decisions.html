@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Options and decisions — Blackford Platform Tech Stack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-interior">
+  <article class="sheet">
+    <h1 class="page-title">Options ruled out, and decisions to confirm</h1>
+    <p class="page-intro">Each option was weighed against the BAA, the data model and the Scope of Work's browser-only design. Five choices remain for the December 11, 2026 sign-off.</p>
+
+    <p class="section-label">Considered and not used</p>
+    <table class="ruled-table">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Why it is not in the stack</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Firestore</td>
+          <td>Covered by Google's BAA, but enrollment data is relational and date-based. Carrier change files, ACA months and coverage rules need SQL, so the platform uses PostgreSQL.</td>
+        </tr>
+        <tr>
+          <td>Firebase Authentication, Hosting and App Hosting</td>
+          <td>Outside Google's BAA. Identity Platform, the covered upgrade of Firebase Authentication, and Cloud Run take their place.</td>
+        </tr>
+        <tr>
+          <td>Supabase</td>
+          <td>Would work with its HIPAA add-on, which requires the Team plan or higher, but adds a second BAA and cost for what Cloud SQL and Identity Platform already provide.</td>
+        </tr>
+        <tr>
+          <td>Native iOS and Android apps</td>
+          <td>The Scope of Work keeps the platform in the browser, which covers phones, iPads and desktops without app store releases. Expo stays available for Release 3 options.</td>
+        </tr>
+        <tr>
+          <td>Push notifications</td>
+          <td>Not needed, since texts and email reach people without an app. Firebase Cloud Messaging is also outside Google's BAA.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="section-label">Decisions for December 11, 2026</p>
+    <table class="ruled-table decisions-table">
+      <thead>
+        <tr>
+          <th>Decision</th>
+          <th>Recommended</th>
+          <th>Alternative</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>E-signature</td>
+          <td>Built into the platform</td>
+          <td>E-signature vendor under a BAA</td>
+        </tr>
+        <tr>
+          <td>Text messages</td>
+          <td>AWS End User Messaging</td>
+          <td>Twilio, Security or Enterprise Edition</td>
+        </tr>
+        <tr>
+          <td>Staff sign-in</td>
+          <td>Password plus authenticator app</td>
+          <td>Microsoft or Google single sign-on</td>
+        </tr>
+        <tr>
+          <td>Employer HR sign-in</td>
+          <td>One-time code at each sign-in</td>
+          <td>Password plus authenticator app</td>
+        </tr>
+        <tr>
+          <td>Record and audit retention</td>
+          <td>7 years</td>
+          <td>Blackford's own retention policy</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="section-label">Vendor documentation checked November 3, 2026</p>
+    <div class="vendor-links">
+      <div>
+        <span class="vendor-name">Google Cloud: HIPAA compliance and covered products</span>
+        <a href="https://docs.cloud.google.com/docs/security/compliance/hipaa">docs.cloud.google.com/docs/security/compliance/hipaa</a>
+      </div>
+      <div>
+        <span class="vendor-name">AWS: End User Messaging SMS compliance</span>
+        <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/compliance-validation.html">docs.aws.amazon.com/sms-voice/latest/userguide/compliance-validation.html</a>
+      </div>
+      <div>
+        <span class="vendor-name">Google Cloud: Identity Platform and Firebase Authentication compared</span>
+        <a href="https://docs.cloud.google.com/identity-platform/docs/product-comparison">docs.cloud.google.com/identity-platform/docs/product-comparison</a>
+      </div>
+      <div>
+        <span class="vendor-name">Twilio: Twilio and HIPAA</span>
+        <a href="https://twilio.com/en-us/hipaa">twilio.com/en-us/hipaa</a>
+      </div>
+      <div>
+        <span class="vendor-name">AWS: HIPAA eligible services</span>
+        <a href="https://aws.amazon.com/compliance/hipaa-eligible-services-reference">aws.amazon.com/compliance/hipaa-eligible-services-reference</a>
+      </div>
+      <div>
+        <span class="vendor-name">Supabase: HIPAA projects</span>
+        <a href="https://supabase.com/docs/guides/platform/hipaa-projects">supabase.com/docs/guides/platform/hipaa-projects</a>
+      </div>
+    </div>
+
+    <footer class="doc-footer">
+      <span>Hyacinth Industries, LLC · Blackford Benefits Platform · Technology Stack v1.0 · Confidential</span>
+      <span>Page 6 of 6</span>
+    </footer>
+    <nav class="page-nav">
+      <a href="06-outside-services.html">← Previous</a>
+      <span class="nav-center"><a href="index.html">All pages</a></span>
+      <a href="01-cover.html">Cover →</a>
+    </nav>
+  </article>
+</body>
+</html>

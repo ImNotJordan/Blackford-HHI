@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Import the book</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+.nl{display:flex;align-items:center;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:8px;color:#C9D6E3;text-decoration:none}
+.nl[aria-current]{background:#24486B;color:#FFFFFF;font-weight:600}
+th{text-align:left;padding:10px 8px;font-size:12px;font-weight:600;color:#586575;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #DCE2E9}
+td{padding:12px 8px;border-bottom:1px solid #EEF1F5;vertical-align:top}
+.tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{color:#0F766E;background:#E6F2F1}.warn{color:#A1540A;background:#FDF3E7}.info{color:#1D4ED8;background:#EAF0FD}.mute{color:#3A4756;background:#EEF1F5}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #DCE2E9;background:#FFFFFF;color:#13212E;font:inherit;font-weight:600}
+.btn.p{border:0;background:#0F766E;color:#FFFFFF}
+.sel{min-height:40px;border:1px solid #C5CED8;border-radius:8px;padding:0 10px;font:inherit;color:#13212E;background:#FFFFFF}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px"><div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div><div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="14-Enrollments.dc.html" data-nav="enrollments" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Enrollments</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+<a href="16-CarrierQueue.dc.html" data-nav="carrier" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Carrier files</a>
+<a href="18-DataChecks.dc.html" data-nav="exceptions" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Exceptions</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378"><div style="width: 32px; height: 32px; border-radius: 999px; background: #EAF0FD; color: #1D4ED8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">RW</div><div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Renee Walsh</span><span style="font-size: 12px; color: #A9BBCD">Blackford admin</span></div></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #586575"><a href="02-ClientsList.dc.html" style="text-decoration: none">Clients</a> <span aria-hidden="true">/</span> Import</nav>
+
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Import the current book</h1>
+<p style="margin: 0; color: #586575">book-of-business-2026.xlsx · 1,284 rows · uploaded by Renee Walsh</p>
+</div>
+<ol aria-label="Import steps" style="margin: 0; padding: 0; list-style: none; display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px">
+<li><span class="tag ok">1 Upload</span></li><li><span class="tag ok">2 Map columns</span></li><li><span class="tag info">3 Review duplicates</span></li><li><span class="tag mute">4 Import</span></li>
+</ol>
+</header>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px"><span style="color: #586575; font-size: 13px">Ready to import</span><span style="font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">1,231</span></div>
+<div style="background: #FDF3E7; border: 1px solid #F3D3AE; border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px"><span style="color: #7A3F06; font-size: 13px">Possible duplicates</span><span style="font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800; color: #7A3F06">41</span></div>
+<div style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px"><span style="color: #586575; font-size: 13px">Rows with errors</span><span style="font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">12</span></div>
+<div style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px"><span style="color: #586575; font-size: 13px">Columns mapped</span><span style="font-family: Manrope, sans-serif; font-size: 26px; font-weight: 800">18 of 19</span></div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section aria-labelledby="dup" style="flex: 3 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap"><h2 id="dup" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Possible duplicates</h2><span style="font-size: 13px; color: #586575">Matched on name + date of birth, or SSN last 4 + ZIP</span></div>
+<div style="overflow-x: auto"><table style="width: 100%; min-width: 680px; border-collapse: collapse">
+<thead><tr><th scope="col">In the file</th><th scope="col">Already in the platform</th><th scope="col">Match</th><th scope="col">Action</th></tr></thead>
+<tbody>
+<tr><td><b>Maria Delgado</b><div style="font-size: 12px; color: #586575">1988-04-11 · Riverside Dental</div></td><td><b>María Delgado</b><div style="font-size: 12px; color: #586575">1988-04-11 · Riverside Dental</div></td><td><span class="tag warn">Strong</span></td><td><label><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Action for Maria Delgado</span><select class="sel"><option>Merge into existing</option><option>Keep both</option><option>Skip row</option></select></label></td></tr>
+<tr><td><b>Tom Bartram</b><div style="font-size: 12px; color: #586575">ZIP 33602 · Bartram Logistics</div></td><td><b>Thomas Bartram</b><div style="font-size: 12px; color: #586575">ZIP 33602 · Bartram Logistics</div></td><td><span class="tag mute">Possible</span></td><td><label><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Action for Tom Bartram</span><select class="sel"><option>Merge into existing</option><option>Keep both</option><option>Skip row</option></select></label></td></tr>
+<tr><td style="border-bottom: 0"><b>Grace Okafor</b><div style="font-size: 12px; color: #586575">1961-07-14 · Individual</div></td><td style="border-bottom: 0"><b>Grace Okafor</b><div style="font-size: 12px; color: #586575">1961-07-14 · Okafor household</div></td><td style="border-bottom: 0"><span class="tag warn">Strong</span></td><td style="border-bottom: 0"><label><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Action for Grace Okafor</span><select class="sel"><option>Merge into existing</option><option>Keep both</option><option>Skip row</option></select></label></td></tr>
+</tbody></table></div>
+<a href="#" style="font-weight: 600; font-size: 13px">Show 38 more</a>
+</section>
+
+<aside style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<section aria-labelledby="map" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<h2 id="map" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Column mapping</h2>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #EEF1F5"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">First Name</span><span>First name</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #EEF1F5"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">DOB</span><span>Date of birth</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #EEF1F5"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">Policy #</span><span>Policy number</span></div>
+<label style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A1540A">Agent Notes</span><select class="sel"><option>Choose a field</option><option>Note on record</option><option>Don't import</option></select></label>
+</section>
+<section aria-labelledby="errs" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+<h2 id="errs" style="margin: 0; font-family: Manrope, sans-serif; font-size: 18px; font-weight: 700">Rows with errors · 12</h2>
+<p style="margin: 0; color: #586575; font-size: 13px; line-height: 1.5">Missing date of birth (7), unknown carrier name (3), bad phone format (2). They're left out; download them to fix and upload again.</p>
+<button type="button" class="btn" style="align-self: flex-start">Download error rows</button>
+</section>
+<button type="button" class="btn p">Import 1,231 rows and resolve duplicates</button>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

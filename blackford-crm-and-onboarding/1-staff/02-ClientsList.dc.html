@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clients and pipeline</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:#0F766E}a:hover{color:#0B5953}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #F4F6F9; font-family: Inter, system-ui, sans-serif; color: #13212E; font-size: 14px">
+
+<nav aria-label="Main" style="flex: 1 1 232px; max-width: 100%; background: #17324D; color: #C9D6E3; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<div style="width: 34px; height: 34px; border-radius: 8px; background: #0F766E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-weight: 800; font-size: 17px">B</div>
+<div style="display: flex; flex-direction: column"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 16px; color: #FFFFFF">Blackford</span><span style="font-size: 12px; color: #A9BBCD">CRM and onboarding</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="01-Main.dc.html" data-nav="today" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">My work today</a>
+<a href="02-ClientsList.dc.html" data-nav="clients" aria-current="page" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; background: #24486B; color: #FFFFFF; font-weight: 600; text-decoration: none">Clients and pipeline</a>
+<a href="07-Inbox.dc.html" data-nav="inbox" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Shared inbox <span style="background: #F2A93B; color: #13212E; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px">5</span></a>
+<a href="08-BulkSend.dc.html" data-nav="bulk" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Bulk send</a>
+<a href="09-Templates.dc.html" data-nav="templates" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Message templates</a>
+<a href="10-Onboarding.dc.html" data-nav="onboarding" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Onboarding</a>
+<a href="14-Enrollments.dc.html" data-nav="enrollments" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Enrollments</a>
+<a href="11-ChangeApprovals.dc.html" data-nav="changes" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Changes and renewals</a>
+<a href="16-CarrierQueue.dc.html" data-nav="carrier" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Carrier files</a>
+<a href="18-DataChecks.dc.html" data-nav="exceptions" style="display: flex; align-items: center; padding: 10px 12px; min-height: 44px; box-sizing: border-box; border-radius: 8px; color: #C9D6E3; text-decoration: none">Exceptions</a>
+</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 0; border-top: 1px solid #2E5378">
+<div style="width: 32px; height: 32px; border-radius: 999px; background: #E6F2F1; color: #0F766E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">DW</div>
+<div style="display: flex; flex-direction: column"><span style="color: #FFFFFF; font-weight: 600; font-size: 13px">Dana Whitfield</span><span style="font-size: 12px; color: #A9BBCD">Account manager</span></div>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+
+<header style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; color: #586575; font-size: 13px">74 groups · 186 individual and Medicare households</p>
+<h1 style="margin: 0; font-family: Manrope, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Clients and groups</h1>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-weight: 600">Import spreadsheet</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 0; background: #0F766E; color: #FFFFFF; font: inherit; font-weight: 600">New client</button>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; background: #FDF3E7; border: 1px solid #F3D3AE; border-radius: 12px; padding: 14px 16px">
+<div style="display: flex; gap: 12px; align-items: flex-start; flex: 1 1 360px">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A1540A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px"><path d="M12 3 2 20h20L12 3z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Import of current_book.xlsx: 6 possible duplicates</span><span style="color: #5C3204; font-size: 13px">412 records imported. 6 match an existing client by EIN, email or phone and are waiting for you to merge or keep separate.</span></div>
+</div>
+<button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 0; background: #13212E; font: inherit; font-weight: 600; color: #FFFFFF">Review duplicates</button>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<button type="button" aria-pressed="true" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #13212E; background: #13212E; color: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600">All</button>
+<button type="button" aria-pressed="false" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-size: 13px">Employer groups</button>
+<button type="button" aria-pressed="false" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-size: 13px">Individuals</button>
+<button type="button" aria-pressed="false" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-size: 13px">Medicare</button>
+<button type="button" aria-pressed="false" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid #DCE2E9; background: #FFFFFF; color: #13212E; font: inherit; font-size: 13px">My clients</button>
+<button type="button" aria-pressed="false" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px dashed #8A97A6; background: transparent; color: #3A4756; font: inherit; font-size: 13px">+ Save filter</button>
+</div>
+<div role="group" aria-label="View" style="display: flex; gap: 4px; background: #E9EDF2; border-radius: 10px; padding: 3px">
+<button type="button" aria-pressed="false" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: transparent; font: inherit; font-size: 13px; color: #3A4756">List</button>
+<button type="button" aria-pressed="true" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #13212E">Pipeline</button>
+</div>
+</div>
+
+<div style="overflow-x: auto; padding-bottom: 8px">
+<div style="display: grid; grid-template-columns: repeat(5, minmax(220px, 1fr)); gap: 14px; min-width: 1150px">
+
+<section aria-label="Prospect" style="background: #E9EDF2; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; padding: 2px 4px"><h2 style="margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #3A4756">Prospect</h2><span style="font-size: 13px; color: #586575">12</span></div>
+<a href="#" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Mayport Auto Body</span><span style="font-size: 12px; color: #586575">Group · ~22 employees · referral</span><span style="display: flex; justify-content: space-between; font-size: 12px; color: #586575"><span>Follow up Feb 18</span><span style="font-weight: 700; color: #0F766E">DW</span></span></a>
+<a href="#" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Helen and Roy Carter</span><span style="font-size: 12px; color: #586575">Medicare household · turns 65 Jun</span><span style="display: flex; justify-content: space-between; font-size: 12px; color: #586575"><span>Call scheduled</span><span style="font-weight: 700; color: #0F766E">ML</span></span></a>
+<a href="#" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">San Marco Bakery</span><span style="font-size: 12px; color: #586575">Group · ~9 employees · web form</span><span style="display: flex; justify-content: space-between; font-size: 12px; color: #586575"><span>New today</span><span style="font-weight: 700; color: #0F766E">DW</span></span></a>
+</section>
+
+<section aria-label="Quoting" style="background: #E9EDF2; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; padding: 2px 4px"><h2 style="margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #3A4756">Quoting</h2><span style="font-size: 13px; color: #586575">4</span></div>
+<a href="#" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Ponte Vedra Title Co.</span><span style="font-size: 12px; color: #586575">Group · 31 employees · proposal sent</span><span style="display: flex; justify-content: space-between; font-size: 12px; color: #586575"><span>Decision by Feb 25</span><span style="font-weight: 700; color: #0F766E">DW</span></span></a>
+<a href="#" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Ortiz Landscaping</span><span style="font-size: 12px; color: #586575">Group · 18 employees · census in</span><span style="display: flex; justify-content: space-between; font-size: 12px; color: #586575"><span>Rates due Feb 20</span><span style="font-weight: 700; color: #0F766E">ML</span></span></a>
+</section>
+
+<section aria-label="Onboarding" style="background: #E9EDF2; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; padding: 2px 4px"><h2 style="margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #3A4756">Onboarding</h2><span style="font-size: 13px; color: #586575">3</span></div>
+<a href="10-Onboarding.dc.html" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 600">Bartram Logistics</span><span style="font-size: 12px; color: #586575">Group · effective Apr 1</span><span aria-label="Checklist 5 of 9" style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #586575"><span style="flex: 1; height: 6px; border-radius: 999px; background: #EEF1F5; overflow: hidden"><span style="display: block; width: 56%; height: 100%; background: #0F766E"></span></span>5/9</span></a>
+<a href="#" style="background: #FFFFFF; border: 1px solid #F3D3AE; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 600">Atlantic Beach Fitness</span><span style="font-size: 12px; color: #A1540A; font-weight: 600">Census errors returned to HR</span><span style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #586575"><span style="flex: 1; height: 6px; border-radius: 999px; background: #EEF1F5; overflow: hidden"><span style="display: block; width: 33%; height: 100%; background: #D97A0B"></span></span>3/9</span></a>
+</section>
+
+<section aria-label="Enrolling" style="background: #E9EDF2; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; padding: 2px 4px"><h2 style="margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #3A4756">Enrolling</h2><span style="font-size: 13px; color: #586575">4</span></div>
+<a href="03-GroupRecord.dc.html" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 600">Riverside Dental Group</span><span style="font-size: 12px; color: #586575">Closes Feb 19</span><span style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #586575"><span style="flex: 1; height: 6px; border-radius: 999px; background: #EEF1F5; overflow: hidden"><span style="display: block; width: 58%; height: 100%; background: #D97A0B"></span></span>58%</span></a>
+<a href="#" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 600">Coastal Marine Supply</span><span style="font-size: 12px; color: #586575">Closes Feb 22</span><span style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #586575"><span style="flex: 1; height: 6px; border-radius: 999px; background: #EEF1F5; overflow: hidden"><span style="display: block; width: 71%; height: 100%; background: #0F766E"></span></span>71%</span></a>
+</section>
+
+<section aria-label="Renewal" style="background: #E9EDF2; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; padding: 2px 4px"><h2 style="margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #3A4756">Renewal</h2><span style="font-size: 13px; color: #586575">7</span></div>
+<a href="12-Renewal.dc.html" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Southside Pediatrics</span><span style="font-size: 12px; color: #586575">Renews May 1 · rates received</span><span style="display: flex; justify-content: space-between; font-size: 12px; color: #586575"><span>Options to HR</span><span style="font-weight: 700; color: #0F766E">DW</span></span></a>
+<a href="#" style="background: #FFFFFF; border: 1px solid #DCE2E9; border-radius: 10px; padding: 12px; text-decoration: none; color: #13212E; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Bartram Logistics</span><span style="font-size: 12px; color: #586575">Renews Jun 1 · waiting on rates</span><span style="display: flex; justify-content: space-between; font-size: 12px; color: #586575"><span>120-day task list open</span><span style="font-weight: 700; color: #0F766E">DW</span></span></a>
+</section>
+
+</div>
+</div>
+
+<p style="margin: 0; font-size: 13px; color: #586575">Active clients (48) are in List view. Drag a card to move it to the next stage; marking a group Signed starts its onboarding checklist.</p>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employer portal and iPad agent mode — Blackford Platform Tech Stack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-interior">
+  <article class="sheet">
+    <h1 class="page-title">The employer portal and iPad agent mode</h1>
+    <p class="page-intro">Employers and in-person agents use the benefits portal app with their own screens and permissions, so there is no extra app to build, install or keep in sync.</p>
+
+    <section class="platform-section">
+      <div class="section-head">
+        <span class="section-id">03</span>
+        <div class="section-head-right">
+          <div>apps/portal, HR screens</div>
+          <div>Modules C, D, F</div>
+        </div>
+      </div>
+      <h2 class="section-name">Employer portal</h2>
+      <p class="section-audience">Employer HR contacts · desktop or phone</p>
+
+      <div class="two-col">
+        <div>
+          <p class="col-label">Built with</p>
+          <table class="spec-table">
+            <tr><td>App</td><td>The benefits portal app, with HR screens and permissions</td></tr>
+            <tr><td>Sign-in</td><td>Invite link, then a one-time code at each sign-in; authenticator app optional (to confirm)</td></tr>
+            <tr><td>Census upload</td><td>CSV or Excel, checked field by field by the automation engine</td></tr>
+            <tr><td>Progress</td><td>Live enrollment progress with TanStack Query</td></tr>
+            <tr><td>Tables</td><td>TanStack Table with filters</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="col-label">What it handles</p>
+          <ul class="handle-list">
+            <li>Company details, contacts and payroll schedule</li>
+            <li>Census upload with an error list to fix and re-upload</li>
+            <li>Approval of the plan and contribution setup</li>
+            <li>Enrollment progress and a weekly digest</li>
+            <li>Payroll deduction updates after approved changes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="safeguards">
+        <p class="col-label">Safeguards</p>
+        <ul class="safeguard-list">
+          <li>HR sees only their own group</li>
+          <li>Full Social Security numbers are never shown</li>
+          <li>Every census upload and download is logged</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="platform-section">
+      <div class="section-head">
+        <span class="section-id">04</span>
+        <div class="section-head-right">
+          <div>apps/portal, agent mode</div>
+          <div>Module D</div>
+        </div>
+      </div>
+      <h2 class="section-name">iPad agent mode</h2>
+      <p class="section-audience">Blackford agents at in-person enrollment meetings · iPad Safari</p>
+
+      <div class="two-col">
+        <div>
+          <p class="col-label">Built with</p>
+          <table class="spec-table">
+            <tr><td>Flow</td><td>The benefits portal's enrollment flow, in agent mode</td></tr>
+            <tr><td>Start</td><td>Opened from the staff CRM under the agent's own multi-factor sign-in</td></tr>
+            <tr><td>Touch</td><td>Large tap targets and on-screen signatures</td></tr>
+            <tr><td>Install</td><td>Nothing to install; runs in Safari</td></tr>
+            <tr><td>Later option</td><td>Offline iPad (Release 3 option): an Expo app or an installable web app</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="col-label">What it handles</p>
+          <ul class="handle-list">
+            <li>In-person enrollment, one employee at a time</li>
+            <li>Signing on the iPad</li>
+            <li>Each enrollment recorded as agent-assisted, with the agent's name</li>
+          </ul>
+        </div>
+      </div>
+      <div class="safeguards">
+        <p class="col-label">Safeguards</p>
+        <ul class="safeguard-list">
+          <li>No client data is stored on the iPad</li>
+          <li>The session closes when the employee finishes</li>
+          <li>The agent's actions are logged under their own name</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="devices-section">
+      <p class="section-label">Devices and browsers</p>
+      <table class="devices-table">
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Phone</th>
+            <th>iPad</th>
+            <th>Desktop</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Staff CRM</td>
+            <td><span class="device-dash">—</span></td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+          </tr>
+          <tr>
+            <td>Benefits portal</td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+          </tr>
+          <tr>
+            <td>Employer portal</td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+          </tr>
+          <tr>
+            <td>iPad agent mode</td>
+            <td><span class="device-dash">—</span></td>
+            <td><span class="device-dot" aria-label="Supported"></span></td>
+            <td><span class="device-dash">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="devices-note">Every platform is tested on current Safari, Chrome and Edge (Playwright on WebKit, Chromium and Edge), with WCAG 2.1 AA checks on client-facing pages.</p>
+    </section>
+
+    <footer class="doc-footer">
+      <span>Hyacinth Industries, LLC · Blackford Benefits Platform · Technology Stack v1.0 · Confidential</span>
+      <span>Page 3 of 6</span>
+    </footer>
+    <nav class="page-nav">
+      <a href="03-staff-and-benefits.html">← Previous</a>
+      <span class="nav-center"><a href="index.html">All pages</a></span>
+      <a href="05-automation-and-foundation.html">Next →</a>
+    </nav>
+  </article>
+</body>
+</html>

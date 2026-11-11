@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"],
+    "paths": {
+      "@blackford/core": ["../../packages/core/src/index.ts"],
+      "@blackford/db": ["../../packages/db/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "../../packages/core/src/**/*.ts", "../../packages/db/src/**/*.ts"]
+}
